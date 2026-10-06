@@ -184,6 +184,14 @@
       min-height: var(--nav-h);
     }
     .nav-list { display: flex; align-items: center; gap: 2px; margin: 0; padding: 0; list-style: none; }
+    /* Translated tab names run longer than English (Hindi, Russian, French):
+       tighten the tabs on narrower desktops, and if a language still does not
+       fit, let the bar take a second row rather than run off the page. */
+    .site-nav > .nav-list { flex-wrap: wrap; }
+    @media (min-width: 960px) and (max-width: 1180px) {
+      .site-nav .nav-link { padding-inline: 7px; font-size: 0.9375rem; }
+      .nav-more { margin-right: 4px; }
+    }
     .nav-item { position: relative; display: flex; align-items: center; }
     .site-nav .nav-item:first-child > .nav-link { padding-left: 0; }
     .nav-link {
@@ -1102,6 +1110,68 @@
        under the pointer and cards lift; the menu underline slides in. All
        transform and opacity, all inside a no-preference query, so anyone who
        has asked for less motion gets a still page. */
+    /* ── phones: app screens shown whole, in a phone ─────────────────────
+       A stage beside text (the first screen in front, two fanned behind, a
+       chip floating at the side) and a tour row with captions. The screens
+       are 1:2 captures; the frame is the site's darkest colour. */
+    .phone {
+      --phone-frame: var(--ink);
+      position: relative; margin: 0; width: 100%;
+      padding: 18px 7px 9px; border-radius: 34px; background: var(--phone-frame);
+      box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, 0.08), 0 26px 50px -12px rgba(15, 22, 20, 0.42), 0 6px 14px rgba(15, 22, 20, 0.16);
+    }
+    .phone::before {
+      content: ""; position: absolute; top: 7px; left: 50%; width: 46px; height: 5px;
+      border-radius: 3px; background: rgba(255, 255, 255, 0.22); translate: -50% 0;
+    }
+    .phone img { display: block; width: 100%; aspect-ratio: 1 / 2; object-fit: cover; object-position: top; border-radius: 26px 26px 27px 27px; background: #FFFFFF; }
+
+    .phone-stage { position: relative; isolation: isolate; min-height: 580px; overflow-x: clip; }
+    .phone-stage::before {
+      content: ""; position: absolute; z-index: -1; inset: 6% 2% 4%; border-radius: 50%;
+      background: radial-gradient(closest-side, color-mix(in srgb, var(--copper) 30%, transparent), transparent);
+    }
+    .phone-stage .phone { position: absolute; left: 50%; top: 50%; width: 236px; translate: -50% -50%; }
+    .phone-stage .phone--1 { z-index: 3; width: 256px; }
+    .phone-stage .phone--2 { z-index: 1; translate: -100% -46%; rotate: -9deg; scale: 0.84; }
+    .phone-stage .phone--3 { z-index: 2; translate: 0% -46%; rotate: 8deg; scale: 0.84; }
+    .phone-stage .phone--2 img, .phone-stage .phone--3 img { filter: saturate(0.9) brightness(0.97); }
+    .phone-badge {
+      position: absolute; z-index: 4; left: 0; bottom: 9%;
+      display: grid; gap: 2px; max-width: 13rem; margin: 0;
+      padding: 14px 18px; border-radius: 16px;
+      background: var(--white); box-shadow: 0 16px 34px rgba(15, 22, 20, 0.18);
+    }
+    .phone-badge strong { font-family: var(--font-serif); font-size: 2rem; font-weight: 500; line-height: 1; color: var(--phone-frame, var(--ink)); }
+    .phone-badge span { color: var(--muted); font-size: var(--t-small); line-height: 1.35; }
+    @media (max-width: 1000px) {
+      .phone-stage { min-height: 470px; overflow-x: clip; }
+      .phone-stage .phone { width: 190px; }
+      .phone-stage .phone--1 { width: 206px; }
+      .phone-stage .phone--2 { translate: -96% -46%; }
+      .phone-stage .phone--3 { translate: -4% -46%; }
+      .phone-badge { bottom: 2%; }
+    }
+
+    .phone-tour { display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: 40px clamp(24px, 5vw, 64px); margin: 16px 0 64px; }
+    .phone-tour-item { width: min(232px, 72vw); margin: 0; text-align: center; }
+    .phone-tour-item:nth-child(3n + 2) { margin-top: 36px; }
+    .phone-tour-item figcaption { margin-top: 20px; color: var(--ink); font-weight: 600; line-height: 1.35; }
+    .phone-tour-item .phone { rotate: -2.5deg; }
+    .phone-tour-item:nth-child(even) .phone { rotate: 2.5deg; }
+    @media (max-width: 760px) { .phone-tour-item:nth-child(3n + 2) { margin-top: 0; } }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .phone-stage .phone--1 { animation: phone-float 7s ease-in-out infinite; }
+      .phone-stage .phone--2, .phone-stage .phone--3 { transition: translate .6s cubic-bezier(.2, .7, .2, 1), rotate .6s cubic-bezier(.2, .7, .2, 1); }
+      .phone-stage:hover .phone--2 { translate: -108% -48%; rotate: -12deg; }
+      .phone-stage:hover .phone--3 { translate: 8% -48%; rotate: 11deg; }
+      .phone-badge { animation: phone-float 7s ease-in-out -3.5s infinite; }
+      @keyframes phone-float { 50% { transform: translateY(-8px); } }
+      .phone-tour-item .phone { transition: rotate .45s cubic-bezier(.2, .7, .2, 1), transform .45s cubic-bezier(.2, .7, .2, 1); }
+      .phone-tour-item:hover .phone { rotate: 0deg; transform: translateY(-10px); }
+    }
+
     @media (prefers-reduced-motion: no-preference) {
       .hero-copy-inner > *, .page-head-copy > * { animation: rise .9s cubic-bezier(.2, .7, .2, 1) both; }
       .hero-copy-inner > :nth-child(2), .page-head-copy > :nth-child(2) { animation-delay: .12s; }

@@ -325,7 +325,7 @@ collections:
                 widget: "object"
                 collapsed: false
                 fields: &splitColumn
-                  - { label: "Column type", name: "kind", widget: "select", default: "prose", options: [{ label: "Text", value: "prose" }, { label: "Photo", value: "image" }, { label: "Photo with number overlay", value: "dataPanel" }] }
+                  - { label: "Column type", name: "kind", widget: "select", default: "prose", options: [{ label: "Text", value: "prose" }, { label: "Photo", value: "image" }, { label: "Photo with number overlay", value: "dataPanel" }, { label: "Phones (app screens)", value: "phones" }] }
                   - { label: "Opening line (large)", name: "lead", widget: "text", required: false }
                   - { label: "Paragraphs", name: "paragraphs", widget: "list", required: false, field: { label: "Paragraph", name: "paragraph", widget: "text" } }
                   - label: "Numbered points"
@@ -340,8 +340,9 @@ collections:
                   - { label: "Buttons", name: "actions", widget: "list", required: false, summary: "{{fields.label}}", fields: *actionFields }
                   - { label: "Small logo above the text", name: "logo", widget: "object", collapsed: true, required: false, fields: [{ label: "Image", name: "image", widget: "image", required: false }, { label: "Description", name: "alt", widget: "string", required: false }] }
                   - { label: "Photo", name: "photo", widget: "object", collapsed: true, required: false, fields: *photoFields }
-                  - { label: "Overlay number", name: "stat", widget: "string", required: false, hint: "Photo-with-number only." }
-                  - { label: "Overlay caption", name: "caption", widget: "string", required: false, hint: "Photo-with-number only." }
+                  - { label: "Phone screens", name: "photos", widget: "list", required: false, summary: "{{fields.alt}}", hint: "Phones only: up to three app screenshots (tall, e.g. 540×1080). The first stands in front; the others fan out behind it.", fields: *photoFields }
+                  - { label: "Overlay number", name: "stat", widget: "string", required: false, hint: "Photo-with-number: on the photo. Phones: on a chip beside them." }
+                  - { label: "Overlay caption", name: "caption", widget: "string", required: false, hint: "Photo-with-number and Phones only." }
                   - { label: "look", name: "look", widget: "hidden", required: false }
               - label: "Right column"
                 name: "right"
@@ -374,7 +375,7 @@ collections:
             fields:
               - *tabField
               - *visibleField
-              - { label: "Style", name: "look", widget: "select", default: "editorial", required: false, options: [{ label: "Editorial (with captions)", value: "editorial" }, { label: "App screens", value: "screens" }] }
+              - { label: "Style", name: "look", widget: "select", default: "editorial", required: false, options: [{ label: "Editorial (with captions)", value: "editorial" }, { label: "App screens", value: "screens" }, { label: "Phones (whole screens, with captions)", value: "phones" }] }
               - label: "Photos"
                 name: "items"
                 widget: "list"

@@ -489,7 +489,8 @@ const pageLink = (document, ctx, { label, page, url, primary, key }) => {
   }
   a.textContent = (label || '') + ' ';
   if (key) a.setAttribute('data-i18n', key);
-  a.appendChild(arrowIcon(document));
+  // An outside link already gets its own arrow from the stylesheet.
+  if (!url) a.appendChild(arrowIcon(document));
   return a;
 };
 
@@ -541,6 +542,25 @@ const splitColumn = (document, raw, ctx, side) => {
     overlay.appendChild(el(document, 'span', { text: col.caption, key: ctx.t(`${side}.caption`) }));
     wrap.appendChild(overlay);
     return wrap;
+  }
+  if (col.kind === 'phones') {
+    // App screens as phones: the first in front, up to two more fanned out
+    // behind it, and the overlay number as a chip floating beside them.
+    const shots = (col.photos || []).filter((p) => p && p.image).slice(0, 3);
+    const stage = el(document, 'div', { class: 'phone-stage reveal' });
+    stage.setAttribute('data-count', String(shots.length));
+    shots.forEach((shot, i) => {
+      const phone = el(document, 'figure', { class: 'phone phone--' + (i + 1) });
+      phone.appendChild(photo(document, shot, { lazy: i > 0 }));
+      stage.appendChild(phone);
+    });
+    if ((col.stat || '').trim()) {
+      const badge = el(document, 'p', { class: 'phone-badge' });
+      badge.appendChild(el(document, 'strong', { text: col.stat }));
+      badge.appendChild(el(document, 'span', { text: col.caption, key: ctx.t(`${side}.caption`) }));
+      stage.appendChild(badge);
+    }
+    return stage;
   }
   if (col.kind === 'image') {
     const wrap = el(document, 'div', { class: (col.look || 'app-shot') + ' reveal' });
@@ -601,6 +621,20 @@ export const BLOCKS = {
   },
 
   imagePair(document, block, ctx) {
+    // "Phones": app screens shown whole, each in a phone, with its caption.
+    if (block.look === 'phones') {
+      const tour = el(document, 'div', { class: 'phone-tour' });
+      (block.items || []).forEach((item, i) => {
+        if (!item || !item.photo?.image) return;
+        const figure = el(document, 'figure', { class: 'phone-tour-item reveal' });
+        const phone = el(document, 'div', { class: 'phone' });
+        phone.appendChild(photo(document, item.photo));
+        figure.appendChild(phone);
+        if (item.caption) figure.appendChild(el(document, 'figcaption', { text: item.caption, key: ctx.t(`items.${i}.caption`) }));
+        tour.appendChild(figure);
+      });
+      return tour;
+    }
     const wrap = el(document, 'div', {
       class: block.look === 'screens' ? 'app-screen-strip' : 'editorial-images'
     });

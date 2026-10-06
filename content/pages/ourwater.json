@@ -62,16 +62,35 @@
         ]
       },
       "right": {
-        "kind": "image",
-        "look": "app-shot",
-        "photo": {
-          "image": "https://marvi-groundwater.github.io/OurWater/assets/screenshots/map.jpg",
-          "alt": "OurWater: every station on one map",
-          "zoom": 100,
-          "positionX": 50,
-          "positionY": 50,
-          "fit": "auto"
-        }
+        "kind": "phones",
+        "photos": [
+          {
+            "image": "https://marvi-groundwater.github.io/OurWater/assets/screenshots/map.jpg",
+            "alt": "OurWater: find stations anywhere on the map",
+            "zoom": 100,
+            "positionX": 50,
+            "positionY": 0,
+            "fit": "cover"
+          },
+          {
+            "image": "https://marvi-groundwater.github.io/OurWater/assets/screenshots/home.jpg",
+            "alt": "OurWater home screen: a monitoring summary and station map",
+            "zoom": 100,
+            "positionX": 50,
+            "positionY": 0,
+            "fit": "cover"
+          },
+          {
+            "image": "https://marvi-groundwater.github.io/OurWater/assets/screenshots/trend.jpg",
+            "alt": "OurWater: a trend building over the seasons",
+            "zoom": 100,
+            "positionX": 50,
+            "positionY": 0,
+            "fit": "cover"
+          }
+        ],
+        "stat": "Free",
+        "caption": "on Android, iPhone and the web"
       },
       "i18n": {
         "tabLabel": "page.ourwater.b0.tabLabel"
@@ -129,26 +148,39 @@
     },
     {
       "type": "imagePair",
-      "look": "screens",
+      "look": "phones",
       "items": [
         {
+          "caption": "Find stations anywhere on the map",
+          "photo": {
+            "image": "https://marvi-groundwater.github.io/OurWater/assets/screenshots/map.jpg",
+            "alt": "OurWater station map",
+            "zoom": 100,
+            "positionX": 50,
+            "positionY": 0,
+            "fit": "cover"
+          }
+        },
+        {
+          "caption": "Record a visit in under a minute",
           "photo": {
             "image": "https://marvi-groundwater.github.io/OurWater/assets/screenshots/record-visit.jpg",
             "alt": "OurWater: recording a visit",
             "zoom": 100,
             "positionX": 50,
-            "positionY": 50,
-            "fit": "auto"
+            "positionY": 0,
+            "fit": "cover"
           }
         },
         {
+          "caption": "Watch trends build over the seasons",
           "photo": {
             "image": "https://marvi-groundwater.github.io/OurWater/assets/screenshots/trend.jpg",
-            "alt": "OurWater: a trend building over the seasons",
+            "alt": "OurWater trend chart",
             "zoom": 100,
             "positionX": 50,
-            "positionY": 50,
-            "fit": "auto"
+            "positionY": 0,
+            "fit": "cover"
           }
         }
       ]
