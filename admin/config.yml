@@ -19,8 +19,8 @@ backend:
   branch: main
   auth_methods: [token]
 
-site_url: https://testpage.marvi.org.in
-display_url: https://testpage.marvi.org.in
+site_url: https://marvi.org.in
+display_url: https://marvi.org.in
 
 media_folder: "assets/marvi-originals"
 public_folder: "/assets/marvi-originals"
