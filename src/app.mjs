@@ -25,10 +25,17 @@ function countUp(node) {
   if (!match) return;
   const end = Number(match[1].replace(/,/g, ''));
   if (!Number.isFinite(end) || end < 2) return;
+  // A year (2012) is a date, not a quantity: counting it up from zero reads
+  // as nonsense. Leave it standing.
+  if (!match[1].includes(',') && !match[2].trim() && end >= 1900 && end <= 2100) return;
+  // Keep the figure written the way the editor wrote it: 2908 stays 2908,
+  // 65,000 keeps its comma.
+  const grouped = match[1].includes(',');
+  const format = (n) => (grouped ? n.toLocaleString('en-US') : String(n));
   const started = performance.now();
   const tick = (now) => {
     const progress = Math.min((now - started) / 1300, 1);
-    node.textContent = Math.round(end * (1 - Math.pow(1 - progress, 3))).toLocaleString() + match[2];
+    node.textContent = format(Math.round(end * (1 - Math.pow(1 - progress, 3)))) + match[2];
     if (progress < 1) requestAnimationFrame(tick);
   };
   requestAnimationFrame(tick);
