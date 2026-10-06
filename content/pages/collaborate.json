@@ -1,0 +1,172 @@
+{
+  "menuName": "Collaborate with MARVI",
+  "slug": "collaborate",
+  "order": 15,
+  "published": true,
+  "template": "standard",
+  "intro": {
+    "eyebrow": "",
+    "title": "Collaborate with MARVI",
+    "lede": "MARVI works with communities, governments, NGOs, researchers and educators interested in practical approaches to groundwater stewardship.",
+    "eyebrowSize": 100,
+    "titleSize": 100,
+    "ledeSize": 100,
+    "textAlign": "left",
+    "textPosition": "bottom",
+    "textWidth": 100,
+    "textOffsetX": 0,
+    "textOffsetY": 0
+  },
+  "heroImage": {
+    "image": "/assets/marvi-originals/032-about-marvi.jpg",
+    "zoom": 100,
+    "positionX": 50,
+    "positionY": 50,
+    "fit": "auto",
+    "alt": "Community members and researchers discussing a groundwater map"
+  },
+  "menuImage": {
+    "image": "/assets/marvi-originals/032-about-marvi.jpg",
+    "zoom": 100,
+    "positionX": 50,
+    "positionY": 50,
+    "fit": "auto"
+  },
+  "blocks": [
+    {
+      "type": "banner",
+      "title": "Use the MARVI approach",
+      "lede": "MARVI brings technical knowledge, community experience and practical monitoring together at village level.",
+      "i18n": {
+        "title": "page.collaborate.b0.title",
+        "lede": "page.collaborate.b0.lede",
+        "tabLabel": "page.collaborate.b0.tabLabel"
+      }
+    },
+    {
+      "type": "storyCards",
+      "look": "icons",
+      "title": "",
+      "lede": "",
+      "items": [
+        {
+          "page": "approach",
+          "icon": "approach",
+          "title": "The MARVI approach",
+          "text": "MARVI brings technical knowledge, community experience and practical monitoring together at village level.",
+          "photo": {}
+        },
+        {
+          "page": "bjs",
+          "icon": "people",
+          "title": "Bhujal Jankaars",
+          "text": "“Groundwater informed”: local volunteers who connect careful observation with community knowledge and collective action.",
+          "photo": {}
+        },
+        {
+          "page": "mywell",
+          "icon": "tools",
+          "title": "MyWell app",
+          "text": "A public-domain, non-profit tool for collecting, viewing and sharing community water observations.",
+          "photo": {}
+        }
+      ],
+      "i18n": {
+        "items__0__title": "page.collaborate.b1.items.0.title",
+        "items__0__text": "page.collaborate.b1.items.0.text",
+        "items__1__title": "page.collaborate.b1.items.1.title",
+        "items__1__text": "page.collaborate.b1.items.1.text",
+        "items__2__title": "page.collaborate.b1.items.2.title",
+        "items__2__text": "page.collaborate.b1.items.2.text",
+        "tabLabel": "page.collaborate.b1.tabLabel"
+      }
+    },
+    {
+      "type": "banner",
+      "title": "Research collaboration",
+      "lede": "The project works across hydrology, hydrogeology, agronomy, economics and social science. The result is not a report left on a shelf, but knowledge a community can use.",
+      "i18n": {
+        "title": "page.collaborate.b2.title",
+        "lede": "page.collaborate.b2.lede",
+        "tabLabel": "page.collaborate.b2.tabLabel"
+      }
+    },
+    {
+      "type": "storyCards",
+      "look": "icons",
+      "title": "",
+      "lede": "",
+      "items": [
+        {
+          "page": "people",
+          "icon": "people",
+          "title": "People & Partners",
+          "text": "Researchers, practitioners and village volunteers in India and Australia working as one team.",
+          "photo": {}
+        },
+        {
+          "page": "publications",
+          "icon": "publication",
+          "title": "Publications",
+          "text": "Brochures and books from the project — free to download in English, Hindi and Gujarati. Grouped by kind; filter or search to narrow the list.",
+          "photo": {}
+        }
+      ],
+      "i18n": {
+        "items__0__title": "page.collaborate.b3.items.0.title",
+        "items__0__text": "page.collaborate.b3.items.0.text",
+        "items__1__title": "page.collaborate.b3.items.1.title",
+        "items__1__text": "page.collaborate.b3.items.1.text",
+        "tabLabel": "page.collaborate.b3.tabLabel"
+      }
+    },
+    {
+      "type": "banner",
+      "title": "Training & capacity building",
+      "lede": "These trained volunteers measure wells, rainfall, water quality and check dams. They interpret local patterns, explain them in the community’s own language and help farmers see that groundwater is both limited and shared.",
+      "i18n": {
+        "title": "page.collaborate.b4.title",
+        "lede": "page.collaborate.b4.lede",
+        "tabLabel": "page.collaborate.b4.tabLabel"
+      }
+    },
+    {
+      "type": "storyCards",
+      "look": "icons",
+      "title": "",
+      "lede": "",
+      "items": [
+        {
+          "page": "learn-groundwater",
+          "icon": "groundwater",
+          "title": "Learn about groundwater",
+          "text": "Rain moves through soil and rock into an aquifer. Wells reveal only a small window into a connected underground system.",
+          "photo": {}
+        },
+        {
+          "page": "game",
+          "icon": "game",
+          "title": "Groundwater game",
+          "text": "A whole village draws from one aquifer. Every crop and every turn reveals why groundwater decisions cannot be made alone.",
+          "photo": {}
+        },
+        {
+          "page": "videos",
+          "icon": "video",
+          "title": "Videos",
+          "text": "A curated starting point from the new MARVI video archive—introductions, field stories, training and technical talks.",
+          "photo": {}
+        }
+      ],
+      "i18n": {
+        "items__0__title": "page.collaborate.b5.items.0.title",
+        "items__0__text": "page.collaborate.b5.items.0.text",
+        "items__1__title": "page.collaborate.b5.items.1.title",
+        "items__1__text": "page.collaborate.b5.items.1.text",
+        "items__2__title": "page.collaborate.b5.items.2.title",
+        "items__2__text": "page.collaborate.b5.items.2.text",
+        "tabLabel": "page.collaborate.b5.tabLabel"
+      }
+    }
+  ]
+}

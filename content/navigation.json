@@ -1,0 +1,156 @@
+{
+  "tabs": [
+    {
+      "label": "About",
+      "page": "about",
+      "items": [
+        {
+          "label": "What is MARVI?",
+          "page": "about",
+          "section": "s-what-is-marvi"
+        },
+        {
+          "label": "Why groundwater?",
+          "page": "about",
+          "section": "s-why-groundwater"
+        },
+        {
+          "label": "MARVI journey",
+          "page": "about",
+          "section": "s-the-marvi-journey"
+        },
+        {
+          "label": "Where we work",
+          "page": "about",
+          "section": "s-where-marvi-works"
+        },
+        {
+          "label": "People & Partners",
+          "page": "people"
+        }
+      ]
+    },
+    {
+      "label": "The MARVI approach",
+      "page": "approach",
+      "items": [
+        {
+          "label": "Overview",
+          "page": "approach"
+        },
+        {
+          "label": "4-S Strategy",
+          "page": "approach",
+          "section": "s-the-marvi-4-s-strategy"
+        },
+        {
+          "label": "Bhujal Jankaars",
+          "page": "bjs"
+        }
+      ]
+    },
+    {
+      "label": "Digital & Tools",
+      "page": "tools",
+      "items": [
+        {
+          "label": "Tools",
+          "page": "tools"
+        },
+        {
+          "label": "MyWell app",
+          "page": "mywell"
+        },
+        {
+          "label": "OurWater",
+          "url": "https://marvi-groundwater.github.io/OurWater/"
+        },
+        {
+          "label": "Groundwater game",
+          "page": "game"
+        }
+      ]
+    },
+    {
+      "label": "Impact & Scaling",
+      "page": "impact",
+      "items": [
+        {
+          "label": "What MARVI has achieved",
+          "page": "impact"
+        },
+        {
+          "label": "Evidence & outcomes",
+          "page": "impact",
+          "section": "s-evidence-outcomes"
+        },
+        {
+          "label": "MARVI in the news",
+          "page": "news"
+        }
+      ]
+    },
+    {
+      "label": "Knowledge & Resources",
+      "page": "publications",
+      "items": [
+        {
+          "label": "Publications",
+          "page": "publications"
+        },
+        {
+          "label": "Learn about groundwater",
+          "page": "learn-groundwater"
+        },
+        {
+          "label": "Videos",
+          "page": "videos"
+        },
+        {
+          "label": "Image archive",
+          "page": "archive"
+        }
+      ]
+    },
+    {
+      "label": "News & Stories",
+      "page": "news",
+      "items": [
+        {
+          "label": "MARVI in the news",
+          "page": "news"
+        },
+        {
+          "label": "Videos",
+          "page": "videos"
+        },
+        {
+          "label": "Image archive",
+          "page": "archive"
+        }
+      ]
+    },
+    {
+      "label": "Collaborate with MARVI",
+      "page": "collaborate",
+      "button": true,
+      "items": [
+        {
+          "label": "Use the MARVI approach",
+          "page": "collaborate",
+          "section": "s-use-the-marvi-approach"
+        },
+        {
+          "label": "Research collaboration",
+          "page": "collaborate",
+          "section": "s-research-collaboration"
+        },
+        {
+          "label": "Training & capacity building",
+          "page": "collaborate",
+          "section": "s-training-capacity-building"
+        }
+      ]
+    }
+  ]
+}

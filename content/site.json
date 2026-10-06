@@ -1,7 +1,7 @@
 {
   "brand": {
-    "image": "/assets/marvi-originals/MARVI logo Feb 2026.png",
-    "fit": "cover",
+    "image": "/assets/brand/marvi-logo.png",
+    "fit": "contain",
     "wordmark": "",
     "tagline": "",
     "shape": "squircle",

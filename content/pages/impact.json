@@ -1,0 +1,171 @@
+{
+  "menuName": "Impact & Scaling",
+  "slug": "impact",
+  "order": 14,
+  "published": true,
+  "template": "standard",
+  "intro": {
+    "eyebrow": "Impact & scaling",
+    "title": "What MARVI has achieved",
+    "lede": "How can a village understand an invisible shared resource—and decide its future together?",
+    "eyebrowSize": 100,
+    "titleSize": 100,
+    "ledeSize": 100,
+    "textAlign": "left",
+    "textPosition": "bottom",
+    "textWidth": 100,
+    "textOffsetX": 0,
+    "textOffsetY": 0
+  },
+  "heroImage": {
+    "image": "/assets/marvi-originals/076-bhujal-jankaars-bjs.jpg",
+    "zoom": 100,
+    "positionX": 50,
+    "positionY": 50,
+    "fit": "auto",
+    "alt": "Bhujal Jankaars taking part in field training"
+  },
+  "menuImage": {
+    "image": "/assets/marvi-originals/076-bhujal-jankaars-bjs.jpg",
+    "zoom": 100,
+    "positionX": 50,
+    "positionY": 50,
+    "fit": "auto"
+  },
+  "blocks": [
+    {
+      "type": "banner",
+      "title": "What MARVI has achieved",
+      "lede": "",
+      "i18n": {
+        "title": "page.impact.b0.title",
+        "tabLabel": "page.impact.b0.tabLabel"
+      }
+    },
+    {
+      "type": "statement",
+      "tabLabel": "",
+      "label": "",
+      "quote": "How can a village understand an invisible shared resource—and decide its future together?",
+      "metrics": [
+        {
+          "value": "2012",
+          "label": "The MARVI field journey began"
+        },
+        {
+          "value": "630",
+          "label": "Bhujal Jankaars trained"
+        },
+        {
+          "value": "105",
+          "label": "Number of female BJs trained"
+        },
+        {
+          "value": "505",
+          "label": "Number of male Bjs trained"
+        },
+        {
+          "value": "2908",
+          "label": "Number of wells monitored"
+        }
+      ],
+      "i18n": {
+        "metrics__2__label": "home.metric.aquifer",
+        "metrics__1__label": "home.metric.started",
+        "metrics__0__label": "home.metric.bjs",
+        "quote": "home.question",
+        "label": "home.central",
+        "metrics__3__label": "page.home.b0.metrics.3.label",
+        "metrics__4__label": "page.home.b0.metrics.4.label",
+        "tabLabel": "page.home.b0.tabLabel"
+      }
+    },
+    {
+      "type": "storyCards",
+      "look": "icons",
+      "title": "Evidence & outcomes",
+      "lede": "",
+      "items": [
+        {
+          "page": "publications",
+          "icon": "publication",
+          "title": "Publications",
+          "text": "Brochures and books from the project — free to download in English, Hindi and Gujarati. Grouped by kind; filter or search to narrow the list.",
+          "photo": {}
+        },
+        {
+          "page": "videos",
+          "icon": "video",
+          "title": "Videos",
+          "text": "A curated starting point from the new MARVI video archive—introductions, field stories, training and technical talks.",
+          "photo": {}
+        },
+        {
+          "page": "news",
+          "icon": "news",
+          "title": "MARVI in the news",
+          "text": "Selected journalism and project coverage from the new MARVI media archive.",
+          "photo": {}
+        }
+      ],
+      "i18n": {
+        "title": "page.impact.b2.title",
+        "items__0__title": "page.impact.b2.items.0.title",
+        "items__0__text": "page.impact.b2.items.0.text",
+        "items__1__title": "page.impact.b2.items.1.title",
+        "items__1__text": "page.impact.b2.items.1.text",
+        "items__2__title": "page.impact.b2.items.2.title",
+        "items__2__text": "page.impact.b2.items.2.text",
+        "tabLabel": "page.impact.b2.tabLabel"
+      }
+    },
+    {
+      "type": "storyCards",
+      "title": "MARVI in the news",
+      "lede": "Selected journalism and project coverage from the new MARVI media archive.",
+      "items": [
+        {
+          "page": "news",
+          "url": "https://thebrilliant.com/basant-maheshwari/",
+          "icon": "news",
+          "label": "The Brilliant · 02 Jul 2024",
+          "title": "How a grassroots revolution is safeguarding groundwater, one well at a time",
+          "text": "A profile of Professor Basant Maheshwari and MARVI’s journey from rural India to a wider participatory model.",
+          "photo": {}
+        },
+        {
+          "page": "news",
+          "url": "https://www.aciar.gov.au/media-search/blogs/people-power-delivers-groundwater-solutions-india",
+          "icon": "news",
+          "label": "ACIAR · 17 Sep 2024",
+          "title": "People power delivers groundwater solutions in India",
+          "text": "How Bhujal Jankaars, recharge, MyWell and community decisions became a practical approach.",
+          "photo": {}
+        },
+        {
+          "page": "news",
+          "url": "https://www.pmindia.gov.in/en/news_updates/cabinet-approves-mou-between-india-and-australia-for-collaboration-in-capacity-building-research-and-development-and-making-impact-for-sustainable-groundwater-management/",
+          "icon": "news",
+          "label": "Government of India · 14 Oct 2020",
+          "title": "India–Australia cooperation for sustainable groundwater",
+          "text": "A memorandum supporting groundwater training, education, research and practical action.",
+          "photo": {}
+        }
+      ],
+      "i18n": {
+        "title": "page.impact.b3.title",
+        "lede": "page.impact.b3.lede",
+        "items__0__label": "page.impact.b3.items.0.label",
+        "items__0__title": "page.impact.b3.items.0.title",
+        "items__0__text": "page.impact.b3.items.0.text",
+        "items__1__label": "page.impact.b3.items.1.label",
+        "items__1__title": "page.impact.b3.items.1.title",
+        "items__1__text": "page.impact.b3.items.1.text",
+        "items__2__label": "page.impact.b3.items.2.label",
+        "items__2__title": "page.impact.b3.items.2.title",
+        "items__2__text": "page.impact.b3.items.2.text",
+        "tabLabel": "page.impact.b3.tabLabel"
+      }
+    }
+  ]
+}

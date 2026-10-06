@@ -138,6 +138,15 @@
       }
     },
     {
+      "type": "banner",
+      "title": "The MARVI 4-S Strategy",
+      "lede": "",
+      "i18n": {
+        "title": "page.approach.b3.title",
+        "tabLabel": "page.approach.b3.tabLabel"
+      }
+    },
+    {
       "type": "steps",
       "tabLabel": "The MARVI 4-S Strategy",
       "visible": true,
