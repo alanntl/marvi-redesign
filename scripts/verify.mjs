@@ -14,7 +14,16 @@ import { BLOCKS } from '../src/templates.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = join(ROOT, '_site');
-const SITE_URL = 'https://' + readFileSync(join(ROOT, 'CNAME'), 'utf8').trim();
+// Same rule as the build: a CNAME is a domain root; otherwise the address
+// comes from content/site.json `url` + `base` (a preview copy).
+const SITE = existsSync(join(ROOT, 'content/site.json')) ? JSON.parse(readFileSync(join(ROOT, 'content/site.json'), 'utf8')) : {};
+const HAS_CNAME = existsSync(join(ROOT, 'CNAME'));
+const BASE = HAS_CNAME ? '' : String(SITE.base || '').replace(/\/$/, '');
+const SITE_URL = (HAS_CNAME
+  ? 'https://' + readFileSync(join(ROOT, 'CNAME'), 'utf8').trim()
+  : String(SITE.url || 'http://localhost').replace(/\/$/, '')) + BASE;
+// A site path on disk: strip the base path a preview copy carries.
+const onDisk = (ref) => join(OUT, BASE && ref.startsWith(BASE + '/') ? ref.slice(BASE.length) : ref);
 
 const failures = [];
 const check = (cond, msg) => { if (!cond) failures.push(msg); };
@@ -80,21 +89,26 @@ for (const lang of LANGS) {
       .map((m) => m[2]).filter((v) => !/^(https?:|data:|\/|#)/.test(v));
     check(badCss.length === 0, `${where}: relative CSS url(): ${badCss.slice(0, 2).join(', ')}`);
 
-    // nav: every page linked, no fragments, current page marked
-    const navLinks = [...document.querySelectorAll('.side-nav .nav-tab')];
-    check(navLinks.length === PAGES.length, `${where}: nav has ${navLinks.length} links`);
-    check(navLinks.every((a) => a.tagName === 'A' && !a.getAttribute('href')?.startsWith('#')),
-      `${where}: nav not fully linkified`);
-    check(!!document.querySelector('.nav-tab[aria-current="page"]'), `${where}: no aria-current`);
+    // header menu: the logo is home, every other published page is reachable
+    // from the menu, links are real links, and the current page is marked
+    const navLinks = [...document.querySelectorAll('[data-site-nav] a[data-tab]')];
+    const reachable = new Set(navLinks.map((a) => a.getAttribute('data-tab')));
+    if (document.querySelector('a.brand[href]')) reachable.add(PAGES[0].slug);
+    const unreachable = PAGES.filter((p) => !reachable.has(p.slug)).map((p) => p.slug);
+    check(unreachable.length === 0, `${where}: header menu does not reach ${unreachable.join(', ')} — add them under Site-wide → Header menu in the CMS`);
+    check(navLinks.every((a) => !a.getAttribute('href')?.startsWith('#')), `${where}: menu not fully linkified`);
+    if (page.slug !== PAGES[0].slug) {
+      check(!!document.querySelector('[data-site-nav] a[aria-current="page"], [data-site-nav] .is-current'), `${where}: menu does not mark the current page`);
+    }
 
     // scripts: no inline leftovers, exactly one app module, files exist
     check(document.querySelectorAll('script:not([src])').length === 0,
       `${where}: inline script survived`);
     const scripts = [...document.querySelectorAll('script[src]')].map((s) => s.getAttribute('src'));
-    check(scripts.length === 1 && scripts[0] === '/assets/app.mjs',
-      `${where}: scripts are ${JSON.stringify(scripts)}`);
+    check(scripts.length === 1 && scripts[0] === BASE + '/assets/app.mjs',
+      `${where}: scripts are ${JSON.stringify(scripts)} — without the app module the menus, search and filters do not work`);
     scripts.forEach((ref) => {
-      if (ref.startsWith('/')) check(existsSync(join(OUT, ref)), `${where}: missing ${ref}`);
+      if (ref.startsWith('/')) check(existsSync(onDisk(ref)), `${where}: missing ${ref}`);
     });
 
     // prerender must never bake a font-size (the invisible-headline class of bug)

@@ -234,11 +234,10 @@ export const RTL_LANGS = ['ar'];
  * `sectionIds` is every page except home, in nav order.
  */
 export const buildSlots = (sectionIds = SECTION_KEYS) => [
-  { key: 'ui.explore', sel: '.sidebar .nav-label' },
-  ...['home', ...sectionIds].map((t) => ({
-    key: 'nav.' + t,
-    sel: '.nav-tab[data-tab="' + t + '"] .nav-name'
-  })),
+  // The page names in the header menu are not slots: each menu link carries
+  // its own data-i18n key (nav.<slug> when its label is the page's name), so
+  // the same name can appear in a tab and in a dropdown and translate in both.
+  // sectionIds is still taken for the page-head slots below.
   { key: 'hero.eyebrow', sel: '#panel-home .hero-copy .eyebrow' },
   { key: 'hero.title', sel: '#panel-home .hero-copy h1', multiline: true },
   { key: 'hero.body', sel: '#panel-home .hero-copy .lede' },

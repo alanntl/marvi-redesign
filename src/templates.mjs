@@ -542,6 +542,34 @@ const splitColumn = (document, raw, ctx, side) => {
 
 /* Exported so scripts/verify.mjs can assert that this set and the CMS's list
  * of offerable blocks are the same set — neither may drift ahead of the other. */
+/** Lower-case, dashed, 60 characters at most: "The MARVI 4-S Strategy" → "the-marvi-4-s-strategy". */
+const slugish = (value) =>
+  String(value || '').toLowerCase().normalize('NFKD').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 60);
+
+/**
+ * Line icons for icon cards, drawn on a 32px grid with a 1.75 stroke so they
+ * sit with the type rather than shouting over it. Unknown names fall back to
+ * the water drop.
+ */
+const ICONS = {
+  approach: '<circle cx="16" cy="16" r="11"/><path d="m11 17 3.5 3.5L21.5 12"/>',
+  groundwater: '<path d="M4 20c4-4 8 4 12 0s8-4 12 0"/><path d="M4 26c4-4 8 4 12 0s8-4 12 0"/><path d="M16 4v10M12 10l4 4 4-4"/>',
+  people: '<circle cx="12" cy="10" r="4"/><path d="M4 27v-3a8 8 0 0 1 16 0v3"/><circle cx="23" cy="11" r="3"/><path d="M22 18.2a6 6 0 0 1 7 5.8v3"/>',
+  tools: '<rect x="9" y="3.5" width="14" height="25" rx="3"/><path d="M14 24.5h4"/><path d="M13 10h6M13 14h6M13 18h4"/>',
+  impact: '<path d="M5 27V15M13 27V8M21 27V12M29 27H3"/>',
+  knowledge: '<path d="M16 8c-3-2.5-7-3-11-2.5V24c4-.5 8 0 11 2.5 3-2.5 7-3 11-2.5V5.5C23 5 19 5.500 16 8Z"/><path d="M16 8v18.500"/>',
+  news: '<path d="M7 5h15v22H9a2 2 0 0 1-2-2V5Z"/><path d="M22 10h4v14a3 3 0 0 1-6 0"/><path d="M11 10h7M11 14h7M11 18h4"/>',
+  collaborate: '<path d="m3 15 6-6 5 2 4-2 5 1 6 5"/><path d="m9 9-6 6 9 9c1 1 2.500 1 3.500 0L17 22.500M23 12l6 3-9.500 9.500c-1 1-2.500 1-3.500 0"/><path d="m12 18 3 3M15 15l4 4"/>',
+  water: '<path d="M16 3.5S7 14 7 20a9 9 0 0 0 18 0c0-6-9-16.500-9-16.500Z"/><path d="M11.500 20.500a4.500 4.500 0 0 0 4.500 4.500"/>',
+  game: '<rect x="3.500" y="9" width="25" height="14" rx="7"/><path d="M10 13v6M7 16h6"/><circle cx="21" cy="14.500" r="1"/><circle cx="24" cy="17.500" r="1"/>',
+  video: '<rect x="3.500" y="7" width="25" height="18" rx="3"/><path d="m13 12 7 4-7 4Z"/>',
+  publication: '<path d="M8 3.500h11l6 6V28a.5.5 0 0 1-.5.5h-16A.5.5 0 0 1 8 28V3.500Z"/><path d="M19 3.500v6h6M12 15h9M12 19.500h9M12 24h6"/>',
+  place: '<path d="M16 28s9-7.500 9-15a9 9 0 0 0-18 0c0 7.500 9 15 9 15Z"/><circle cx="16" cy="13" r="3.500"/>',
+};
+export const ICON_NAMES = Object.keys(ICONS);
+const iconSvg = (name) =>
+  `<span class="story-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">${ICONS[name] || ICONS.water}</svg></span>`;
+
 export const BLOCKS = {
   split(document, block, ctx) {
     const wrap = el(document, 'div', { class: 'split' });
@@ -607,11 +635,18 @@ export const BLOCKS = {
   },
 
   banner(document, block, ctx) {
-    const wrap = el(document, 'div', { class: 'dark-block' });
+    // A section heading. Its anchor ("s-…") is what the Header menu and
+    // "On this page" jump to. The editor's label colour is not applied: it
+    // was chosen for the old dark panels and fails contrast on the new ground.
+    const wrap = el(document, 'div', { class: 'section-head' });
+    const title = String(block.title || '').trim();
+    if (title) {
+      wrap.setAttribute('id', 's-' + slugish(title));
+      wrap.setAttribute('data-section-anchor', '');
+      if (block.tabLabel) wrap.setAttribute('data-tab-label', block.tabLabel);
+    }
     if (block.eyebrow) {
-      const eyebrow = el(document, 'p', { class: 'eyebrow', text: block.eyebrow, key: ctx.t('eyebrow') });
-      if (block.accent) eyebrow.style.color = block.accent;
-      wrap.appendChild(eyebrow);
+      wrap.appendChild(el(document, 'p', { class: 'eyebrow', text: block.eyebrow, key: ctx.t('eyebrow') }));
     }
     wrap.appendChild(el(document, 'h2', { text: block.title, key: ctx.t('title') }));
     if (block.lede) wrap.appendChild(el(document, 'p', { class: 'lede', text: block.lede, key: ctx.t('lede') }));
@@ -620,10 +655,16 @@ export const BLOCKS = {
 
   statement(document, block, ctx) {
     const wrap = el(document, 'div', { class: 'home-statement' });
-    const grid = el(document, 'div', { class: 'statement-grid' });
-    grid.appendChild(el(document, 'p', { class: 'meta', text: block.label, key: ctx.t('label') }));
-    grid.appendChild(el(document, 'blockquote', { text: block.quote, key: ctx.t('quote') }));
-    wrap.appendChild(grid);
+    // With no label and no quote the block is just its figures — the heading
+    // above it already says what they are.
+    if ((block.label || '').trim() || (block.quote || '').trim()) {
+      const grid = el(document, 'div', { class: 'statement-grid' });
+      grid.appendChild(el(document, 'p', { class: 'meta', text: block.label, key: ctx.t('label') }));
+      grid.appendChild(el(document, 'blockquote', { text: block.quote, key: ctx.t('quote') }));
+      wrap.appendChild(grid);
+    } else {
+      wrap.classList.add('home-statement--figures');
+    }
     const row = el(document, 'div', { class: 'metric-row' });
     (block.metrics || []).forEach((m, i) => {
       const metric = el(document, 'div', { class: 'metric' });
@@ -637,29 +678,58 @@ export const BLOCKS = {
 
   storyCards(document, block, ctx) {
     const section = el(document, 'section', { class: 'home-explore' });
-    section.setAttribute('aria-labelledby', 'explore-title');
-    const head = el(document, 'header', { class: 'explore-head' });
-    const headText = el(document, 'div');
-    headText.appendChild(el(document, 'p', { class: 'eyebrow', text: block.eyebrow, key: ctx.t('eyebrow') }));
-    const h2 = el(document, 'h2', { text: block.title, key: ctx.t('title') });
-    h2.id = 'explore-title';
-    headText.appendChild(h2);
-    head.appendChild(headText);
-    head.appendChild(el(document, 'p', { text: block.lede, key: ctx.t('lede') }));
-    section.appendChild(head);
-    const grid = el(document, 'div', { class: 'story-grid' });
+    if (block.tone === 'sky') section.setAttribute('data-tone', 'sky');
+    const heading = String(block.title || '').trim();
+    const headingId = 'explore-' + (slugish(heading) || 'section');
+    if (heading) {
+      section.setAttribute('aria-labelledby', headingId);
+      section.setAttribute('id', 's-' + slugish(heading));
+      section.setAttribute('data-section-anchor', '');
+      if (block.tabLabel) section.setAttribute('data-tab-label', block.tabLabel);
+    }
+    // A card section may have no heading of its own (it follows a section
+    // heading), in which case there is no head to draw.
+    if ((block.eyebrow || '').trim() || heading || (block.lede || '').trim()) {
+      const head = el(document, 'header', { class: 'explore-head' });
+      const headText = el(document, 'div');
+      if (block.eyebrow) headText.appendChild(el(document, 'p', { class: 'eyebrow', text: block.eyebrow, key: ctx.t('eyebrow') }));
+      if (heading) {
+        const h2 = el(document, 'h2', { text: block.title, key: ctx.t('title') });
+        h2.id = headingId;
+        headText.appendChild(h2);
+      }
+      head.appendChild(headText);
+      if (block.lede) head.appendChild(el(document, 'p', { text: block.lede, key: ctx.t('lede') }));
+      section.appendChild(head);
+    }
+    const icons = block.look === 'icons';
+    const grid = el(document, 'div', { class: 'story-grid' + (icons ? ' story-grid--icons' : '') });
     (block.items || []).forEach((item, i) => {
-      const card = el(document, 'a', { class: 'story-card' });
-      card.setAttribute('data-open', item.page);
-      card.setAttribute('href', ctx.urlFor(item.page));
-      card.appendChild(photo(document, item.photo));
+      const card = el(document, 'a', { class: 'story-card' + (icons ? ' story-card--icon' : '') });
+      // An outside address wins over the page; a section is appended to it.
+      const external = typeof item.url === 'string' && /^https?:\/\//.test(item.url.trim());
+      if (external) {
+        card.setAttribute('href', item.url.trim());
+        card.setAttribute('target', '_blank');
+        card.setAttribute('rel', 'noopener');
+      } else {
+        card.setAttribute('data-open', item.page);
+        card.setAttribute('href', ctx.urlFor(item.page) + (item.section ? '#' + String(item.section).replace(/^#/, '') : ''));
+      }
+      if (icons) card.insertAdjacentHTML('beforeend', iconSvg(item.icon));
+      else if (item.photo?.image) card.appendChild(photo(document, item.photo));
+      else {
+        // No photo: a quiet panel carrying the card's icon, so the row keeps
+        // its rhythm without a broken image.
+        const blank = el(document, 'span', { class: 'story-blank' });
+        blank.setAttribute('aria-hidden', 'true');
+        blank.innerHTML = iconSvg(item.icon || 'water');
+        card.appendChild(blank);
+      }
       const copy = el(document, 'span', { class: 'story-copy' });
-      copy.appendChild(el(document, 'span', { class: 'meta', text: item.label, key: ctx.t(`items.${i}.label`) }));
+      if (item.label) copy.appendChild(el(document, 'span', { class: 'meta', text: item.label, key: ctx.t(`items.${i}.label`) }));
       copy.appendChild(el(document, 'strong', { text: item.title, key: ctx.t(`items.${i}.title`) }));
-      const arrow = el(document, 'i');
-      arrow.appendChild(arrowIcon(document));
-      arrow.setAttribute('aria-hidden', 'true');
-      copy.appendChild(arrow);
+      if (item.text) copy.appendChild(el(document, 'span', { class: 'story-text', text: item.text, key: ctx.t(`items.${i}.text`) }));
       card.appendChild(copy);
       grid.appendChild(card);
     });
@@ -1330,18 +1400,21 @@ const FLEX_TYPES = new Set(['text', 'imageText', 'gallery', 'callout', 'button',
 
 const standardHead = (document, page, { index, total }) => {
   const head = el(document, 'header', { class: 'page-head' });
-  head.appendChild(el(document, 'span', {
-    class: 'section-index',
-    text: String(index).padStart(2, '0') + ' / ' + String(total).padStart(2, '0')
-  }));
-  const inner = el(document, 'div');
+  const inner = el(document, 'div', { class: 'page-head-copy' });
   const intro = page.intro || {};
   if (intro.eyebrow != null) inner.appendChild(el(document, 'p', { class: 'eyebrow', text: intro.eyebrow }));
   inner.appendChild(el(document, 'h1', { text: intro.title || page.menuName }));
   if (intro.lede != null) inner.appendChild(el(document, 'p', { class: 'lede', text: intro.lede }));
   head.appendChild(inner);
   applyTextControls(head, intro);
-  applyCoverControls(head, page.heroImage);
+  // The header photograph sits beside the title. (It used to be painted behind
+  // it as a cover; the title now sits on navy and the photograph is a picture.)
+  if (page.heroImage?.image) {
+    head.classList.add('has-cover');
+    const media = el(document, 'figure', { class: 'page-head-media' });
+    media.appendChild(photo(document, page.heroImage, { alt: '', lazy: false }));
+    head.appendChild(media);
+  }
   return head;
 };
 
@@ -1369,13 +1442,12 @@ const homeHero = (document, page, ctx) => {
   if (hero.label) {
     stage.appendChild(multiline(document, el(document, 'div', { class: 'hero-image-label', key: t('label') }), hero.label));
   }
-  const index = el(document, 'div', { class: 'hero-image-index', text: '↓' });
-  index.setAttribute('aria-hidden', 'true');
-  stage.appendChild(index);
   if (hero.caption) {
     stage.appendChild(multiline(document, el(document, 'div', { class: 'hero-image-caption', key: t('caption') }), hero.caption));
   }
   wrap.appendChild(stage);
+  // With no header photo the hero is the words alone, on navy.
+  if (!page.heroImage?.image) wrap.classList.add('home-hero--text');
   return wrap;
 };
 
@@ -1418,12 +1490,16 @@ export function renderPage(document, page, ctx) {
       ? flex.push(node)
       : core.push({ node, tab: block.tabLabel || null, key: ctxI.t('tabLabel'), i });
   });
-  const coreNodes = groupTabs(document, core, page.slug);
+  const coreNodes = toneBands(document, groupTabs(document, core, page.slug), page.blocks || []);
 
   if (page.template === 'home') {
     section.appendChild(homeHero(document, page, ctx));
-    coreNodes.forEach((n) => section.appendChild(n));
-    if (flex.length) section.appendChild(flexWrap(document, flex));
+    const homeBody = el(document, 'div', { class: 'home-body' });
+    const holder = el(document, 'div', { class: 'section-body' });
+    coreNodes.forEach((n) => holder.appendChild(n));
+    homeBody.appendChild(holder);
+    if (flex.length) homeBody.appendChild(flexWrap(document, flex));
+    section.appendChild(homeBody);
     return section;
   }
 
@@ -1481,6 +1557,46 @@ const groupTabs = (document, entries, slug) => {
       group.appendChild(panel);
     });
     out.push(group);
+  }
+  return out;
+};
+
+/**
+ * Background bands. A section heading (banner) can carry a tone — "sky",
+ * "deep" or "sand" — which colours that heading and every block after it, up
+ * to the next heading (or the next titled card section). Consecutive headings
+ * with the same tone share one band. Bands are plain wrappers; untoned blocks
+ * stay direct children of the section body.
+ *
+ * `nodes` is the output of groupTabs (one node per authored block, or per tab
+ * group), so a node is matched to its block through the data attribute the
+ * renderers leave on banners and titled card sections.
+ */
+const BAND_TONES = new Set(['sky', 'deep', 'sand']);
+const toneBands = (document, nodes, blocks) => {
+  const toneByAnchor = new Map();
+  (blocks || []).forEach((b) => {
+    const title = String(b?.title || '').trim();
+    if (b?.type === 'banner' && title && BAND_TONES.has(b.tone)) toneByAnchor.set('s-' + slugish(title), b.tone);
+  });
+  if (!toneByAnchor.size) return nodes;
+  const out = [];
+  let band = null;
+  for (const node of nodes) {
+    const isHeading = node.hasAttribute?.('data-section-anchor');
+    const isTitledCards = node.classList?.contains('home-explore') && isHeading;
+    if (isTitledCards) band = null;
+    if (isHeading && !isTitledCards) {
+      const tone = toneByAnchor.get(node.getAttribute('id'));
+      if (!tone) band = null;
+      else if (!band || band.getAttribute('data-tone') !== tone) {
+        band = el(document, 'div', { class: 'tone-band' });
+        band.setAttribute('data-tone', tone);
+        out.push(band);
+      }
+    }
+    if (band) band.appendChild(node);
+    else out.push(node);
   }
   return out;
 };

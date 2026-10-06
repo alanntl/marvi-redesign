@@ -21,11 +21,10 @@ import { fileURLToPath } from 'node:url';
 import { parseHTML } from 'linkedom';
 import { captureEnglish, applyLanguage } from '../src/hydrate.mjs';
 import { renderPage, brandMark, arrowIcon } from '../src/templates.mjs';
-import { buildRegistry, urlFor } from '../src/registry.mjs';
+import { buildRegistry, buildNav, loadNavConfig, navParentOf, urlFor } from '../src/registry.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = join(ROOT, '_site');
-const SITE_URL = 'https://' + readFileSync(join(ROOT, 'CNAME'), 'utf8').trim();
 
 const template = readFileSync(join(ROOT, 'index.html'), 'utf8');
 const probeStyles = parseHTML(template).document;
@@ -36,7 +35,20 @@ const SITE = existsSync(join(ROOT, 'content/site.json'))
   ? JSON.parse(readFileSync(join(ROOT, 'content/site.json'), 'utf8'))
   : {};
 
+/* Where the site is served. A CNAME means a domain root (the live site). A
+ * copy with no CNAME — a preview on <user>.github.io/<repo>/ — takes its
+ * address from content/site.json `url` and `base`, and every site-absolute
+ * path in the output is prefixed with `base` at the very end of the build. */
+const HAS_CNAME = existsSync(join(ROOT, 'CNAME'));
+const BASE = HAS_CNAME ? '' : String(SITE.base || '').replace(/\/$/, '');
+const ORIGIN = HAS_CNAME
+  ? 'https://' + readFileSync(join(ROOT, 'CNAME'), 'utf8').trim()
+  : String(SITE.url || 'http://localhost').replace(/\/$/, '');
+const SITE_URL = ORIGIN + BASE;
+
 const PAGES = buildRegistry(ROOT);
+// The header menu, as editors set it in the CMS (content/navigation.json).
+const NAV = buildNav(PAGES, loadNavConfig(ROOT));
 const SECTION_IDS = PAGES.slice(1).map((p) => p.slug); // all but home, nav order
 const href = (lang, page) => urlFor(lang, page, PAGES);
 const pageById = new Map(PAGES.map((p) => [p.slug, p]));
@@ -68,32 +80,74 @@ function composeDocument() {
   brandText('.brand-word', SITE.brand?.wordmark);
   brandText('.brand-note', SITE.brand?.tagline);
 
-  // Rebuild the sidebar nav from the registry.
-  const nav = document.querySelector('.side-nav');
-  nav.textContent = '';
-  PAGES.forEach((page, i) => {
-    const tab = document.createElement('button'); // becomes a link per-page
-    tab.className = 'nav-tab';
-    tab.setAttribute('type', 'button');
-    tab.setAttribute('data-tab', page.slug);
-    const thumb = document.createElement('img');
-    thumb.className = 'nav-thumb';
-    thumb.setAttribute('alt', '');
-    thumb.setAttribute('aria-hidden', 'true');
-    const menuImage = page.menuImage || page.heroImage;
-    if (menuImage?.image) thumb.setAttribute('src', menuImage.image);
-    const number = document.createElement('span');
-    number.className = 'nav-number';
-    number.textContent = String(i + 1).padStart(2, '0');
-    const name = document.createElement('span');
-    name.className = 'nav-name';
-    name.textContent = page.menuName;
-    const arrow = document.createElement('span');
-    arrow.className = 'nav-arrow';
-    arrow.appendChild(arrowIcon(document));
-    tab.append(thumb, number, name, arrow);
-    nav.appendChild(tab);
-  });
+  // The header menu, from content/navigation.json. Links are drawn once here
+  // with English hrefs; buildPage() points them at each language and marks
+  // the current tab. Every label carries a data-i18n key (see buildNav), so
+  // the translation pass below rewrites the menu like any other string.
+  const CHEVRON = '<svg viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2 4.5 6 8.5 10 4.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>';
+  const navLink = (item, className) => {
+    const a = document.createElement('a');
+    if (className) a.className = className;
+    if (item.url) {
+      a.setAttribute('href', item.url);
+      a.setAttribute('target', '_blank');
+      a.setAttribute('rel', 'noopener');
+      a.setAttribute('data-external', '');
+    } else {
+      a.setAttribute('href', href('en', item.page) + (item.section ? '#' + item.section : ''));
+      a.setAttribute('data-tab', item.page.slug);
+      if (item.section) a.setAttribute('data-section', item.section);
+    }
+    a.setAttribute('data-i18n', item.key);
+    a.textContent = item.label;
+    return a;
+  };
+  const lists = [
+    ...[...document.querySelectorAll('[data-site-actions]')].map((list) => ({ list, only: (tab) => tab.button, suffix: '' })),
+    ...[...document.querySelectorAll('[data-site-nav]')].map((list) => ({ list, only: () => true, suffix: '-m' })),
+  ];
+  for (const { list, only, suffix } of lists) {
+    list.textContent = '';
+    NAV.filter(only).forEach((tab) => {
+      const li = document.createElement('li');
+      li.className = 'nav-item' + (tab.button ? ' nav-item--cta' : '') + (tab.items.length ? ' has-menu' : '');
+      // The pages this tab stands for, so buildPage can mark it current.
+      li.setAttribute('data-pages', [tab.page.slug, ...tab.items.filter((i) => i.page && !i.section).map((i) => i.page.slug)].join(' '));
+      li.appendChild(navLink(tab, tab.button ? 'nav-cta' : 'nav-link'));
+      if (tab.items.length) {
+        const menuId = 'menu-' + tab.page.slug + (tab.button ? suffix : '');
+        const more = document.createElement('button');
+        more.className = 'nav-more';
+        more.setAttribute('type', 'button');
+        more.setAttribute('aria-expanded', 'false');
+        more.setAttribute('aria-controls', menuId);
+        more.setAttribute('aria-label', 'More: ' + tab.label);
+        more.innerHTML = CHEVRON;
+        li.appendChild(more);
+        const menu = document.createElement('ul');
+        menu.className = 'nav-menu';
+        menu.id = menuId;
+        tab.items.forEach((item) => {
+          const entry = document.createElement('li');
+          entry.appendChild(navLink(item));
+          menu.appendChild(entry);
+        });
+        li.appendChild(menu);
+      }
+      list.appendChild(li);
+    });
+  }
+
+  // Footer: one link per tab.
+  const footerNav = document.querySelector('[data-footer-nav]');
+  if (footerNav) {
+    footerNav.textContent = '';
+    NAV.forEach((tab) => {
+      const li = document.createElement('li');
+      li.appendChild(navLink({ ...tab, items: [] }));
+      footerNav.appendChild(li);
+    });
+  }
 
   // Render every page's panel into <main id="content"> — the layout CSS
   // positions panels relative to that container, not <body>. All panels must
@@ -101,16 +155,20 @@ function composeDocument() {
   // per-page split keeps exactly one.
   const main = document.getElementById('content');
   PAGES.forEach((page, i) => {
+    const parent = navParentOf(NAV, page.slug);
     const section = renderPage(document, page, {
       index: i + 1,
       total: PAGES.length,
-      urlFor: (id) => href('en', pageById.get(id) || PAGES[0])
+      urlFor: (id) => href('en', pageById.get(id) || PAGES[0]),
+      parent: parent ? { slug: parent.slug } : null
     });
     section.setAttribute('hidden', '');
     main.appendChild(section);
   });
 
-  // Behaviour module.
+  // Behaviour module. data-base tells it where the site lives (search index,
+  // language switching) when served under a path.
+  document.body.setAttribute('data-base', BASE);
   const app = document.createElement('script');
   app.setAttribute('type', 'module');
   app.setAttribute('src', '/assets/app.mjs');
@@ -148,6 +206,27 @@ const absolutise = (document) => {
   });
 };
 
+/* Prefix every site-absolute path with BASE (preview copies only). */
+const rebaseCss = (css) =>
+  BASE ? css.replace(/url\(\s*(['"]?)(\/(?!\/)[^'")]+)\1\s*\)/g, (whole, q, path) =>
+    path.startsWith(BASE + '/') ? whole : `url(${q}${BASE}${path}${q})`) : css;
+const rebase = (document) => {
+  if (!BASE) return;
+  const fix = (node, attr) => {
+    const v = node.getAttribute(attr);
+    if (!v || !v.startsWith('/') || v.startsWith('//') || v.startsWith(BASE + '/')) return;
+    node.setAttribute(attr, BASE + v);
+  };
+  document.querySelectorAll('[src]').forEach((n) => fix(n, 'src'));
+  document.querySelectorAll('link[href]').forEach((n) => fix(n, 'href'));
+  document.querySelectorAll('a[href]').forEach((n) => fix(n, 'href'));
+  document.querySelectorAll('style').forEach((n) => { n.textContent = rebaseCss(n.textContent); });
+  document.querySelectorAll('[style]').forEach((n) => {
+    const v = n.getAttribute('style');
+    if (v && v.includes('url(')) n.setAttribute('style', rebaseCss(v));
+  });
+};
+
 /* ---------- per-page document surgery ---------- */
 
 function buildPage(langHTML, lang, page) {
@@ -155,7 +234,8 @@ function buildPage(langHTML, lang, page) {
 
   // Metadata reads off the *translated* document so /hi/ pages get Hindi.
   const pageName = (
-    document.querySelector(`.nav-tab[data-tab="${page.slug}"] .nav-name`)?.textContent ||
+    document.querySelector(`[data-site-nav] a[data-tab="${page.slug}"]:not([data-section])`)?.textContent ||
+    document.querySelector(`#panel-${page.slug} .page-head h1`)?.textContent ||
     page.menuName
   ).trim();
   const isHome = page.slug === PAGES[0].slug;
@@ -174,22 +254,19 @@ function buildPage(langHTML, lang, page) {
     }
   });
 
-  // 2. Nav tabs become real links.
-  const nav = document.querySelector('.side-nav');
-  if (nav) {
-    nav.removeAttribute('role');
-    nav.removeAttribute('aria-orientation');
-  }
-  document.querySelectorAll('.nav-tab').forEach((tab) => {
-    const id = tab.getAttribute('data-tab');
-    const target = pageById.get(id);
-    const link = document.createElement('a');
-    link.className = tab.className;
-    link.setAttribute('data-tab', id);
-    link.setAttribute('href', href(lang, target || PAGES[0]));
-    if (id === page.slug) link.setAttribute('aria-current', 'page');
-    link.innerHTML = tab.innerHTML;
-    tab.replaceWith(link);
+  // 2. Menu links point at this language; the current page's tab is marked.
+  document.querySelectorAll('a[data-tab]').forEach((link) => {
+    const target = pageById.get(link.getAttribute('data-tab'));
+    if (!target) return;
+    const section = link.getAttribute('data-section');
+    link.setAttribute('href', href(lang, target) + (section ? '#' + section : ''));
+    if (target.slug === page.slug && !section && link.closest('[data-site-nav], [data-site-actions]')) {
+      link.setAttribute('aria-current', 'page');
+    }
+  });
+  document.querySelectorAll('.nav-item[data-pages]').forEach((li) => {
+    if (li.getAttribute('data-pages').split(' ').includes(page.slug)) li.classList.add('is-current');
+    li.removeAttribute('data-pages');
   });
 
   // 3. Any remaining [data-open] button (the sidebar brand) becomes a link;
@@ -209,6 +286,7 @@ function buildPage(langHTML, lang, page) {
   const select = document.getElementById('lang-select');
   if (select) {
     select.setAttribute('data-lang-base', isHome ? '' : page.slug + '/');
+    select.setAttribute('data-site-base', BASE);
     select.querySelectorAll('option').forEach((opt) => {
       if (opt.value === lang) opt.setAttribute('selected', 'selected');
       else opt.removeAttribute('selected');
@@ -230,6 +308,9 @@ function buildPage(langHTML, lang, page) {
     head.appendChild(tag);
   };
   meta('name', 'description', description);
+  // A preview copy (content/site.json "noindex": true) must not compete with
+  // marvi.org.in in search results.
+  if (SITE.noindex) meta('name', 'robots', 'noindex, nofollow');
   const link = (rel, hrefValue, hreflang) => {
     const tag = document.createElement('link');
     tag.setAttribute('rel', rel);
@@ -243,7 +324,7 @@ function buildPage(langHTML, lang, page) {
 
   const socialSrc = (page.menuImage || page.heroImage || {}).image;
   const social = socialSrc
-    ? SITE_URL + (socialSrc.startsWith('/') ? socialSrc : '/' + socialSrc)
+    ? SITE_URL + encodeURI(socialSrc.startsWith('/') ? socialSrc : '/' + socialSrc)
     : null;
   meta('property', 'og:type', 'website');
   meta('property', 'og:site_name', 'MARVI');
@@ -259,6 +340,7 @@ function buildPage(langHTML, lang, page) {
 
   drawArrows(document);
   absolutise(document);
+  rebase(document);
   return '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
 }
 
@@ -334,9 +416,45 @@ cpSync(join(ROOT, 'src/app.mjs'), join(OUT, 'assets/app.mjs'));
 cpSync(join(ROOT, 'src/templates.mjs'), join(OUT, 'assets/templates.mjs'));
 write(
   'assets/site.css',
-  absolutiseCss([...probeStyles.querySelectorAll('style')].map((n) => n.textContent).join('\n'))
+  rebaseCss(absolutiseCss([...probeStyles.querySelectorAll('style')].map((n) => n.textContent).join('\n')))
 );
-cpSync(join(ROOT, 'CNAME'), join(OUT, 'CNAME'));
+if (HAS_CNAME) cpSync(join(ROOT, 'CNAME'), join(OUT, 'CNAME'));
+write('.nojekyll', '');
+
+/* The CMS config is a template: repository, branch, site address and the
+ * public media path come from content/site.json `cms` and the base path, so a
+ * preview copy edits its own repository and never the live one. */
+const cmsConfig = join(OUT, 'admin/config.yml');
+if (existsSync(cmsConfig) && SITE.cms) {
+  let config = readFileSync(cmsConfig, 'utf8');
+  config = config
+    .replace(/^(\s*repo:).*$/m, `$1 ${SITE.cms.repo}`)
+    .replace(/^(\s*branch:).*$/m, `$1 ${SITE.cms.branch || 'main'}`)
+    .replace(/^site_url:.*$/m, `site_url: ${SITE_URL}`)
+    .replace(/^display_url:.*$/m, `display_url: ${SITE_URL}`)
+    .replace(/^public_folder:\s*"\/assets\//m, `public_folder: "${BASE}/assets/`);
+  writeFileSync(cmsConfig, config);
+}
+
+/* The search index: every page and section heading, every publication,
+ * media story, film and person on the site, in English. */
+const plain = (v) => String(v || '').replace(/\s+/g, ' ').trim();
+const slugish = (v) => String(v || '').toLowerCase().normalize('NFKD').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 60);
+const searchEntries = [];
+for (const page of PAGES) {
+  const url = href('en', page);
+  searchEntries.push({ k: 'Page', t: plain(page.intro?.title) || page.menuName, u: url, x: plain(page.intro?.lede).slice(0, 180) });
+  for (const b of page.blocks || []) {
+    if (b.visible === false) continue;
+    if ((b.type === 'banner' || b.type === 'storyCards') && plain(b.title)) searchEntries.push({ k: page.menuName, t: plain(b.title), u: url + '#s-' + slugish(b.title), x: plain(b.lede || b.eyebrow).slice(0, 160) });
+    if (b.type === 'publicationList') (b.items || []).forEach((i) => searchEntries.push({ k: 'Publication', t: plain(i.title), u: url, x: plain(i.meta || i.description).slice(0, 160) }));
+    if (b.type === 'mediaStories') (b.items || []).forEach((i) => searchEntries.push({ k: 'In the media', t: plain(i.title), u: i.url || url, x: plain(i.meta) }));
+    if (b.type === 'filmGrid') (b.items || []).forEach((i) => searchEntries.push({ k: 'Video', t: plain(i.title), u: i.url || url, x: plain(i.meta) }));
+    if (b.type === 'portraitBand') (b.items || []).forEach((i) => i.name && searchEntries.push({ k: 'Person', t: plain(i.name), u: url, x: [i.title, i.affiliation].filter(Boolean).map(plain).join(', ') }));
+    if (b.type === 'partnerList') (b.items || []).forEach((i) => i.name && searchEntries.push({ k: 'Partner', t: plain(i.name), u: i.url || url, x: plain(i.meta) }));
+  }
+}
+write('assets/search.json', JSON.stringify(searchEntries));
 
 const sitemap =
   '<?xml version="1.0" encoding="UTF-8"?>\n' +
@@ -354,6 +472,6 @@ const sitemap =
   ).join('\n') +
   '\n</urlset>\n';
 write('sitemap.xml', sitemap);
-write('robots.txt', 'User-agent: *\nAllow: /\n\nSitemap: ' + SITE_URL + '/sitemap.xml\n');
+write('robots.txt', SITE.noindex ? 'User-agent: *\nDisallow: /\n' : 'User-agent: *\nAllow: /\n\nSitemap: ' + SITE_URL + '/sitemap.xml\n');
 
 console.log(`Built ${count} pages (${PAGES.length} pages × ${LANGS.length} languages) into _site/`);

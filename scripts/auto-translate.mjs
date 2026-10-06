@@ -43,7 +43,7 @@ import { tmpdir } from 'node:os';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { parseHTML } from 'linkedom';
-import { buildRegistry } from '../src/registry.mjs';
+import { buildRegistry, buildNav, loadNavConfig } from '../src/registry.mjs';
 import { renderPage } from '../src/templates.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -64,11 +64,18 @@ function collectEnglish() {
   const pages = buildRegistry(ROOT);
   const template = parseHTML(readFileSync(join(ROOT, 'index.html'), 'utf8')).document;
 
-  // Sidebar label (chrome-level, lives in the template).
+  // Sidebar label (chrome-level, lives in the template). The redesign has no
+  // sidebar, so this finds nothing and the old key simply stays unused.
   const navLabel = template.querySelector('.sidebar .nav-label');
   if (navLabel) en['ui.explore'] = navLabel.textContent.trim();
 
   const home = pages[0];
+  // Header menu labels (content/navigation.json). A label that is a page's own
+  // name reuses nav.<slug>, collected just below; every other label has its
+  // own key, which only the menu knows about.
+  for (const tab of buildNav(pages, loadNavConfig(ROOT))) {
+    for (const entry of [tab, ...tab.items]) if (entry.label && !entry.key.startsWith('nav.' + (entry.page?.slug ?? '\u0000'))) en[entry.key] = entry.label;
+  }
   for (const page of pages) {
     en['nav.' + page.slug] = page.menuName;
     const intro = page.intro || {};

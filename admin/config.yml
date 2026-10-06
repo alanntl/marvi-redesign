@@ -104,6 +104,45 @@ collections:
                   - { label: "Water (blue-green)", value: "water" }
                   - { label: "Copper", value: "copper" }
                   - { label: "Chalk (white)", value: "chalk" }
+      # The header menu. A page that is not listed here still appears — it
+      # joins the first tab's dropdown (or its parent's), so a new page can
+      # never become unreachable or stop the site publishing.
+      - name: "navigation"
+        label: "Header menu"
+        file: "content/navigation.json"
+        fields:
+          - label: "Tabs"
+            name: "tabs"
+            widget: "list"
+            summary: "{{fields.label}}"
+            hint: "The menu across the top of every page, left to right. Keep it to about seven tabs."
+            fields:
+              - { label: "Tab label", name: "label", widget: "string" }
+              - label: "Tab opens page"
+                name: "page"
+                widget: "relation"
+                collection: "pages"
+                value_field: "slug"
+                display_fields: ["menuName"]
+                search_fields: ["menuName", "slug"]
+              - { label: "Show as the highlighted button", name: "button", widget: "boolean", default: false, required: false, hint: "Use for one tab only — Collaborate with MARVI." }
+              - label: "Dropdown items"
+                name: "items"
+                widget: "list"
+                required: false
+                summary: "{{fields.label}}"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - label: "Opens page"
+                    name: "page"
+                    widget: "relation"
+                    collection: "pages"
+                    value_field: "slug"
+                    display_fields: ["menuName"]
+                    search_fields: ["menuName", "slug"]
+                    required: false
+                  - { label: "Jump to a section of that page", name: "section", widget: "string", required: false, hint: "Optional. The section's address: s- followed by its heading in lower case with dashes, e.g. s-why-groundwater. The build warns if it does not exist." }
+                  - { label: "Or open an outside website", name: "url", widget: "string", required: false, hint: "Optional, e.g. https://marvi-groundwater.github.io/OurWater/. Used instead of the page when filled in." }
 
   - name: "pages"
     label: "Pages"
@@ -354,6 +393,7 @@ collections:
                 widget: "list"
                 fields:
                   - { label: "Photo", name: "photo", widget: "object", collapsed: false, fields: *photoFields }
+              - { label: "i18n", name: "i18n", widget: "hidden", required: false }
           - label: "Dark banner"
             name: "banner"
             widget: "object"
@@ -363,7 +403,8 @@ collections:
               - { label: "Small label", name: "eyebrow", widget: "string", required: false }
               - { label: "Heading", name: "title", widget: "string" }
               - { label: "Text", name: "lede", widget: "text", required: false }
-              - { label: "Label colour", name: "accent", widget: "string", required: false, hint: "Optional CSS colour, e.g. #88b3b8" }
+              - { label: "Label colour", name: "accent", widget: "string", required: false, hint: "Kept from the earlier design; the new design does not colour labels." }
+              - { label: "Background", name: "tone", widget: "select", required: false, default: "", options: [{ label: "White", value: "" }, { label: "Pale blue", value: "sky" }, { label: "Deep navy", value: "deep" }, { label: "Pale green", value: "sand" }], hint: "Colours this heading and everything below it, up to the next heading. Consecutive headings with the same background share one band." }
               - { label: "i18n", name: "i18n", widget: "hidden", required: false }
           - label: "Statement with numbers"
             name: "statement"
@@ -372,7 +413,7 @@ collections:
               - *tabField
               - *visibleField
               - { label: "Small label", name: "label", widget: "string", required: false }
-              - { label: "Statement", name: "quote", widget: "text" }
+              - { label: "Statement", name: "quote", widget: "text", required: false, hint: "Optional. Leave this and the label empty to show just the numbers under the heading above." }
               - label: "Numbers"
                 name: "metrics"
                 widget: "list"
@@ -388,8 +429,10 @@ collections:
               - *tabField
               - *visibleField
               - { label: "Small label", name: "eyebrow", widget: "string", required: false }
-              - { label: "Heading", name: "title", widget: "string" }
+              - { label: "Heading", name: "title", widget: "string", required: false, hint: "Leave empty when a section heading just above already introduces these cards — they then join that heading's background." }
               - { label: "Text", name: "lede", widget: "text", required: false }
+              - { label: "Background", name: "tone", widget: "select", required: false, default: "", options: [{ label: "White", value: "" }, { label: "Pale blue band", value: "sky" }] }
+              - { label: "Card style", name: "look", widget: "select", required: false, default: "", options: [{ label: "Photo cards", value: "" }, { label: "Icon cards", value: "icons" }], hint: "Icon cards show each card's icon instead of its photo." }
               - label: "Cards"
                 name: "items"
                 widget: "list"
@@ -398,6 +441,10 @@ collections:
                   - { label: "Goes to page (address)", name: "page", widget: "string" }
                   - { label: "Small label", name: "label", widget: "string", required: false }
                   - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Short description", name: "text", widget: "text", required: false }
+                  - { label: "Icon", name: "icon", widget: "select", required: false, options: ["approach", "groundwater", "people", "tools", "impact", "knowledge", "news", "collaborate", "water", "game", "video", "publication", "place"], hint: "Shown when the card style is Icon cards, or when a card has no photo." }
+                  - { label: "Jump to a section of that page", name: "section", widget: "string", required: false, hint: "Optional, e.g. s-the-marvi-4-s-strategy" }
+                  - { label: "Or open an outside website", name: "url", widget: "string", required: false, hint: "Optional. Used instead of the page when filled in." }
                   - { label: "Photo", name: "photo", widget: "object", collapsed: true, fields: *photoFields }
               - { label: "i18n", name: "i18n", widget: "hidden", required: false }
           - label: "Numbered steps"
@@ -421,6 +468,7 @@ collections:
               - *tabField
               - *visibleField
               - { label: "Screenshot", name: "photo", widget: "object", collapsed: false, fields: *photoFields }
+              - { label: "i18n", name: "i18n", widget: "hidden", required: false }
 
           # ------------------------------------------------- list layouts --
           - label: "Media stories (searchable)"
@@ -438,6 +486,7 @@ collections:
                   - { label: "Title", name: "title", widget: "string" }
                   - { label: "Description", name: "description", widget: "text", required: false }
                   - { label: "Link", name: "url", widget: "string" }
+              - { label: "i18n", name: "i18n", widget: "hidden", required: false }
           - label: "Film grid"
             name: "filmGrid"
             widget: "object"
@@ -452,6 +501,7 @@ collections:
                   - { label: "Small label", name: "meta", widget: "string", required: false }
                   - { label: "Title", name: "title", widget: "string" }
                   - { label: "YouTube link", name: "url", widget: "string" }
+              - { label: "i18n", name: "i18n", widget: "hidden", required: false }
           - label: "Photo archive (filters + lightbox)"
             name: "photoArchive"
             widget: "object"
@@ -476,6 +526,7 @@ collections:
                   - { label: "Category", name: "category", widget: "string", hint: "Groups the image under a filter button." }
                   - { label: "Title", name: "title", widget: "string" }
                   - { label: "Source (optional)", name: "source", widget: "string", required: false }
+              - { label: "i18n", name: "i18n", widget: "hidden", required: false }
           # Publications are ONE list; the headed sections on the page are built
           # from each entry's Kind. Reorder or retitle sections below. A section
           # you set up here stays on the page even while it is empty — its chip
@@ -525,6 +576,7 @@ collections:
                     fields:
                       - { label: "Language / label", name: "label", widget: "string" }
                       - { label: "Download link", name: "url", widget: "string" }
+              - { label: "i18n", name: "i18n", widget: "hidden", required: false }
           - label: "Tool cards"
             name: "toolList"
             widget: "object"
@@ -543,6 +595,7 @@ collections:
                   - { label: "Button label", name: "linkLabel", widget: "string", required: false }
                   - { label: "Opens page (address)", name: "target", widget: "string", required: false, hint: "A page on this site, e.g. mywell. Leave empty when using an external link." }
                   - { label: "External link", name: "url", widget: "string", required: false, hint: "Wins over the page address if both are set." }
+              - { label: "i18n", name: "i18n", widget: "hidden", required: false }
           # One block type for every kind of organisation group — partners,
           # supporters, funders, anything added later. They differ by their tab
           # label and their items, never by their code, so a new category is a
@@ -618,6 +671,7 @@ collections:
                       # still looking at the field.
                       - { label: "Link address", name: "url", widget: "string", pattern: ['^(https?://|mailto:|tel:)\S+$', "Must start with https:// (or mailto: / tel:)"], hint: "Full address, e.g. https://www.linkedin.com/in/… — for email, mailto:name@example.org" }
                       - { label: "Label (tooltip)", name: "label", widget: "string", required: false, hint: "Blank uses the icon's own name." }
+              - { label: "i18n", name: "i18n", widget: "hidden", required: false }
           - label: "Portrait band"
             name: "portraitBand"
             widget: "object"
@@ -655,6 +709,7 @@ collections:
                   - { label: "Focus X (%)", name: "positionX", widget: "number", default: 50, value_type: "int", min: 0, max: 100, step: 1, required: false }
                   - { label: "Focus Y (%)", name: "positionY", widget: "number", default: 50, value_type: "int", min: 0, max: 100, step: 1, required: false }
                   - { label: "Fit", name: "fit", widget: "select", default: "auto", required: false, options: ["auto", "cover", "contain"] }
+              - { label: "i18n", name: "i18n", widget: "hidden", required: false }
           - label: "Source note"
             name: "sourceNote"
             widget: "object"
@@ -669,3 +724,4 @@ collections:
                   - { label: "Text", name: "text", widget: "string", required: false }
                   - { label: "Link", name: "link", widget: "object", collapsed: true, required: false, fields: [{ label: "Label", name: "label", widget: "string", required: false }, { label: "URL", name: "url", widget: "string", required: false }, { label: "Downloads a file", name: "download", widget: "boolean", default: false, required: false }, { label: "Opens in a new tab", name: "external", widget: "boolean", default: false, required: false }] }
               - { label: "style", name: "style", widget: "hidden", required: false }
+              - { label: "i18n", name: "i18n", widget: "hidden", required: false }

@@ -1,5 +1,5 @@
 /**
- * Browser-only behaviour: motion, gallery, search, lightbox, menu.
+ * Browser-only behaviour: menu, search, motion, gallery, lightbox, directories.
  *
  * Content and translation are baked in at build time (see hydrate.mjs), so
  * nothing here fetches copy or swaps languages — the language switcher is a
@@ -7,101 +7,53 @@
  * lookup below must tolerate its target being absent.
  */
 
-const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-/* ---------- motion ---------- */
+/* ---------- motion ----------
+ * Light and arrival-only. Blocks float up as they scroll into view and the
+ * figures count up once; everything else is CSS (the motion block in
+ * index.html). With reduced motion requested nothing is hidden or animated:
+ * blocks are simply there and the figures show their final values. */
+
+const REVEAL =
+  '.story-card, .process-step, .metric, .partner-country, .section-head, .explore-head, ' +
+  '.split > *, .cms-block-callout, .tool-card, .home-statement, .media-card, .video-card, .pub-card, .people-card, .project-card';
+
+function countUp(node) {
+  if (!node || node.dataset.counted) return;
+  node.dataset.counted = '1';
+  const match = node.textContent.trim().match(/^(\d[\d,]*)(.*)$/s);
+  if (!match) return;
+  const end = Number(match[1].replace(/,/g, ''));
+  if (!Number.isFinite(end) || end < 2) return;
+  const started = performance.now();
+  const tick = (now) => {
+    const progress = Math.min((now - started) / 1300, 1);
+    node.textContent = Math.round(end * (1 - Math.pow(1 - progress, 3))).toLocaleString() + match[2];
+    if (progress < 1) requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+}
 
 function setupMotion() {
-  document.body.classList.add('motion-ready');
-  const motionItems = [
-    ...document.querySelectorAll('.project-card, .process-step, .media-card, .video-card, .people-card, .metric')
-  ];
-  motionItems.forEach((item, index) => {
-    item.classList.add('motion-item');
-    item.style.setProperty('--motion-delay', (index % 4) * 65 + 'ms');
+  if (!window.matchMedia('(prefers-reduced-motion: no-preference)').matches || !('IntersectionObserver' in window)) return;
+  const observer = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        const node = entry.target;
+        node.classList.add('is-in');
+        if (node.matches('.metric')) countUp(node.querySelector('strong'));
+        node.querySelectorAll('.metric strong').forEach(countUp);
+        observer.unobserve(node);
+      }
+    },
+    { threshold: 0.12, rootMargin: '0px 0px -6% 0px' }
+  );
+  document.querySelectorAll(REVEAL).forEach((node, index) => {
+    node.style.setProperty('--d', (index % 4) * 90 + 'ms');
+    node.classList.add('will-reveal');
+    observer.observe(node);
   });
-
-  if (reduceMotion || !('IntersectionObserver' in window)) {
-    motionItems.forEach((item) => item.classList.add('is-inview'));
-  } else {
-    const motionObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add('is-inview');
-          motionObserver.unobserve(entry.target);
-        });
-      },
-      { threshold: 0.14, rootMargin: '0px 0px -5% 0px' }
-    );
-    motionItems.forEach((item) => motionObserver.observe(item));
-  }
-
-  const metrics = [...document.querySelectorAll('.metric strong')];
-  metrics.forEach((metric) => {
-    metric.dataset.value = metric.textContent.trim();
-  });
-  const animateMetric = (metric) => {
-    if (metric.dataset.animated) return;
-    metric.dataset.animated = 'true';
-    const end = Number(metric.dataset.value);
-    if (!Number.isFinite(end) || reduceMotion) return;
-    const start = end >= 1000 ? end - 12 : 0;
-    const started = performance.now();
-    const tick = (now) => {
-      const progress = Math.min((now - started) / 1100, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      metric.textContent = Math.round(start + (end - start) * eased).toLocaleString();
-      if (progress < 1) requestAnimationFrame(tick);
-    };
-    requestAnimationFrame(tick);
-  };
-  const metricRow = document.querySelector('.metric-row');
-  if (metricRow && !reduceMotion && 'IntersectionObserver' in window) {
-    const metricObserver = new IntersectionObserver(
-      (entries) => {
-        if (!entries.some((entry) => entry.isIntersecting)) return;
-        metrics.forEach(animateMetric);
-        metricObserver.disconnect();
-      },
-      { threshold: 0.4 }
-    );
-    metricObserver.observe(metricRow);
-  }
-
-  if (!reduceMotion && window.matchMedia('(pointer: fine)').matches) {
-    document.querySelectorAll('.story-card').forEach((card) => {
-      card.addEventListener('pointermove', (event) => {
-        const bounds = card.getBoundingClientRect();
-        const x = (event.clientX - bounds.left) / bounds.width;
-        const y = (event.clientY - bounds.top) / bounds.height;
-        card.style.setProperty('--spot-x', (x * 100).toFixed(1) + '%');
-        card.style.setProperty('--spot-y', (y * 100).toFixed(1) + '%');
-        card.style.transform = `perspective(1000px) rotateX(${((0.5 - y) * 3.5).toFixed(2)}deg) rotateY(${((x - 0.5) * 4.5).toFixed(2)}deg) translateY(-4px)`;
-      });
-      card.addEventListener('pointerleave', () => {
-        card.style.transform = '';
-        card.style.removeProperty('--spot-x');
-        card.style.removeProperty('--spot-y');
-      });
-    });
-  }
-
-  const progressBar = document.getElementById('scroll-progress');
-  if (progressBar) {
-    let progressFrame = 0;
-    const updateProgress = () => {
-      progressFrame = 0;
-      const distance = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = distance > 0 ? Math.min(window.scrollY / distance, 1) : 0;
-      progressBar.style.transform = `scaleX(${progress})`;
-    };
-    window.addEventListener('scroll', () => {
-      if (!progressFrame) progressFrame = requestAnimationFrame(updateProgress);
-    }, { passive: true });
-    window.addEventListener('resize', updateProgress);
-    updateProgress();
-  }
 }
 
 /**
@@ -517,75 +469,136 @@ function setupBlockTabs() {
 
 function setupMenu() {
   const menuButton = document.querySelector('.menu-toggle');
-  if (!menuButton) return;
-  const setMenu = (open) => {
-    document.body.classList.toggle('menu-open', open);
-    menuButton.setAttribute('aria-expanded', String(open));
-    menuButton.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
-  };
-  menuButton.addEventListener('click', () => {
-    setMenu(!document.body.classList.contains('menu-open'));
+  if (menuButton) {
+    menuButton.addEventListener('click', () => {
+      const open = document.body.classList.toggle('menu-open');
+      menuButton.setAttribute('aria-expanded', String(open));
+      menuButton.querySelector('.menu-toggle-text').textContent = open ? 'Close' : 'Menu';
+    });
+  }
+
+  // Submenus open on hover for a mouse (CSS) and on the chevron button for
+  // touch and keyboard. Only one is open at a time.
+  const items = [...document.querySelectorAll('.nav-item.has-menu')];
+  const close = (except) => items.forEach((item) => {
+    if (item === except) return;
+    item.classList.remove('is-open');
+    item.querySelector('.nav-more')?.setAttribute('aria-expanded', 'false');
   });
-  setupMenuSwipe(menuButton, setMenu);
+  items.forEach((item) => {
+    const more = item.querySelector('.nav-more');
+    more?.addEventListener('click', () => {
+      const open = !item.classList.contains('is-open');
+      close(item);
+      item.classList.toggle('is-open', open);
+      more.setAttribute('aria-expanded', String(open));
+    });
+    item.addEventListener('focusout', (event) => {
+      if (!item.contains(event.relatedTarget)) close();
+    });
+  });
+  document.addEventListener('click', (event) => {
+    if (!event.target.closest('.nav-item.has-menu')) close();
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    const open = items.find((item) => item.classList.contains('is-open'));
+    if (open) {
+      close();
+      open.querySelector('.nav-more')?.focus();
+    } else if (document.body.classList.contains('menu-open')) {
+      menuButton?.click();
+      menuButton?.focus();
+    }
+  });
 }
 
-/**
- * Swipe right to open the menu, left to close it.
- *
- * Only where the menu button is actually on screen: on desktop the sidebar is
- * always visible and there is nothing to swipe open.
- *
- * The guard that matters is the carousel. `.process` scrolls horizontally, and
- * a finger dragging it must not also throw the menu open — so a gesture that
- * begins inside anything still able to scroll horizontally is left to that
- * element. The same rule covers any future scroller for free, because it asks
- * the layout rather than naming a class.
- *
- * Listeners are passive: this reads the gesture and never prevents the
- * browser's own scrolling, so it cannot make the page feel sticky.
- */
-function setupMenuSwipe(menuButton, setMenu) {
-  const MIN_TRAVEL = 55;   // px before a drag counts as a swipe
-  const MAX_SLOPE = 0.6;   // vertical drift allowed, relative to horizontal
-  const MAX_TIME = 700;    // ms — a flick, not a slow drag with a rest in it
-  let startX = 0, startY = 0, startAt = 0, tracking = false;
+/* ---------- site search ----------
+ * The header's search button opens a panel over the page. The index
+ * (assets/search.json: pages, sections, researchers, partners and
+ * publications) is fetched the first time it opens, then every keystroke is a
+ * local filter: all words must match, and title matches rank first. */
+function setupSearch() {
+  const panel = document.getElementById('search-panel');
+  const toggle = document.querySelector('.search-toggle');
+  if (!panel || !toggle) return;
+  const input = panel.querySelector('#site-search');
+  const results = panel.querySelector('#search-results');
+  const base = document.body.dataset.base || '';
+  let index = null;
+  let lastFocus = null;
 
-  const horizontallyScrollable = (node) => {
-    for (let el = node; el && el !== document.body; el = el.parentElement) {
-      const overflowX = getComputedStyle(el).overflowX;
-      if ((overflowX === 'auto' || overflowX === 'scroll') && el.scrollWidth > el.clientWidth + 2) {
-        return true;
-      }
+  const load = async () => {
+    if (index) return index;
+    try {
+      const res = await fetch(base + '/assets/search.json');
+      index = (await res.json()).map((e) => ({ ...e, hay: [e.t, e.x, e.s, e.k].filter(Boolean).join(' ').toLowerCase(), title: e.t.toLowerCase() }));
+    } catch {
+      index = [];
     }
-    return false;
+    return index;
   };
 
-  document.addEventListener('touchstart', (event) => {
-    tracking = false;
-    if (event.touches.length !== 1) return;                       // a pinch
-    if (getComputedStyle(menuButton).display === 'none') return;   // desktop
-    const lightbox = document.getElementById('lightbox');
-    if (lightbox && !lightbox.hidden) return;                      // viewing a photo
-    if (horizontallyScrollable(event.target)) return;              // the carousel owns it
-    startX = event.touches[0].clientX;
-    startY = event.touches[0].clientY;
-    startAt = Date.now();
-    tracking = true;
-  }, { passive: true });
+  const hint = (text) => {
+    results.textContent = '';
+    const li = document.createElement('li');
+    li.className = 'search-hint';
+    li.textContent = text;
+    results.appendChild(li);
+  };
 
-  document.addEventListener('touchend', (event) => {
-    if (!tracking) return;
-    tracking = false;
-    const touch = event.changedTouches[0];
-    const dx = touch.clientX - startX;
-    const dy = touch.clientY - startY;
-    if (Date.now() - startAt > MAX_TIME) return;
-    if (Math.abs(dx) < MIN_TRAVEL) return;
-    if (Math.abs(dy) > Math.abs(dx) * MAX_SLOPE) return;           // mostly a scroll
-    const open = document.body.classList.contains('menu-open');
-    if (dx > 0 && !open) setMenu(true);
-    else if (dx < 0 && open) setMenu(false);
-  }, { passive: true });
+  const run = async () => {
+    const q = input.value.trim().toLowerCase();
+    if (q.length < 2) return hint('Type at least two letters — a topic, a researcher, an institution or a paper.');
+    const words = q.split(/\s+/);
+    const found = (await load())
+      .filter((e) => words.every((w) => e.hay.includes(w)))
+      .map((e) => ({ e, score: (e.title.startsWith(q) ? 3 : 0) + words.filter((w) => e.title.includes(w)).length }))
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 30);
+    if (!found.length) return hint(`Nothing matches “${input.value.trim()}”. Try fewer or shorter words.`);
+    results.textContent = '';
+    for (const { e } of found) {
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = e.u;
+      for (const [cls, text] of [['k', e.k], ['t', e.t], ['x', e.x]]) {
+        if (!text) continue;
+        const span = document.createElement('span');
+        span.className = cls;
+        span.textContent = text;
+        a.appendChild(span);
+      }
+      li.appendChild(a);
+      results.appendChild(li);
+    }
+  };
+
+  const open = () => {
+    lastFocus = document.activeElement;
+    panel.hidden = false;
+    document.body.style.overflow = 'hidden';
+    input.focus();
+    run();
+  };
+  const close = () => {
+    panel.hidden = true;
+    document.body.style.overflow = '';
+    lastFocus?.focus();
+  };
+
+  toggle.addEventListener('click', open);
+  panel.querySelector('.search-close').addEventListener('click', close);
+  panel.addEventListener('click', (event) => { if (event.target === panel) close(); });
+  input.addEventListener('input', run);
+  // A result that only jumps within the current page leaves the panel open
+  // over it; close on any click on a result.
+  results.addEventListener('click', (event) => { if (event.target.closest('a')) close(); });
+  document.addEventListener('keydown', (event) => {
+    if (!panel.hidden && event.key === 'Escape') { event.preventDefault(); close(); }
+    const typing = /^(input|textarea|select)$/i.test(event.target.tagName || '') || event.target.isContentEditable;
+    if (panel.hidden && event.key === '/' && !typing) { event.preventDefault(); open(); }
+  });
 }
 
 // Each language is its own URL, so switching is a navigation rather than a
@@ -597,7 +610,8 @@ function setupLanguageSwitcher() {
   select.addEventListener('change', () => {
     const lang = select.value;
     const slugPath = select.getAttribute('data-lang-base') || '';
-    window.location.href = lang === 'en' ? '/' + slugPath : '/' + lang + '/' + slugPath;
+    const base = select.getAttribute('data-site-base') || '';
+    window.location.href = base + (lang === 'en' ? '/' + slugPath : '/' + lang + '/' + slugPath);
   });
 }
 
@@ -609,7 +623,7 @@ function setupLanguageSwitcher() {
 function redirectLegacyHash() {
   const hash = location.hash.slice(1);
   if (!hash) return false;
-  const link = document.querySelector('.nav-tab[data-tab="' + CSS.escape(hash) + '"]');
+  const link = document.querySelector('[data-site-nav] a[data-tab="' + CSS.escape(hash) + '"]:not([data-section])');
   const href = link && link.getAttribute('href');
   if (!href || href === location.pathname) return false;
   location.replace(href);
@@ -628,6 +642,7 @@ if (!redirectLegacyHash()) {
   });
   setupMotion();
   setupMenu();
+  setupSearch();
   setupLanguageSwitcher();
   setupMediaSearch();
   setupArchive();
