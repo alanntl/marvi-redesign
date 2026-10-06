@@ -113,6 +113,13 @@ collections:
                   - { label: "Water (blue-green)", value: "water" }
                   - { label: "Copper", value: "copper" }
                   - { label: "Chalk (white)", value: "chalk" }
+          # Preview-copy settings (where the copy is served and which repo its
+          # CMS edits). Hidden so editors cannot change them, declared so a
+          # save keeps them.
+          - { label: "Site address", name: "url", widget: "hidden", required: false }
+          - { label: "Base path", name: "base", widget: "hidden", required: false }
+          - { label: "Hide from search engines", name: "noindex", widget: "hidden", required: false }
+          - { label: "CMS repository", name: "cms", widget: "hidden", required: false }
       # The header menu. A page that is not listed here still appears — it
       # joins the first tab's dropdown (or its parent's), so a new page can
       # never become unreachable or stop the site publishing.

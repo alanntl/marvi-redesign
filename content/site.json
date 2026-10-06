@@ -10,5 +10,12 @@
   "headerPhoto": {
     "brightness": 100,
     "overlay": 100
+  },
+  "url": "https://alanntl.github.io",
+  "base": "/marvi-redesign",
+  "noindex": true,
+  "cms": {
+    "repo": "alanntl/marvi-redesign",
+    "branch": "main"
   }
 }

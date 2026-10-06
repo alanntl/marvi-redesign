@@ -13,14 +13,9 @@ name: Auto-translate content
 # translations; that is intentional (the first deploy ships the English edit
 # immediately rather than waiting on the model).
 
+# PREVIEW COPY: runs only when started by hand from the Actions tab, never
+# on push, so staging this redesign cannot make a paid translation call.
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'content/**'
-      - 'index.html'
-      - 'src/templates.mjs'
-      - '!content/i18n.json'   # this job's own output — never re-trigger on it
   workflow_dispatch: {}
 
 permissions:
