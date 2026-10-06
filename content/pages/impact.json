@@ -34,15 +34,6 @@
   },
   "blocks": [
     {
-      "type": "banner",
-      "title": "What MARVI has achieved",
-      "lede": "",
-      "i18n": {
-        "title": "page.impact.b0.title",
-        "tabLabel": "page.impact.b0.tabLabel"
-      }
-    },
-    {
       "type": "statement",
       "tabLabel": "",
       "label": "",
@@ -78,45 +69,6 @@
         "metrics__3__label": "page.home.b0.metrics.3.label",
         "metrics__4__label": "page.home.b0.metrics.4.label",
         "tabLabel": "page.home.b0.tabLabel"
-      }
-    },
-    {
-      "type": "storyCards",
-      "look": "icons",
-      "title": "Evidence & outcomes",
-      "lede": "",
-      "items": [
-        {
-          "page": "publications",
-          "icon": "publication",
-          "title": "Publications",
-          "text": "Brochures and books from the project — free to download in English, Hindi and Gujarati. Grouped by kind; filter or search to narrow the list.",
-          "photo": {}
-        },
-        {
-          "page": "videos",
-          "icon": "video",
-          "title": "Videos",
-          "text": "A curated starting point from the new MARVI video archive—introductions, field stories, training and technical talks.",
-          "photo": {}
-        },
-        {
-          "page": "news",
-          "icon": "news",
-          "title": "MARVI in the news",
-          "text": "Selected journalism and project coverage from the new MARVI media archive.",
-          "photo": {}
-        }
-      ],
-      "i18n": {
-        "title": "page.impact.b2.title",
-        "items__0__title": "page.impact.b2.items.0.title",
-        "items__0__text": "page.impact.b2.items.0.text",
-        "items__1__title": "page.impact.b2.items.1.title",
-        "items__1__text": "page.impact.b2.items.1.text",
-        "items__2__title": "page.impact.b2.items.2.title",
-        "items__2__text": "page.impact.b2.items.2.text",
-        "tabLabel": "page.impact.b2.tabLabel"
       }
     },
     {
@@ -166,6 +118,27 @@
         "items__2__text": "page.impact.b3.items.2.text",
         "tabLabel": "page.impact.b3.tabLabel"
       }
+    },
+    {
+      "type": "storyCards",
+      "title": "",
+      "lede": "",
+      "items": [
+        {
+          "page": "evidence-outcomes",
+          "icon": "",
+          "title": "Evidence & outcomes",
+          "text": "Publications, films and the news coverage of MARVI’s work.",
+          "photo": {
+            "image": "/assets/marvi-originals/034-about-marvi.jpg",
+            "alt": "A researcher and a farmer taking a field measurement",
+            "zoom": 100,
+            "positionX": 50,
+            "positionY": 50,
+            "fit": "cover"
+          }
+        }
+      ]
     }
   ]
 }

@@ -18,155 +18,70 @@
     "textOffsetY": 0
   },
   "heroImage": {
-    "image": "/assets/marvi-originals/032-about-marvi.jpg",
+    "image": "/assets/marvi-originals/026-about-marvi.jpg",
+    "alt": "Villagers and researchers gathered under a tree",
     "zoom": 100,
     "positionX": 50,
     "positionY": 50,
-    "fit": "auto",
-    "alt": "Community members and researchers discussing a groundwater map"
+    "fit": "cover"
   },
   "menuImage": {
-    "image": "/assets/marvi-originals/032-about-marvi.jpg",
+    "image": "/assets/marvi-originals/026-about-marvi.jpg",
+    "alt": "Villagers and researchers gathered under a tree",
     "zoom": 100,
     "positionX": 50,
     "positionY": 50,
-    "fit": "auto"
+    "fit": "cover"
   },
   "blocks": [
     {
-      "type": "banner",
-      "title": "Use the MARVI approach",
-      "lede": "MARVI brings technical knowledge, community experience and practical monitoring together at village level.",
-      "i18n": {
-        "title": "page.collaborate.b0.title",
-        "lede": "page.collaborate.b0.lede",
-        "tabLabel": "page.collaborate.b0.tabLabel"
-      }
-    },
-    {
       "type": "storyCards",
-      "look": "icons",
       "title": "",
       "lede": "",
       "items": [
         {
-          "page": "approach",
+          "page": "use-the-marvi-approach",
           "icon": "approach",
-          "title": "The MARVI approach",
+          "title": "Use the MARVI approach",
           "text": "MARVI brings technical knowledge, community experience and practical monitoring together at village level.",
-          "photo": {}
+          "photo": {
+            "image": "/assets/marvi-originals/030-about-marvi.jpg",
+            "alt": "Farmers and a Bhujal Jankaar in the field",
+            "zoom": 100,
+            "positionX": 50,
+            "positionY": 50,
+            "fit": "cover"
+          }
         },
         {
-          "page": "bjs",
+          "page": "research-collaboration",
+          "icon": "knowledge",
+          "title": "Research collaboration",
+          "text": "The project works across hydrology, hydrogeology, agronomy, economics and social science. The result is not a report left on a shelf, but knowledge a community can use.",
+          "photo": {
+            "image": "/assets/marvi-originals/028-about-marvi.jpg",
+            "alt": "Researchers working through results together",
+            "zoom": 100,
+            "positionX": 50,
+            "positionY": 50,
+            "fit": "cover"
+          }
+        },
+        {
+          "page": "training-capacity-building",
           "icon": "people",
-          "title": "Bhujal Jankaars",
-          "text": "“Groundwater informed”: local volunteers who connect careful observation with community knowledge and collective action.",
-          "photo": {}
-        },
-        {
-          "page": "ourwater",
-          "icon": "tools",
-          "title": "OurWater app",
-          "text": "A free, community-focused water monitoring and learning app, built on the MARVI approach.",
-          "photo": {}
+          "title": "Training & capacity building",
+          "text": "These trained volunteers measure wells, rainfall, water quality and check dams. They interpret local patterns, explain them in the community’s own language and help farmers see that groundwater is both limited and shared.",
+          "photo": {
+            "image": "/assets/marvi-originals/025-about-marvi.jpg",
+            "alt": "A groundwater session in a village school",
+            "zoom": 100,
+            "positionX": 50,
+            "positionY": 50,
+            "fit": "cover"
+          }
         }
-      ],
-      "i18n": {
-        "items__0__title": "page.collaborate.b1.items.0.title",
-        "items__0__text": "page.collaborate.b1.items.0.text",
-        "items__1__title": "page.collaborate.b1.items.1.title",
-        "items__1__text": "page.collaborate.b1.items.1.text",
-        "items__2__title": "page.collaborate.b1.items.2.title",
-        "items__2__text": "ourwater.collaborate.text",
-        "tabLabel": "page.collaborate.b1.tabLabel"
-      }
-    },
-    {
-      "type": "banner",
-      "title": "Research collaboration",
-      "lede": "The project works across hydrology, hydrogeology, agronomy, economics and social science. The result is not a report left on a shelf, but knowledge a community can use.",
-      "i18n": {
-        "title": "page.collaborate.b2.title",
-        "lede": "page.collaborate.b2.lede",
-        "tabLabel": "page.collaborate.b2.tabLabel"
-      }
-    },
-    {
-      "type": "storyCards",
-      "look": "icons",
-      "title": "",
-      "lede": "",
-      "items": [
-        {
-          "page": "people",
-          "icon": "people",
-          "title": "People & Partners",
-          "text": "Researchers, practitioners and village volunteers in India and Australia working as one team.",
-          "photo": {}
-        },
-        {
-          "page": "publications",
-          "icon": "publication",
-          "title": "Publications",
-          "text": "Brochures and books from the project — free to download in English, Hindi and Gujarati. Grouped by kind; filter or search to narrow the list.",
-          "photo": {}
-        }
-      ],
-      "i18n": {
-        "items__0__title": "page.collaborate.b3.items.0.title",
-        "items__0__text": "page.collaborate.b3.items.0.text",
-        "items__1__title": "page.collaborate.b3.items.1.title",
-        "items__1__text": "page.collaborate.b3.items.1.text",
-        "tabLabel": "page.collaborate.b3.tabLabel"
-      }
-    },
-    {
-      "type": "banner",
-      "title": "Training & capacity building",
-      "lede": "These trained volunteers measure wells, rainfall, water quality and check dams. They interpret local patterns, explain them in the community’s own language and help farmers see that groundwater is both limited and shared.",
-      "i18n": {
-        "title": "page.collaborate.b4.title",
-        "lede": "page.collaborate.b4.lede",
-        "tabLabel": "page.collaborate.b4.tabLabel"
-      }
-    },
-    {
-      "type": "storyCards",
-      "look": "icons",
-      "title": "",
-      "lede": "",
-      "items": [
-        {
-          "page": "learn-groundwater",
-          "icon": "groundwater",
-          "title": "Learn about groundwater",
-          "text": "Rain moves through soil and rock into an aquifer. Wells reveal only a small window into a connected underground system.",
-          "photo": {}
-        },
-        {
-          "page": "game",
-          "icon": "game",
-          "title": "Groundwater game",
-          "text": "A whole village draws from one aquifer. Every crop and every turn reveals why groundwater decisions cannot be made alone.",
-          "photo": {}
-        },
-        {
-          "page": "videos",
-          "icon": "video",
-          "title": "Videos",
-          "text": "A curated starting point from the new MARVI video archive—introductions, field stories, training and technical talks.",
-          "photo": {}
-        }
-      ],
-      "i18n": {
-        "items__0__title": "page.collaborate.b5.items.0.title",
-        "items__0__text": "page.collaborate.b5.items.0.text",
-        "items__1__title": "page.collaborate.b5.items.1.title",
-        "items__1__text": "page.collaborate.b5.items.1.text",
-        "items__2__title": "page.collaborate.b5.items.2.title",
-        "items__2__text": "page.collaborate.b5.items.2.text",
-        "tabLabel": "page.collaborate.b5.tabLabel"
-      }
+      ]
     }
   ]
 }

@@ -1,0 +1,71 @@
+{
+  "menuName": "4-S Strategy",
+  "slug": "four-s-strategy",
+  "order": 34,
+  "published": true,
+  "template": "standard",
+  "intro": {
+    "eyebrowSize": 100,
+    "titleSize": 100,
+    "ledeSize": 100,
+    "textAlign": "left",
+    "textPosition": "bottom",
+    "textWidth": 100,
+    "textOffsetX": 0,
+    "textOffsetY": 0,
+    "eyebrow": "The MARVI approach",
+    "title": "The MARVI 4-S Strategy",
+    "lede": "Sense, Store, Share, Sustain — four steps a village takes to understand and manage the groundwater it shares."
+  },
+  "heroImage": {
+    "image": "/assets/marvi-originals/006-home.jpg",
+    "alt": "Planning the 4-S strategy together",
+    "zoom": 100,
+    "positionX": 50,
+    "positionY": 50,
+    "fit": "cover"
+  },
+  "menuImage": {
+    "image": "/assets/marvi-originals/006-home.jpg",
+    "alt": "Planning the 4-S strategy together",
+    "zoom": 100,
+    "positionX": 50,
+    "positionY": 50,
+    "fit": "cover"
+  },
+  "blocks": [
+    {
+      "type": "steps",
+      "visible": true,
+      "items": [
+        {
+          "title": "Sense",
+          "text": "Measure groundwater levels, rainfall, water quality and recharge structures with simple field tools.  Farmers, Bhujal Jaankaars and local citizens regularly measure groundwater levels, rainfall and other local water conditions to build a shared understanding of their groundwater system.\n\nUpload observations to OurWater and turn repeated measurements into understandable trends."
+        },
+        {
+          "title": "Store",
+          "text": "Capture and recharge more water locally. Communities identify practical ways to improve groundwater recharge, including farm-scale and community recharge interventions, such as  pits, ponds, check-dams  suited to local conditions."
+        },
+        {
+          "title": "Share",
+          "text": "Share groundwater more fairly and efficiently. \nCommunities explore cooperative approaches to groundwater use, including sharing groundwater between farmers, so more people benefit from available water.\nAlso, share learning and experiences with others for a better groundwater future in the region."
+        },
+        {
+          "title": "Sustain",
+          "text": "Use groundwater within its long-term limits. Monitoring, recharge and collective decision-making help communities balance groundwater use with replenishment and protect the resource for the future."
+        }
+      ],
+      "i18n": {
+        "items__0__title": "approach.step1.title",
+        "items__0__text": "approach.step1.desc",
+        "items__1__title": "approach.step2.title",
+        "items__1__text": "approach.step2.desc",
+        "items__2__title": "approach.step3.title",
+        "items__2__text": "approach.step3.desc",
+        "items__3__title": "approach.step4.title",
+        "items__3__text": "approach.step4.desc",
+        "tabLabel": "page.approach.b3.tabLabel"
+      }
+    }
+  ]
+}

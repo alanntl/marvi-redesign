@@ -1,0 +1,76 @@
+{
+  "menuName": "Use the MARVI approach",
+  "slug": "use-the-marvi-approach",
+  "order": 36,
+  "published": true,
+  "template": "standard",
+  "intro": {
+    "eyebrowSize": 100,
+    "titleSize": 100,
+    "ledeSize": 100,
+    "textAlign": "left",
+    "textPosition": "bottom",
+    "textWidth": 100,
+    "textOffsetX": 0,
+    "textOffsetY": 0,
+    "eyebrow": "Collaborate with MARVI",
+    "title": "Use the MARVI approach",
+    "lede": "MARVI brings technical knowledge, community experience and practical monitoring together at village level."
+  },
+  "heroImage": {
+    "image": "/assets/marvi-originals/030-about-marvi.jpg",
+    "alt": "Farmers and a Bhujal Jankaar in the field",
+    "zoom": 100,
+    "positionX": 50,
+    "positionY": 50,
+    "fit": "cover"
+  },
+  "menuImage": {
+    "image": "/assets/marvi-originals/030-about-marvi.jpg",
+    "alt": "Farmers and a Bhujal Jankaar in the field",
+    "zoom": 100,
+    "positionX": 50,
+    "positionY": 50,
+    "fit": "cover"
+  },
+  "blocks": [
+    {
+      "type": "storyCards",
+      "look": "icons",
+      "title": "",
+      "lede": "",
+      "items": [
+        {
+          "page": "approach",
+          "icon": "approach",
+          "title": "The MARVI approach",
+          "text": "MARVI brings technical knowledge, community experience and practical monitoring together at village level.",
+          "photo": {}
+        },
+        {
+          "page": "bjs",
+          "icon": "people",
+          "title": "Bhujal Jankaars",
+          "text": "“Groundwater informed”: local volunteers who connect careful observation with community knowledge and collective action.",
+          "photo": {}
+        },
+        {
+          "page": "ourwater",
+          "icon": "tools",
+          "title": "OurWater app",
+          "text": "A free, community-focused water monitoring and learning app, built on the MARVI approach.",
+          "photo": {}
+        }
+      ],
+      "i18n": {
+        "items__0__title": "page.collaborate.b1.items.0.title",
+        "items__0__text": "page.collaborate.b1.items.0.text",
+        "items__1__title": "page.collaborate.b1.items.1.title",
+        "items__1__text": "page.collaborate.b1.items.1.text",
+        "items__2__title": "page.collaborate.b1.items.2.title",
+        "items__2__text": "ourwater.collaborate.text",
+        "tabLabel": "page.collaborate.b1.tabLabel"
+      }
+    }
+  ]
+}

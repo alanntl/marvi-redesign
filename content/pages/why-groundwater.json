@@ -1,0 +1,89 @@
+{
+  "menuName": "Why groundwater?",
+  "slug": "why-groundwater",
+  "order": 31,
+  "published": true,
+  "template": "standard",
+  "intro": {
+    "eyebrowSize": 100,
+    "titleSize": 100,
+    "ledeSize": 100,
+    "textAlign": "left",
+    "textPosition": "bottom",
+    "textWidth": 100,
+    "textOffsetX": 0,
+    "textOffsetY": 0,
+    "eyebrow": "About MARVI",
+    "title": "Why groundwater?",
+    "lede": "Rain moves through soil and rock into an aquifer. Wells reveal only a small window into a connected underground system."
+  },
+  "heroImage": {
+    "image": "/assets/marvi-originals/005-home.jpg",
+    "alt": "A village recharge pond",
+    "zoom": 100,
+    "positionX": 50,
+    "positionY": 50,
+    "fit": "cover"
+  },
+  "menuImage": {
+    "image": "/assets/marvi-originals/005-home.jpg",
+    "alt": "A village recharge pond",
+    "zoom": 100,
+    "positionX": 50,
+    "positionY": 50,
+    "fit": "cover"
+  },
+  "blocks": [
+    {
+      "type": "cards",
+      "items": [
+        {
+          "number": "G / 01",
+          "title": "The aquifer is shared",
+          "text": "Water pumped from one well can affect neighbours drawing from the same underground store."
+        },
+        {
+          "number": "G / 02",
+          "title": "Rainfall is not recharge",
+          "text": "Only part of rain reaches groundwater; soils, geology, land use and structures shape the journey."
+        },
+        {
+          "number": "G / 03",
+          "title": "Trends need time",
+          "text": "A single reading is a snapshot. Repeated measurements reveal depletion, recovery and seasonal rhythm."
+        }
+      ],
+      "i18n": {
+        "items__0__title": "groundwater.card1.title",
+        "items__0__text": "groundwater.card1.desc",
+        "items__1__title": "groundwater.card2.title",
+        "items__1__text": "groundwater.card2.desc",
+        "items__2__title": "groundwater.card3.title",
+        "items__2__text": "groundwater.card3.desc",
+        "tabLabel": "page.learn-groundwater.b2.tabLabel"
+      }
+    },
+    {
+      "type": "storyCards",
+      "look": "icons",
+      "title": "",
+      "lede": "",
+      "items": [
+        {
+          "page": "learn-groundwater",
+          "icon": "groundwater",
+          "title": "Learn about groundwater",
+          "text": "Rain moves through soil and rock into an aquifer. Wells reveal only a small window into a connected underground system.",
+          "photo": {}
+        },
+        {
+          "page": "four-s-strategy",
+          "icon": "water",
+          "title": "The MARVI 4-S Strategy",
+          "text": "Sense, Store, Share, Sustain: how a village manages the aquifer it shares.",
+          "photo": {}
+        }
+      ]
+    }
+  ]
+}

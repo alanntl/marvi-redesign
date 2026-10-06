@@ -1,0 +1,71 @@
+{
+  "menuName": "Where we work",
+  "slug": "where-we-work",
+  "order": 33,
+  "published": true,
+  "template": "standard",
+  "intro": {
+    "eyebrowSize": 100,
+    "titleSize": 100,
+    "ledeSize": 100,
+    "textAlign": "left",
+    "textPosition": "bottom",
+    "textWidth": 100,
+    "textOffsetX": 0,
+    "textOffsetY": 0,
+    "eyebrow": "About MARVI",
+    "title": "Where MARVI works",
+    "lede": "MARVI acknowledges the women and men of the Dharta and Meghraj watersheds whose observations, experience and leadership shaped the project."
+  },
+  "heroImage": {
+    "image": "/assets/marvi-originals/040-about-marvi.jpg",
+    "alt": "Fieldwork in the Dharta watershed",
+    "zoom": 100,
+    "positionX": 50,
+    "positionY": 55,
+    "fit": "cover"
+  },
+  "menuImage": {
+    "image": "/assets/marvi-originals/040-about-marvi.jpg",
+    "alt": "Fieldwork in the Dharta watershed",
+    "zoom": 100,
+    "positionX": 50,
+    "positionY": 55,
+    "fit": "cover"
+  },
+  "blocks": [
+    {
+      "type": "split",
+      "left": {
+        "kind": "dataPanel",
+        "photo": {
+          "image": "assets/marvi-originals/022-about-marvi.jpg",
+          "alt": "A Bhujal Jankaar measuring a village well"
+        },
+        "stat": "35",
+        "caption": "Bhujal Jankaars — 25 Rajasthan · 10 Gujarat"
+      },
+      "right": {
+        "kind": "prose",
+        "lead": "A Bhujal Jankaar makes groundwater science legible—well by well, season by season, village by village.",
+        "paragraphs": [
+          "These trained volunteers measure wells, rainfall, water quality and check dams. They interpret local patterns, explain them in the community’s own language and help farmers see that groundwater is both limited and shared."
+        ]
+      },
+      "i18n": {
+        "left__caption": "bjs.data.caption",
+        "right__lead": "bjs.intro1",
+        "right__paragraphs__0": "bjs.intro2",
+        "right__features__0__title": "page.bjs.b0.right.features.0.title",
+        "right__features__0__text": "page.bjs.b0.right.features.0.text",
+        "right__features__1__title": "page.bjs.b0.right.features.1.title",
+        "right__features__1__text": "page.bjs.b0.right.features.1.text",
+        "right__features__2__title": "page.bjs.b0.right.features.2.title",
+        "right__features__2__text": "page.bjs.b0.right.features.2.text",
+        "right__features__3__title": "page.bjs.b0.right.features.3.title",
+        "right__features__3__text": "page.bjs.b0.right.features.3.text",
+        "tabLabel": "page.bjs.b0.tabLabel"
+      }
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "menuName": "MARVI journey",
+  "slug": "marvi-journey",
+  "order": 32,
+  "published": true,
+  "template": "standard",
+  "intro": {
+    "eyebrowSize": 100,
+    "titleSize": 100,
+    "ledeSize": 100,
+    "textAlign": "left",
+    "textPosition": "bottom",
+    "textWidth": 100,
+    "textOffsetX": 0,
+    "textOffsetY": 0,
+    "eyebrow": "The central question",
+    "title": "The MARVI journey",
+    "lede": "From a field journey that began in 2012 to 630 Bhujal Jankaars trained and 2908 wells monitored."
+  },
+  "heroImage": {
+    "image": "/assets/marvi-originals/039-about-marvi.jpg",
+    "alt": "The MARVI team, researchers and village volunteers",
+    "zoom": 100,
+    "positionX": 50,
+    "positionY": 50,
+    "fit": "cover"
+  },
+  "menuImage": {
+    "image": "/assets/marvi-originals/039-about-marvi.jpg",
+    "alt": "The MARVI team, researchers and village volunteers",
+    "zoom": 100,
+    "positionX": 50,
+    "positionY": 50,
+    "fit": "cover"
+  },
+  "blocks": [
+    {
+      "type": "statement",
+      "tabLabel": "",
+      "label": "",
+      "quote": "How can a village understand an invisible shared resource—and decide its future together?",
+      "metrics": [
+        {
+          "value": "2012",
+          "label": "The MARVI field journey began"
+        },
+        {
+          "value": "630",
+          "label": "Bhujal Jankaars trained"
+        },
+        {
+          "value": "105",
+          "label": "Number of female BJs trained"
+        },
+        {
+          "value": "505",
+          "label": "Number of male Bjs trained"
+        },
+        {
+          "value": "2908",
+          "label": "Number of wells monitored"
+        }
+      ],
+      "i18n": {
+        "metrics__2__label": "home.metric.aquifer",
+        "metrics__1__label": "home.metric.started",
+        "metrics__0__label": "home.metric.bjs",
+        "quote": "home.question",
+        "label": "home.central",
+        "metrics__3__label": "page.home.b0.metrics.3.label",
+        "metrics__4__label": "page.home.b0.metrics.4.label",
+        "tabLabel": "page.home.b0.tabLabel"
+      }
+    }
+  ]
+}

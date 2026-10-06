@@ -1,0 +1,76 @@
+{
+  "menuName": "Training & capacity building",
+  "slug": "training-capacity-building",
+  "order": 38,
+  "published": true,
+  "template": "standard",
+  "intro": {
+    "eyebrowSize": 100,
+    "titleSize": 100,
+    "ledeSize": 100,
+    "textAlign": "left",
+    "textPosition": "bottom",
+    "textWidth": 100,
+    "textOffsetX": 0,
+    "textOffsetY": 0,
+    "eyebrow": "Collaborate with MARVI",
+    "title": "Training & capacity building",
+    "lede": "These trained volunteers measure wells, rainfall, water quality and check dams. They interpret local patterns, explain them in the community’s own language and help farmers see that groundwater is both limited and shared."
+  },
+  "heroImage": {
+    "image": "/assets/marvi-originals/025-about-marvi.jpg",
+    "alt": "A groundwater session in a village school",
+    "zoom": 100,
+    "positionX": 50,
+    "positionY": 50,
+    "fit": "cover"
+  },
+  "menuImage": {
+    "image": "/assets/marvi-originals/025-about-marvi.jpg",
+    "alt": "A groundwater session in a village school",
+    "zoom": 100,
+    "positionX": 50,
+    "positionY": 50,
+    "fit": "cover"
+  },
+  "blocks": [
+    {
+      "type": "storyCards",
+      "look": "icons",
+      "title": "",
+      "lede": "",
+      "items": [
+        {
+          "page": "learn-groundwater",
+          "icon": "groundwater",
+          "title": "Learn about groundwater",
+          "text": "Rain moves through soil and rock into an aquifer. Wells reveal only a small window into a connected underground system.",
+          "photo": {}
+        },
+        {
+          "page": "game",
+          "icon": "game",
+          "title": "Groundwater game",
+          "text": "A whole village draws from one aquifer. Every crop and every turn reveals why groundwater decisions cannot be made alone.",
+          "photo": {}
+        },
+        {
+          "page": "videos",
+          "icon": "video",
+          "title": "Videos",
+          "text": "A curated starting point from the new MARVI video archive—introductions, field stories, training and technical talks.",
+          "photo": {}
+        }
+      ],
+      "i18n": {
+        "items__0__title": "page.collaborate.b5.items.0.title",
+        "items__0__text": "page.collaborate.b5.items.0.text",
+        "items__1__title": "page.collaborate.b5.items.1.title",
+        "items__1__text": "page.collaborate.b5.items.1.text",
+        "items__2__title": "page.collaborate.b5.items.2.title",
+        "items__2__text": "page.collaborate.b5.items.2.text",
+        "tabLabel": "page.collaborate.b5.tabLabel"
+      }
+    }
+  ]
+}

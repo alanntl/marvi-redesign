@@ -6,23 +6,19 @@
       "items": [
         {
           "label": "What is MARVI?",
-          "page": "about",
-          "section": "s-what-is-marvi"
+          "page": "what-is-marvi"
         },
         {
           "label": "Why groundwater?",
-          "page": "about",
-          "section": "s-why-groundwater"
+          "page": "why-groundwater"
         },
         {
           "label": "MARVI journey",
-          "page": "about",
-          "section": "s-the-marvi-journey"
+          "page": "marvi-journey"
         },
         {
           "label": "Where we work",
-          "page": "about",
-          "section": "s-where-marvi-works"
+          "page": "where-we-work"
         },
         {
           "label": "People & Partners",
@@ -40,8 +36,7 @@
         },
         {
           "label": "4-S Strategy",
-          "page": "approach",
-          "section": "s-the-marvi-4-s-strategy"
+          "page": "four-s-strategy"
         },
         {
           "label": "Bhujal Jankaars",
@@ -77,8 +72,7 @@
         },
         {
           "label": "Evidence & outcomes",
-          "page": "impact",
-          "section": "s-evidence-outcomes"
+          "page": "evidence-outcomes"
         },
         {
           "label": "MARVI in the news",
@@ -133,18 +127,15 @@
       "items": [
         {
           "label": "Use the MARVI approach",
-          "page": "collaborate",
-          "section": "s-use-the-marvi-approach"
+          "page": "use-the-marvi-approach"
         },
         {
           "label": "Research collaboration",
-          "page": "collaborate",
-          "section": "s-research-collaboration"
+          "page": "research-collaboration"
         },
         {
           "label": "Training & capacity building",
-          "page": "collaborate",
-          "section": "s-training-capacity-building"
+          "page": "training-capacity-building"
         }
       ]
     }

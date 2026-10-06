@@ -6,7 +6,7 @@
   "template": "standard",
   "intro": {
     "eyebrow": "MARVI:  Managing Aquifer Recharge & Sustaining Groundwater Use through Village level intervention",
-    "title": "What is MARVI?",
+    "title": "About MARVI",
     "lede": "MARVI puts groundwater science in the hands of the people who depend on it—farmers, schools, researchers and communities working together for water that lasts!",
     "eyebrowSize": 100,
     "titleSize": 100,
@@ -34,229 +34,81 @@
   },
   "blocks": [
     {
-      "type": "banner",
-      "title": "What is MARVI?",
-      "lede": "",
-      "i18n": {
-        "title": "page.about.b0.title",
-        "tabLabel": "page.about.b0.tabLabel"
-      }
-    },
-    {
-      "type": "split",
-      "tabLabel": "",
-      "left": {
-        "kind": "prose",
-        "lead": "The aim is to improve irrigation-water security and rural livelihoods by making the invisible visible.",
-        "stat": "",
-        "caption": ""
-      },
-      "right": {
-        "kind": "prose",
-        "lead": "",
-        "paragraphs": [
-          "Groundwater is often managed one well at a time, even though every bore draws from a connected aquifer. MARVI creates a shared picture through participatory monitoring, aquifer-recharge assessment and village dialogue.",
-          "The project works across hydrology, hydrogeology, agronomy, economics and social science. The result is not a report left on a shelf, but knowledge a community can use."
-        ],
-        "stat": "",
-        "caption": ""
-      },
-      "i18n": {
-        "left__lead": "approach.aim",
-        "right__paragraphs__0": "approach.shared",
-        "right__paragraphs__1": "approach.cross",
-        "tabLabel": "page.approach.b0.tabLabel"
-      }
-    },
-    {
       "type": "storyCards",
-      "eyebrow": "Inside MARVI",
-      "title": "A living practice, not a static study.",
-      "items": [
-        {
-          "title": "Science becomes useful when it becomes local and owned by people.",
-          "photo": {
-            "image": "/assets/marvi-originals/022-about-marvi.jpg",
-            "alt": "A Bhujal Jaankaar (BJ) (groundwater informed volunteer) taking a measurement beside a village well",
-            "zoom": 100,
-            "positionX": 50,
-            "positionY": 50,
-            "fit": "auto"
-          },
-          "page": "approach",
-          "label": "01 · The method"
-        },
-        {
-          "title": "Meet the village groundwater champions.",
-          "photo": {
-            "image": "/assets/marvi-originals/076-bhujal-jankaars-bjs.jpg",
-            "alt": "Bhujal Jankaars taking part in field training",
-            "zoom": 100,
-            "positionX": 50,
-            "positionY": 50,
-            "fit": "auto"
-          },
-          "page": "bjs",
-          "label": "02 · The people"
-        },
-        {
-          "title": "See local knowledge take shape in OurWater.",
-          "photo": {
-            "image": "/assets/marvi-originals/079-about-mywell-app.jpg",
-            "alt": "A Bhujal Jankaar recording a field observation",
-            "zoom": 100,
-            "positionX": 50,
-            "positionY": 50,
-            "fit": "auto"
-          },
-          "page": "ourwater",
-          "label": "03 · The platform"
-        }
-      ],
-      "lede": "Follow the work from village observation to shared groundwater decisions and cooperative groundwater management.",
-      "i18n": {
-        "items__2__label": "home.story3.label",
-        "items__1__label": "home.story2.label",
-        "items__0__label": "home.story1.label",
-        "lede": "home.explore.lede",
-        "title": "home.explore.title",
-        "eyebrow": "home.explore.eyebrow",
-        "items__0__title": "page.home.b1.items.0.title",
-        "items__1__title": "page.home.b1.items.1.title",
-        "items__2__title": "page.home.b1.items.2.title",
-        "tabLabel": "page.home.b1.tabLabel"
-      }
-    },
-    {
-      "type": "banner",
-      "title": "Why groundwater?",
-      "lede": "Rain moves through soil and rock into an aquifer. Wells reveal only a small window into a connected underground system.",
-      "i18n": {
-        "title": "page.about.b3.title",
-        "lede": "page.about.b3.lede",
-        "tabLabel": "page.about.b3.tabLabel"
-      }
-    },
-    {
-      "type": "cards",
-      "items": [
-        {
-          "number": "G / 01",
-          "title": "The aquifer is shared",
-          "text": "Water pumped from one well can affect neighbours drawing from the same underground store."
-        },
-        {
-          "number": "G / 02",
-          "title": "Rainfall is not recharge",
-          "text": "Only part of rain reaches groundwater; soils, geology, land use and structures shape the journey."
-        },
-        {
-          "number": "G / 03",
-          "title": "Trends need time",
-          "text": "A single reading is a snapshot. Repeated measurements reveal depletion, recovery and seasonal rhythm."
-        }
-      ],
-      "i18n": {
-        "items__0__title": "groundwater.card1.title",
-        "items__0__text": "groundwater.card1.desc",
-        "items__1__title": "groundwater.card2.title",
-        "items__1__text": "groundwater.card2.desc",
-        "items__2__title": "groundwater.card3.title",
-        "items__2__text": "groundwater.card3.desc",
-        "tabLabel": "page.learn-groundwater.b2.tabLabel"
-      }
-    },
-    {
-      "type": "banner",
-      "eyebrow": "The central question",
-      "title": "The MARVI journey",
+      "title": "",
       "lede": "",
-      "i18n": {
-        "eyebrow": "page.about.b5.eyebrow",
-        "title": "page.about.b5.title",
-        "tabLabel": "page.about.b5.tabLabel"
-      }
-    },
-    {
-      "type": "statement",
-      "tabLabel": "",
-      "label": "",
-      "quote": "How can a village understand an invisible shared resource—and decide its future together?",
-      "metrics": [
+      "items": [
         {
-          "value": "2012",
-          "label": "The MARVI field journey began"
+          "page": "what-is-marvi",
+          "icon": "",
+          "title": "What is MARVI?",
+          "text": "The aim is to improve irrigation-water security and rural livelihoods by making the invisible visible.",
+          "photo": {
+            "image": "/assets/marvi-originals/007-home.jpg",
+            "alt": "Villagers and researchers discussing groundwater together",
+            "zoom": 100,
+            "positionX": 50,
+            "positionY": 50,
+            "fit": "cover"
+          }
         },
         {
-          "value": "630",
-          "label": "Bhujal Jankaars trained"
+          "page": "why-groundwater",
+          "icon": "",
+          "title": "Why groundwater?",
+          "text": "Rain moves through soil and rock into an aquifer. Wells reveal only a small window into a connected underground system.",
+          "photo": {
+            "image": "/assets/marvi-originals/005-home.jpg",
+            "alt": "A village recharge pond",
+            "zoom": 100,
+            "positionX": 50,
+            "positionY": 50,
+            "fit": "cover"
+          }
         },
         {
-          "value": "105",
-          "label": "Number of female BJs trained"
+          "page": "marvi-journey",
+          "icon": "",
+          "title": "The MARVI journey",
+          "text": "How can a village understand an invisible shared resource—and decide its future together?",
+          "photo": {
+            "image": "/assets/marvi-originals/039-about-marvi.jpg",
+            "alt": "The MARVI team, researchers and village volunteers",
+            "zoom": 100,
+            "positionX": 50,
+            "positionY": 50,
+            "fit": "cover"
+          }
         },
         {
-          "value": "505",
-          "label": "Number of male Bjs trained"
+          "page": "where-we-work",
+          "icon": "",
+          "title": "Where MARVI works",
+          "text": "MARVI acknowledges the women and men of the Dharta and Meghraj watersheds whose observations, experience and leadership shaped the project.",
+          "photo": {
+            "image": "/assets/marvi-originals/040-about-marvi.jpg",
+            "alt": "Fieldwork in the Dharta watershed",
+            "zoom": 100,
+            "positionX": 50,
+            "positionY": 55,
+            "fit": "cover"
+          }
         },
         {
-          "value": "2908",
-          "label": "Number of wells monitored"
+          "page": "people",
+          "icon": "",
+          "title": "People & Partners",
+          "text": "Researchers, practitioners and village volunteers in India and Australia working as one team.",
+          "photo": {
+            "image": "/assets/marvi-originals/036-about-marvi.jpg",
+            "alt": "Researchers and partners from India and Australia at a MARVI workshop",
+            "zoom": 100,
+            "positionX": 50,
+            "positionY": 50,
+            "fit": "cover"
+          }
         }
-      ],
-      "i18n": {
-        "metrics__2__label": "home.metric.aquifer",
-        "metrics__1__label": "home.metric.started",
-        "metrics__0__label": "home.metric.bjs",
-        "quote": "home.question",
-        "label": "home.central",
-        "metrics__3__label": "page.home.b0.metrics.3.label",
-        "metrics__4__label": "page.home.b0.metrics.4.label",
-        "tabLabel": "page.home.b0.tabLabel"
-      }
-    },
-    {
-      "type": "banner",
-      "title": "Where MARVI works",
-      "lede": "MARVI acknowledges the women and men of the Dharta and Meghraj watersheds whose observations, experience and leadership shaped the project.",
-      "i18n": {
-        "title": "page.about.b7.title",
-        "lede": "page.about.b7.lede",
-        "tabLabel": "page.about.b7.tabLabel"
-      }
-    },
-    {
-      "type": "split",
-      "left": {
-        "kind": "dataPanel",
-        "photo": {
-          "image": "assets/marvi-originals/022-about-marvi.jpg",
-          "alt": "A Bhujal Jankaar measuring a village well"
-        },
-        "stat": "35",
-        "caption": "Bhujal Jankaars — 25 Rajasthan · 10 Gujarat"
-      },
-      "right": {
-        "kind": "prose",
-        "lead": "A Bhujal Jankaar makes groundwater science legible—well by well, season by season, village by village.",
-        "paragraphs": [
-          "These trained volunteers measure wells, rainfall, water quality and check dams. They interpret local patterns, explain them in the community’s own language and help farmers see that groundwater is both limited and shared."
-        ]
-      },
-      "i18n": {
-        "left__caption": "bjs.data.caption",
-        "right__lead": "bjs.intro1",
-        "right__paragraphs__0": "bjs.intro2",
-        "right__features__0__title": "page.bjs.b0.right.features.0.title",
-        "right__features__0__text": "page.bjs.b0.right.features.0.text",
-        "right__features__1__title": "page.bjs.b0.right.features.1.title",
-        "right__features__1__text": "page.bjs.b0.right.features.1.text",
-        "right__features__2__title": "page.bjs.b0.right.features.2.title",
-        "right__features__2__text": "page.bjs.b0.right.features.2.text",
-        "right__features__3__title": "page.bjs.b0.right.features.3.title",
-        "right__features__3__text": "page.bjs.b0.right.features.3.text",
-        "tabLabel": "page.bjs.b0.tabLabel"
-      }
+      ]
     }
   ]
 }

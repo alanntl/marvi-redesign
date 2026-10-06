@@ -149,6 +149,22 @@ function composeDocument() {
     });
   }
 
+  /* The pages of the tab a page belongs to: the tab's own page first (unless
+   * a dropdown entry already stands for it), then its dropdown pages. A page
+   * listed under two tabs (Videos) takes the first; the home page has none. */
+  const tabPages = (page) => {
+    if (page.slug === PAGES[0].slug) return [];
+    const tab = NAV.find((t) => t.page.slug === page.slug)
+      || NAV.find((t) => t.items.some((i) => i.page && !i.url && i.page.slug === page.slug));
+    if (!tab) return [];
+    const entries = [];
+    const seen = new Set();
+    const add = (e) => { if (e.page && !e.url && !seen.has(e.page.slug)) { seen.add(e.page.slug); entries.push({ ...e, items: [], tabLabel: tab.label }); } };
+    if (!tab.items.some((i) => i.page && i.page.slug === tab.page.slug)) add(tab);
+    tab.items.forEach(add);
+    return entries;
+  };
+
   // Render every page's panel into <main id="content"> — the layout CSS
   // positions panels relative to that container, not <body>. All panels must
   // be present so captureEnglish/applyLanguage see every string once; the
@@ -162,6 +178,47 @@ function composeDocument() {
       urlFor: (id) => href('en', pageById.get(id) || PAGES[0]),
       parent: parent ? { slug: parent.slug } : null
     });
+    // Every tab and sub-tab is its own page. Under the page head, a bar lists
+    // the pages of this page's tab (this one marked), and the foot of the page
+    // leads on to the next one — so a tab reads as a set of pages, not one
+    // long page. Labels carry the menu's translation keys.
+    const group = tabPages(page);
+    if (group.length > 1) {
+      const here = group.findIndex((e) => e.page.slug === page.slug);
+      const bar = document.createElement('nav');
+      bar.className = 'subnav';
+      bar.setAttribute('aria-label', group[0].tabLabel);
+      const list = document.createElement('ul');
+      group.forEach((entry, k) => {
+        const li = document.createElement('li');
+        const a = navLink(entry, 'subnav-link');
+        if (k === here) { a.classList.add('is-current'); a.setAttribute('aria-current', 'page'); }
+        li.appendChild(a);
+        list.appendChild(li);
+      });
+      bar.appendChild(list);
+      const head = section.querySelector('.page-head');
+      if (head) head.after(bar);
+      const next = group[here + 1];
+      const wrap = section.querySelector('.content-wrap');
+      if (next && wrap) {
+        const foot = document.createElement('nav');
+        foot.className = 'next-page';
+        foot.setAttribute('aria-label', group[0].tabLabel);
+        const a = navLink(next, 'next-page-link');
+        // The translation pass rewrites the text of whatever carries the key,
+        // so the label gets its own element and the arrow survives it.
+        const label = document.createElement('span');
+        label.setAttribute('data-i18n', a.getAttribute('data-i18n'));
+        label.textContent = a.textContent;
+        a.removeAttribute('data-i18n');
+        a.textContent = '';
+        a.appendChild(label);
+        a.insertAdjacentHTML('beforeend', '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg>');
+        foot.appendChild(a);
+        wrap.appendChild(foot);
+      }
+    }
     section.setAttribute('hidden', '');
     main.appendChild(section);
   });

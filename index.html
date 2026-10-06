@@ -479,6 +479,11 @@
     .page-head h1 { max-width: 44rem; color: var(--white); font-size: clamp(3.5rem, 6.7vw, 5.5rem); line-height: 1.02; letter-spacing: -0.03em; }
     .page-head .lede { margin-top: 18px; max-width: 44rem; color: rgba(251, 250, 246, 0.86); }
     .page-head .eyebrow { color: var(--copper-light); }
+    /* On a bright photograph the small label would vanish: it sits on a chip. */
+    .page-head.has-cover .eyebrow, .home-hero:not(.home-hero--text) .hero-copy .eyebrow {
+      display: inline-block; padding: 5px 10px 4px; border-radius: 3px;
+      background: rgba(var(--scrim), 0.62); text-shadow: none;
+    }
     .page-head .eyebrow a { color: inherit; text-decoration: none; }
     .page-head :focus-visible { outline-color: var(--copper-light); }
     .page-head[data-text-align="center"] { text-align: center; }
@@ -1110,6 +1115,53 @@
        under the pointer and cards lift; the menu underline slides in. All
        transform and opacity, all inside a no-preference query, so anyone who
        has asked for less motion gets a still page. */
+    /* ── a tab's pages: the bar under the page head, and the next page ────
+       Every tab and sub-tab is its own page. The bar names the pages of this
+       tab and marks this one; it stays in view under the menu while reading.
+       It scrolls sideways on a phone rather than wrapping into a block. */
+    .subnav {
+      position: sticky; top: var(--nav-h); z-index: 40;
+      background: color-mix(in srgb, var(--paper) 94%, transparent);
+      -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+    .subnav ul {
+      display: flex; gap: 4px 28px; margin: 0 auto; padding: 0 var(--gutter);
+      max-width: calc(var(--wrap) + 2 * var(--gutter));
+      list-style: none; overflow-x: auto; scrollbar-width: none;
+    }
+    .subnav ul::-webkit-scrollbar { display: none; }
+    @media (max-width: 760px) {
+      .subnav ul { -webkit-mask-image: linear-gradient(90deg, #000 85%, transparent); mask-image: linear-gradient(90deg, #000 85%, transparent); padding-right: 40px; }
+      [dir="rtl"] .subnav ul { -webkit-mask-image: linear-gradient(270deg, #000 85%, transparent); mask-image: linear-gradient(270deg, #000 85%, transparent); padding-right: var(--gutter); padding-left: 40px; }
+    }
+    .subnav li { flex: none; }
+    .subnav-link {
+      display: block; padding: 15px 0 12px; border-bottom: 3px solid transparent;
+      color: var(--muted); font-size: 0.9375rem; font-weight: 600; white-space: nowrap; text-decoration: none;
+      transition: color .2s ease, border-color .2s ease;
+    }
+    .subnav-link:hover { color: var(--ink); border-bottom-color: var(--line); }
+    .subnav-link.is-current { color: var(--ink); border-bottom-color: var(--copper); }
+    @media (max-width: 959px) { .subnav { top: var(--header-h); } }
+    .content-wrap:has(> .subnav) [id], main:has(.subnav) [id] { scroll-margin-top: calc(var(--nav-h) + 72px); }
+
+    .next-page {
+      display: flex; justify-content: flex-end;
+      margin: -32px 0 88px; padding-top: 28px; border-top: 1px solid var(--line);
+    }
+    .content-wrap:has(> .next-page) .section-body > .tone-band:last-child { margin-bottom: 0; }
+    .next-page-link {
+      display: inline-flex; align-items: center; gap: 16px;
+      color: var(--ink); font-size: clamp(1.25rem, 2.4vw, 1.75rem); font-weight: 600; letter-spacing: -0.02em;
+      text-decoration: none;
+    }
+    .next-page-link svg { flex: none; width: 30px; height: 30px; padding: 8px; box-sizing: content-box; border-radius: 50%; background: var(--copper-ink); color: #FFFFFF; transition: transform .3s cubic-bezier(.2, .7, .2, 1); }
+    .next-page-link:hover { color: var(--copper-ink); }
+    .next-page-link:hover svg { transform: translateX(6px); }
+    [dir="rtl"] .next-page-link svg { scale: -1 1; }
+    [dir="rtl"] .next-page-link:hover svg { transform: translateX(-6px); }
+
     /* ── phones: app screens shown whole, in a phone ─────────────────────
        A stage beside text (the first screen in front, two fanned behind, a
        chip floating at the side) and a tour row with captions. The screens

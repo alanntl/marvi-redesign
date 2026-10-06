@@ -627,6 +627,18 @@ function setupLanguageSwitcher() {
 // Before per-page URLs existed the site routed on #slug. Anyone arriving from
 // an old bookmark or shared link lands on the home page with a stale fragment;
 // send them to the real URL instead of silently showing the wrong section.
+/* On a phone the bar of a tab's pages scrolls sideways; bring this page's
+ * entry into view so a later page (Training & capacity building) is not
+ * hidden off the edge. Only the bar moves, never the page. */
+function setupSubnav() {
+  const current = document.querySelector('.subnav .is-current');
+  const list = current && current.closest('ul');
+  if (!list || list.scrollWidth <= list.clientWidth + 1) return;
+  const box = list.getBoundingClientRect();
+  const item = current.getBoundingClientRect();
+  list.scrollLeft += item.left - box.left - (box.width - item.width) / 2;
+}
+
 function redirectLegacyHash() {
   const hash = location.hash.slice(1);
   if (!hash) return false;
@@ -648,6 +660,7 @@ if (!redirectLegacyHash()) {
     });
   });
   setupMotion();
+  setupSubnav();
   setupMenu();
   setupSearch();
   setupLanguageSwitcher();
