@@ -22,6 +22,51 @@ const DESIGNS = [
     ]
   ],
   [
+    "Colourful — new top bars",
+    [
+      [
+        "rangoli",
+        "Rangoli — magenta bar, saffron button"
+      ],
+      [
+        "mango",
+        "Mango & leaf — green bar, mango button"
+      ],
+      [
+        "peacock",
+        "Peacock — deep green-teal bar, gold button"
+      ],
+      [
+        "holi",
+        "Holi — magenta-to-orange gradient bar"
+      ],
+      [
+        "turmeric",
+        "Turmeric — yellow brand row, brown menu"
+      ],
+      [
+        "henna",
+        "Henna — burnt-orange bar, cream button"
+      ],
+      [
+        "lotus",
+        "Lotus — pink brand row, plum menu"
+      ],
+      [
+        "paddy",
+        "Paddy — deep-green gradient bar, lime button"
+      ],
+      [
+        "thar",
+        "Thar sunset — plum-to-rust gradient bar"
+      ],
+      [
+        "kesari",
+        "Kesari — saffron brand row, green menu"
+      ]
+    ]
+  ],
+  [
     "Earthy",
     [
       [
