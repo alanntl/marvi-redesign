@@ -22,6 +22,35 @@ const DESIGNS = [
     ]
   ],
   [
+    "Original (teal) — bars in different colours",
+    [
+      [
+        "og-paperteal",
+        "Original — paper top, teal menu"
+      ],
+      [
+        "og-tealsand",
+        "Original — teal top, sand menu"
+      ],
+      [
+        "og-twoteal",
+        "Original — deep teal top, mid teal menu"
+      ],
+      [
+        "og-tealcopper",
+        "Original — teal top, copper menu"
+      ],
+      [
+        "og-copperteal",
+        "Original — copper top, teal menu"
+      ],
+      [
+        "og-whiteteal",
+        "Original — white top, mid teal menu"
+      ]
+    ]
+  ],
+  [
     "Field note — top bar options",
     [
       [
