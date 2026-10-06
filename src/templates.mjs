@@ -41,6 +41,9 @@ const multiline = (document, node, value) => {
 /* Mirror of layout-model.js (the runtime's MarviLayout) — the maths the CMS
  * layout controls are defined by. Kept in sync by hand; it is 12 lines. */
 const clamp = (value, min, max, fallback) => {
+  // The CMS stores an untouched number field as null; that means "default",
+  // not zero (Number(null) is 0, which would clamp brightness to 20%).
+  if (value == null || value === '') return fallback;
   const n = Number(value);
   return Number.isFinite(n) ? Math.min(max, Math.max(min, n)) : fallback;
 };
@@ -1407,8 +1410,8 @@ const standardHead = (document, page, { index, total }) => {
   if (intro.lede != null) inner.appendChild(el(document, 'p', { class: 'lede', text: intro.lede }));
   head.appendChild(inner);
   applyTextControls(head, intro);
-  // The header photograph sits beside the title. (It used to be painted behind
-  // it as a cover; the title now sits on navy and the photograph is a picture.)
+  // The header photograph is painted behind the title, edge to edge, under a
+  // dark scrim — the field-note look of the earlier MARVI site.
   if (page.heroImage?.image) {
     head.classList.add('has-cover');
     const media = el(document, 'figure', { class: 'page-head-media' });
@@ -1503,8 +1506,10 @@ export function renderPage(document, page, ctx) {
     return section;
   }
 
+  // The page head sits outside the content column so its photograph can run
+  // the full width of the window; its text keeps to the column.
+  section.appendChild(standardHead(document, page, ctx));
   const wrap = el(document, 'div', { class: 'content-wrap' });
-  wrap.appendChild(standardHead(document, page, ctx));
   const body = el(document, 'div', { class: 'section-body' });
   coreNodes.forEach((n) => body.appendChild(n));
   wrap.appendChild(body);

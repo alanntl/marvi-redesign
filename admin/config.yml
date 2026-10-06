@@ -404,7 +404,7 @@ collections:
               - { label: "Heading", name: "title", widget: "string" }
               - { label: "Text", name: "lede", widget: "text", required: false }
               - { label: "Label colour", name: "accent", widget: "string", required: false, hint: "Kept from the earlier design; the new design does not colour labels." }
-              - { label: "Background", name: "tone", widget: "select", required: false, default: "", options: [{ label: "White", value: "" }, { label: "Pale blue", value: "sky" }, { label: "Deep navy", value: "deep" }, { label: "Pale green", value: "sand" }], hint: "Colours this heading and everything below it, up to the next heading. Consecutive headings with the same background share one band." }
+              - { label: "Background", name: "tone", widget: "select", required: false, default: "", options: [{ label: "White", value: "" }, { label: "Warm sand", value: "sky" }, { label: "Deep green", value: "deep" }, { label: "Pale copper", value: "sand" }], hint: "Colours this heading and everything below it, up to the next heading. Consecutive headings with the same background share one band." }
               - { label: "i18n", name: "i18n", widget: "hidden", required: false }
           - label: "Statement with numbers"
             name: "statement"
@@ -431,7 +431,7 @@ collections:
               - { label: "Small label", name: "eyebrow", widget: "string", required: false }
               - { label: "Heading", name: "title", widget: "string", required: false, hint: "Leave empty when a section heading just above already introduces these cards — they then join that heading's background." }
               - { label: "Text", name: "lede", widget: "text", required: false }
-              - { label: "Background", name: "tone", widget: "select", required: false, default: "", options: [{ label: "White", value: "" }, { label: "Pale blue band", value: "sky" }] }
+              - { label: "Background", name: "tone", widget: "select", required: false, default: "", options: [{ label: "White", value: "" }, { label: "Warm sand band", value: "sky" }] }
               - { label: "Card style", name: "look", widget: "select", required: false, default: "", options: [{ label: "Photo cards", value: "" }, { label: "Icon cards", value: "icons" }], hint: "Icon cards show each card's icon instead of its photo." }
               - label: "Cards"
                 name: "items"
