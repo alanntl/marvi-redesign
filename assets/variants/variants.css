@@ -1,5 +1,5 @@
 /*
- * Design preview — forty-three looks for MARVI over the same content.
+ * Design preview — fifty-three looks for MARVI over the same content.
  *
  * Loaded only when content/site.json has "designPreview": true (the staging
  * copy). "Field note" is the base stylesheet in index.html; every other
@@ -117,6 +117,90 @@ html[data-design="bandhani"] .hero-image-stage::before {
 html[data-design="contour"] { --contour: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='640' height='640' viewBox='0 0 640 640' fill='none' stroke='%23A8742F' stroke-width='1.1' opacity='.35'%3E%3Cpath d='M-20 120c90-60 170 40 260-10s150-90 240-30 120 60 180 30'/%3E%3Cpath d='M-20 160c90-60 170 40 260-10s150-90 240-30 120 60 180 30'/%3E%3Cpath d='M-20 200c90-60 170 40 260-10s150-90 240-30 120 60 180 30'/%3E%3Cpath d='M-20 330c80 40 150-50 240-10s160 80 250 20 110-40 190 0'/%3E%3Cpath d='M-20 370c80 40 150-50 240-10s160 80 250 20 110-40 190 0'/%3E%3Cpath d='M-20 410c80 40 150-50 240-10s160 80 250 20 110-40 190 0'/%3E%3Cellipse cx='470' cy='520' rx='70' ry='38'/%3E%3Cellipse cx='470' cy='520' rx='110' ry='62'/%3E%3Cellipse cx='470' cy='520' rx='150' ry='86'/%3E%3Cellipse cx='130' cy='560' rx='46' ry='26'/%3E%3Cellipse cx='130' cy='560' rx='84' ry='48'/%3E%3C/svg%3E"); }
 html[data-design="contour"] :is(.tone-band, .site-footer) { background-image: var(--contour); background-size: 640px 640px; }
 html[data-design="contour"] .tone-band[data-tone="deep"] { background-blend-mode: screen; }
+
+/* ── field note — ten top-bar colours ────────────────────────────────
+   Field note unchanged, including its dark menu bar; only the logo row
+   across the top takes a colour, so the two bars always differ. */
+html[data-design="tc-copper"] { --bar: #934F2D; --cta-bg: #FFFFFF; --cta-ink: #17201E; --cta-hover: #F1EEE7; }
+html[data-design="tc-copper"] .site-header { background: #934F2D; border-bottom: 0; }
+html[data-design="tc-copper"] :is(.brand-word, .brand) { color: #FFFFFF; }
+html[data-design="tc-copper"] .brand-note { color: #F2EAE6; }
+html[data-design="tc-copper"] .brand-mark { background: #FFFFFF; border-radius: 10px; padding: 3px; }
+html[data-design="tc-copper"] :is(.search-toggle, .menu-toggle) { background: transparent; border-color: rgba(255, 255, 255, 0.5); color: #FFFFFF; }
+html[data-design="tc-copper"] .lang-switch select { border-color: rgba(255, 255, 255, 0.5); color: #FFFFFF; background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 4.5 6 8.5 10 4.5' fill='none' stroke='%23FFFFFF' stroke-width='1.6'/%3E%3C/svg%3E") right 14px center / 11px no-repeat; }
+html[data-design="tc-copper"] .lang-switch option { color: #17201E; }
+html[data-design="tc-terracotta"] { --bar: #B23A2A; --cta-bg: #FFFFFF; --cta-ink: #17201E; --cta-hover: #F1EEE7; }
+html[data-design="tc-terracotta"] .site-header { background: #B23A2A; border-bottom: 0; }
+html[data-design="tc-terracotta"] :is(.brand-word, .brand) { color: #FFFFFF; }
+html[data-design="tc-terracotta"] .brand-note { color: #F6E7E5; }
+html[data-design="tc-terracotta"] .brand-mark { background: #FFFFFF; border-radius: 10px; padding: 3px; }
+html[data-design="tc-terracotta"] :is(.search-toggle, .menu-toggle) { background: transparent; border-color: rgba(255, 255, 255, 0.5); color: #FFFFFF; }
+html[data-design="tc-terracotta"] .lang-switch select { border-color: rgba(255, 255, 255, 0.5); color: #FFFFFF; background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 4.5 6 8.5 10 4.5' fill='none' stroke='%23FFFFFF' stroke-width='1.6'/%3E%3C/svg%3E") right 14px center / 11px no-repeat; }
+html[data-design="tc-terracotta"] .lang-switch option { color: #17201E; }
+html[data-design="tc-rose"] { --bar: #B8185A; --cta-bg: #FFFFFF; --cta-ink: #17201E; --cta-hover: #F1EEE7; }
+html[data-design="tc-rose"] .site-header { background: #B8185A; border-bottom: 0; }
+html[data-design="tc-rose"] :is(.brand-word, .brand) { color: #FFFFFF; }
+html[data-design="tc-rose"] .brand-note { color: #F6E3EB; }
+html[data-design="tc-rose"] .brand-mark { background: #FFFFFF; border-radius: 10px; padding: 3px; }
+html[data-design="tc-rose"] :is(.search-toggle, .menu-toggle) { background: transparent; border-color: rgba(255, 255, 255, 0.5); color: #FFFFFF; }
+html[data-design="tc-rose"] .lang-switch select { border-color: rgba(255, 255, 255, 0.5); color: #FFFFFF; background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 4.5 6 8.5 10 4.5' fill='none' stroke='%23FFFFFF' stroke-width='1.6'/%3E%3C/svg%3E") right 14px center / 11px no-repeat; }
+html[data-design="tc-rose"] .lang-switch option { color: #17201E; }
+html[data-design="tc-plum"] { --bar: #6B2D5C; --cta-bg: #FFFFFF; --cta-ink: #17201E; --cta-hover: #F1EEE7; }
+html[data-design="tc-plum"] .site-header { background: #6B2D5C; border-bottom: 0; }
+html[data-design="tc-plum"] :is(.brand-word, .brand) { color: #FFFFFF; }
+html[data-design="tc-plum"] .brand-note { color: #EDE6EB; }
+html[data-design="tc-plum"] .brand-mark { background: #FFFFFF; border-radius: 10px; padding: 3px; }
+html[data-design="tc-plum"] :is(.search-toggle, .menu-toggle) { background: transparent; border-color: rgba(255, 255, 255, 0.5); color: #FFFFFF; }
+html[data-design="tc-plum"] .lang-switch select { border-color: rgba(255, 255, 255, 0.5); color: #FFFFFF; background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 4.5 6 8.5 10 4.5' fill='none' stroke='%23FFFFFF' stroke-width='1.6'/%3E%3C/svg%3E") right 14px center / 11px no-repeat; }
+html[data-design="tc-plum"] .lang-switch option { color: #17201E; }
+html[data-design="tc-teal"] { --bar: #2F6F7D; --cta-bg: #FFFFFF; --cta-ink: #17201E; --cta-hover: #F1EEE7; }
+html[data-design="tc-teal"] .site-header { background: #2F6F7D; border-bottom: 0; }
+html[data-design="tc-teal"] :is(.brand-word, .brand) { color: #FFFFFF; }
+html[data-design="tc-teal"] .brand-note { color: #E6EEEF; }
+html[data-design="tc-teal"] .brand-mark { background: #FFFFFF; border-radius: 10px; padding: 3px; }
+html[data-design="tc-teal"] :is(.search-toggle, .menu-toggle) { background: transparent; border-color: rgba(255, 255, 255, 0.5); color: #FFFFFF; }
+html[data-design="tc-teal"] .lang-switch select { border-color: rgba(255, 255, 255, 0.5); color: #FFFFFF; background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 4.5 6 8.5 10 4.5' fill='none' stroke='%23FFFFFF' stroke-width='1.6'/%3E%3C/svg%3E") right 14px center / 11px no-repeat; }
+html[data-design="tc-teal"] .lang-switch option { color: #17201E; }
+html[data-design="tc-leaf"] { --bar: #336B30; --cta-bg: #FFFFFF; --cta-ink: #17201E; --cta-hover: #F1EEE7; }
+html[data-design="tc-leaf"] .site-header { background: #336B30; border-bottom: 0; }
+html[data-design="tc-leaf"] :is(.brand-word, .brand) { color: #FFFFFF; }
+html[data-design="tc-leaf"] .brand-note { color: #E7EDE6; }
+html[data-design="tc-leaf"] .brand-mark { background: #FFFFFF; border-radius: 10px; padding: 3px; }
+html[data-design="tc-leaf"] :is(.search-toggle, .menu-toggle) { background: transparent; border-color: rgba(255, 255, 255, 0.5); color: #FFFFFF; }
+html[data-design="tc-leaf"] .lang-switch select { border-color: rgba(255, 255, 255, 0.5); color: #FFFFFF; background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 4.5 6 8.5 10 4.5' fill='none' stroke='%23FFFFFF' stroke-width='1.6'/%3E%3C/svg%3E") right 14px center / 11px no-repeat; }
+html[data-design="tc-leaf"] .lang-switch option { color: #17201E; }
+html[data-design="tc-lime"] { --bar: #A6CE39; --cta-bg: #17201E; --cta-ink: #FFFFFF; --cta-hover: #2B3733; }
+html[data-design="tc-lime"] .site-header { background: #A6CE39; border-bottom: 0; }
+html[data-design="tc-lime"] :is(.brand-word, .brand) { color: #17201E; }
+html[data-design="tc-lime"] .brand-note { color: #283521; }
+html[data-design="tc-lime"] .brand-mark { background: #FFFFFF; border-radius: 10px; padding: 3px; }
+html[data-design="tc-lime"] :is(.search-toggle, .menu-toggle) { background: transparent; border-color: rgba(23, 32, 30, 0.38); color: #17201E; }
+html[data-design="tc-lime"] .lang-switch select { border-color: rgba(23, 32, 30, 0.38); color: #17201E; background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 4.5 6 8.5 10 4.5' fill='none' stroke='%2317201E' stroke-width='1.6'/%3E%3C/svg%3E") right 14px center / 11px no-repeat; }
+html[data-design="tc-lime"] .lang-switch option { color: #17201E; }
+html[data-design="tc-sage"] { --bar: #A9C79A; --cta-bg: #17201E; --cta-ink: #FFFFFF; --cta-hover: #2B3733; }
+html[data-design="tc-sage"] .site-header { background: #A9C79A; border-bottom: 0; }
+html[data-design="tc-sage"] :is(.brand-word, .brand) { color: #17201E; }
+html[data-design="tc-sage"] .brand-note { color: #29342D; }
+html[data-design="tc-sage"] .brand-mark { background: #FFFFFF; border-radius: 10px; padding: 3px; }
+html[data-design="tc-sage"] :is(.search-toggle, .menu-toggle) { background: transparent; border-color: rgba(23, 32, 30, 0.38); color: #17201E; }
+html[data-design="tc-sage"] .lang-switch select { border-color: rgba(23, 32, 30, 0.38); color: #17201E; background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 4.5 6 8.5 10 4.5' fill='none' stroke='%2317201E' stroke-width='1.6'/%3E%3C/svg%3E") right 14px center / 11px no-repeat; }
+html[data-design="tc-sage"] .lang-switch option { color: #17201E; }
+html[data-design="tc-marigold"] { --bar: #F4C430; --cta-bg: #17201E; --cta-ink: #FFFFFF; --cta-hover: #2B3733; }
+html[data-design="tc-marigold"] .site-header { background: #F4C430; border-bottom: 0; }
+html[data-design="tc-marigold"] :is(.brand-word, .brand) { color: #17201E; }
+html[data-design="tc-marigold"] .brand-note { color: #323420; }
+html[data-design="tc-marigold"] .brand-mark { background: #FFFFFF; border-radius: 10px; padding: 3px; }
+html[data-design="tc-marigold"] :is(.search-toggle, .menu-toggle) { background: transparent; border-color: rgba(23, 32, 30, 0.38); color: #17201E; }
+html[data-design="tc-marigold"] .lang-switch select { border-color: rgba(23, 32, 30, 0.38); color: #17201E; background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 4.5 6 8.5 10 4.5' fill='none' stroke='%2317201E' stroke-width='1.6'/%3E%3C/svg%3E") right 14px center / 11px no-repeat; }
+html[data-design="tc-marigold"] .lang-switch option { color: #17201E; }
+html[data-design="tc-saffron"] { --bar: #F2A93B; --cta-bg: #17201E; --cta-ink: #FFFFFF; --cta-hover: #2B3733; }
+html[data-design="tc-saffron"] .site-header { background: #F2A93B; border-bottom: 0; }
+html[data-design="tc-saffron"] :is(.brand-word, .brand) { color: #17201E; }
+html[data-design="tc-saffron"] .brand-note { color: #313021; }
+html[data-design="tc-saffron"] .brand-mark { background: #FFFFFF; border-radius: 10px; padding: 3px; }
+html[data-design="tc-saffron"] :is(.search-toggle, .menu-toggle) { background: transparent; border-color: rgba(23, 32, 30, 0.38); color: #17201E; }
+html[data-design="tc-saffron"] .lang-switch select { border-color: rgba(23, 32, 30, 0.38); color: #17201E; background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 4.5 6 8.5 10 4.5' fill='none' stroke='%2317201E' stroke-width='1.6'/%3E%3C/svg%3E") right 14px center / 11px no-repeat; }
+html[data-design="tc-saffron"] .lang-switch option { color: #17201E; }
 
 /* ── original (teal) — bars in different colours ─────────────────────
    The earlier MARVI site's palette — teal, copper and paper, with the deep

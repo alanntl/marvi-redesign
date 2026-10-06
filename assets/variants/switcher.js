@@ -22,6 +22,51 @@ const DESIGNS = [
     ]
   ],
   [
+    "Field note — ten top-bar colours",
+    [
+      [
+        "tc-copper",
+        "Copper — field note with a copper top bar"
+      ],
+      [
+        "tc-terracotta",
+        "Terracotta — field note with a terracotta top bar"
+      ],
+      [
+        "tc-rose",
+        "Rose — field note with a rose top bar"
+      ],
+      [
+        "tc-plum",
+        "Plum — field note with a plum top bar"
+      ],
+      [
+        "tc-teal",
+        "Teal — field note with a teal top bar"
+      ],
+      [
+        "tc-leaf",
+        "Leaf green — field note with a leaf green top bar"
+      ],
+      [
+        "tc-lime",
+        "Lime — field note with a lime top bar"
+      ],
+      [
+        "tc-sage",
+        "Sage — field note with a sage top bar"
+      ],
+      [
+        "tc-marigold",
+        "Marigold — field note with a marigold top bar"
+      ],
+      [
+        "tc-saffron",
+        "Saffron — field note with a saffron top bar"
+      ]
+    ]
+  ],
+  [
     "Original (teal) — bars in different colours",
     [
       [
