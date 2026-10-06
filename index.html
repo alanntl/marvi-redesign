@@ -451,7 +451,7 @@
       text-shadow: 0 1px 2px rgba(var(--scrim), 0.6);
     }
     .hero-image-label { left: max(var(--gutter), calc((100vw - var(--wrap)) / 2)); top: 28px; }
-    .hero-image-caption { right: max(var(--gutter), calc((100vw - var(--wrap)) / 2)); bottom: 28px; max-width: 18rem; text-align: right; }
+    .hero-image-caption { right: max(var(--gutter), calc((100vw - var(--wrap)) / 2)); bottom: 40px; max-width: 18rem; text-align: right; }
     /* With no header photo, the hero is the headline on ink. */
     .home-hero--text { min-height: 0; }
     .home-hero--text .hero-copy { padding-top: 80px; padding-bottom: 80px; }
@@ -483,7 +483,7 @@
     .page-head-copy {
       position: relative; z-index: 1;
       width: 100%; max-width: calc(var(--wrap) + 2 * var(--gutter));
-      margin: 0 auto; padding: 0 var(--gutter);
+      margin: 0 auto; padding: 0 var(--gutter) 16px; /* clears the waterline in every script */
       text-shadow: 0 1px 2px rgba(var(--scrim), 0.5), 0 8px 30px rgba(var(--scrim), 0.35);
     }
     .page-head h1 { max-width: 44rem; color: var(--white); font-size: clamp(3.5rem, 6.7vw, 5.5rem); line-height: 1.02; letter-spacing: -0.03em; }
@@ -1125,6 +1125,42 @@
        under the pointer and cards lift; the menu underline slides in. All
        transform and opacity, all inside a no-preference query, so anyone who
        has asked for less motion gets a still page. */
+    /* ── a waterline along the foot of each header ───────────────────────
+       Two slow swells in the page's own colour, drifting sideways, so the
+       photograph ends in water instead of a ruled edge. They sit in the
+       bottom 26px of the header, which the title's padding clears, are drawn
+       as a mask (so they take each design's page colour) and never receive
+       the pointer. Motion is transform only and off for reduced motion. */
+    .page-head, .home-hero { --wave: var(--paper); }
+    main:has(.home-body > .section-body > .tone-band[data-tone="sky"]:first-child) .home-hero { --wave: var(--paper-2); }
+    .page-head::before, .page-head::after, .home-hero::before, .home-hero::after {
+      content: ""; position: absolute; left: 0; bottom: -1px; z-index: 2; pointer-events: none;
+      width: calc(100% + 1200px); height: 26px; background: var(--wave);
+      -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 48' preserveAspectRatio='none'%3E%3Cpath d='M0 32.9 L12 32.3 L24 31.7 L36 30.9 L48 30.1 L60 29.2 L72 28.3 L84 27.3 L96 26.3 L108 25.3 L120 24.3 L132 23.3 L144 22.4 L156 21.5 L168 20.7 L180 20.0 L192 19.4 L204 18.9 L216 18.5 L228 18.2 L240 18.0 L252 18.0 L264 18.1 L276 18.3 L288 18.6 L300 19.1 L312 19.7 L324 20.3 L336 21.1 L348 21.9 L360 22.8 L372 23.7 L384 24.7 L396 25.7 L408 26.7 L420 27.7 L432 28.7 L444 29.6 L456 30.5 L468 31.3 L480 32.0 L492 32.6 L504 33.1 L516 33.5 L528 33.8 L540 34.0 L552 34.0 L564 33.9 L576 33.7 L588 33.4 L600 32.9 L612 32.3 L624 31.7 L636 30.9 L648 30.1 L660 29.2 L672 28.3 L684 27.3 L696 26.3 L708 25.3 L720 24.3 L732 23.3 L744 22.4 L756 21.5 L768 20.7 L780 20.0 L792 19.4 L804 18.9 L816 18.5 L828 18.2 L840 18.0 L852 18.0 L864 18.1 L876 18.3 L888 18.6 L900 19.1 L912 19.7 L924 20.3 L936 21.1 L948 21.9 L960 22.8 L972 23.7 L984 24.7 L996 25.7 L1008 26.7 L1020 27.7 L1032 28.7 L1044 29.6 L1056 30.5 L1068 31.3 L1080 32.0 L1092 32.6 L1104 33.1 L1116 33.5 L1128 33.8 L1140 34.0 L1152 34.0 L1164 33.9 L1176 33.7 L1188 33.4 L1200 32.9 L1200 48 L0 48 Z'/%3E%3C/svg%3E") repeat-x 0 100% / 1200px 100%; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 48' preserveAspectRatio='none'%3E%3Cpath d='M0 32.9 L12 32.3 L24 31.7 L36 30.9 L48 30.1 L60 29.2 L72 28.3 L84 27.3 L96 26.3 L108 25.3 L120 24.3 L132 23.3 L144 22.4 L156 21.5 L168 20.7 L180 20.0 L192 19.4 L204 18.9 L216 18.5 L228 18.2 L240 18.0 L252 18.0 L264 18.1 L276 18.3 L288 18.6 L300 19.1 L312 19.7 L324 20.3 L336 21.1 L348 21.9 L360 22.8 L372 23.7 L384 24.7 L396 25.7 L408 26.7 L420 27.7 L432 28.7 L444 29.6 L456 30.5 L468 31.3 L480 32.0 L492 32.6 L504 33.1 L516 33.5 L528 33.8 L540 34.0 L552 34.0 L564 33.9 L576 33.7 L588 33.4 L600 32.9 L612 32.3 L624 31.7 L636 30.9 L648 30.1 L660 29.2 L672 28.3 L684 27.3 L696 26.3 L708 25.3 L720 24.3 L732 23.3 L744 22.4 L756 21.5 L768 20.7 L780 20.0 L792 19.4 L804 18.9 L816 18.5 L828 18.2 L840 18.0 L852 18.0 L864 18.1 L876 18.3 L888 18.6 L900 19.1 L912 19.7 L924 20.3 L936 21.1 L948 21.9 L960 22.8 L972 23.7 L984 24.7 L996 25.7 L1008 26.7 L1020 27.7 L1032 28.7 L1044 29.6 L1056 30.5 L1068 31.3 L1080 32.0 L1092 32.6 L1104 33.1 L1116 33.5 L1128 33.8 L1140 34.0 L1152 34.0 L1164 33.9 L1176 33.7 L1188 33.4 L1200 32.9 L1200 48 L0 48 Z'/%3E%3C/svg%3E") repeat-x 0 100% / 1200px 100%;
+      opacity: 0.55;
+    }
+    .page-head::after, .home-hero::after {
+      height: 22px; opacity: 1;
+      -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 48' preserveAspectRatio='none'%3E%3Cpath d='M0 30.0 L12 30.4 L24 30.8 L36 31.1 L48 31.5 L60 31.9 L72 32.2 L84 32.6 L96 32.9 L108 33.2 L120 33.5 L132 33.8 L144 34.1 L156 34.4 L168 34.6 L180 34.9 L192 35.1 L204 35.3 L216 35.4 L228 35.6 L240 35.7 L252 35.8 L264 35.9 L276 36.0 L288 36.0 L300 36.0 L312 36.0 L324 36.0 L336 35.9 L348 35.8 L360 35.7 L372 35.6 L384 35.4 L396 35.3 L408 35.1 L420 34.9 L432 34.6 L444 34.4 L456 34.1 L468 33.8 L480 33.5 L492 33.2 L504 32.9 L516 32.6 L528 32.2 L540 31.9 L552 31.5 L564 31.1 L576 30.8 L588 30.4 L600 30.0 L612 29.6 L624 29.2 L636 28.9 L648 28.5 L660 28.1 L672 27.8 L684 27.4 L696 27.1 L708 26.8 L720 26.5 L732 26.2 L744 25.9 L756 25.6 L768 25.4 L780 25.1 L792 24.9 L804 24.7 L816 24.6 L828 24.4 L840 24.3 L852 24.2 L864 24.1 L876 24.0 L888 24.0 L900 24.0 L912 24.0 L924 24.0 L936 24.1 L948 24.2 L960 24.3 L972 24.4 L984 24.6 L996 24.7 L1008 24.9 L1020 25.1 L1032 25.4 L1044 25.6 L1056 25.9 L1068 26.2 L1080 26.5 L1092 26.8 L1104 27.1 L1116 27.4 L1128 27.8 L1140 28.1 L1152 28.5 L1164 28.9 L1176 29.2 L1188 29.6 L1200 30.0 L1200 48 L0 48 Z'/%3E%3C/svg%3E") repeat-x 0 100% / 1200px 100%; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 48' preserveAspectRatio='none'%3E%3Cpath d='M0 30.0 L12 30.4 L24 30.8 L36 31.1 L48 31.5 L60 31.9 L72 32.2 L84 32.6 L96 32.9 L108 33.2 L120 33.5 L132 33.8 L144 34.1 L156 34.4 L168 34.6 L180 34.9 L192 35.1 L204 35.3 L216 35.4 L228 35.6 L240 35.7 L252 35.8 L264 35.9 L276 36.0 L288 36.0 L300 36.0 L312 36.0 L324 36.0 L336 35.9 L348 35.8 L360 35.7 L372 35.6 L384 35.4 L396 35.3 L408 35.1 L420 34.9 L432 34.6 L444 34.4 L456 34.1 L468 33.8 L480 33.5 L492 33.2 L504 32.9 L516 32.6 L528 32.2 L540 31.9 L552 31.5 L564 31.1 L576 30.8 L588 30.4 L600 30.0 L612 29.6 L624 29.2 L636 28.9 L648 28.5 L660 28.1 L672 27.8 L684 27.4 L696 27.1 L708 26.8 L720 26.5 L732 26.2 L744 25.9 L756 25.6 L768 25.4 L780 25.1 L792 24.9 L804 24.7 L816 24.6 L828 24.4 L840 24.3 L852 24.2 L864 24.1 L876 24.0 L888 24.0 L900 24.0 L912 24.0 L924 24.0 L936 24.1 L948 24.2 L960 24.3 L972 24.4 L984 24.6 L996 24.7 L1008 24.9 L1020 25.1 L1032 25.4 L1044 25.6 L1056 25.9 L1068 26.2 L1080 26.5 L1092 26.8 L1104 27.1 L1116 27.4 L1128 27.8 L1140 28.1 L1152 28.5 L1164 28.9 L1176 29.2 L1188 29.6 L1200 30.0 L1200 48 L0 48 Z'/%3E%3C/svg%3E") repeat-x 0 100% / 1200px 100%;
+    }
+    .home-hero { overflow: hidden; }
+
+    /* A short rule draws in under each section heading as it arrives. */
+    .section-head { position: relative; }
+    .section-head:not(.is-collapsible)::after {
+      content: ""; position: absolute; left: 0; bottom: -16px; width: 56px; height: 3px;
+      background: var(--copper); border-radius: 2px;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .page-head::before, .home-hero::before { animation: swell-back 38s linear infinite; }
+      .page-head::after, .home-hero::after { animation: swell-front 24s linear infinite; }
+      @keyframes swell-front { to { transform: translateX(-1200px); } }
+      @keyframes swell-back { from { transform: translateX(-1200px); } to { transform: translateX(0); } }
+      .section-head.will-reveal::after { transform: scaleX(0); transform-origin: left; transition: transform .9s .35s cubic-bezier(.2, .7, .2, 1); }
+      .section-head.will-reveal.is-in::after { transform: none; }
+    }
+
     /* ── logo strip (a partner list on home) ─────────────────────────── */
     .logo-strip-wrap { display: grid; gap: 28px; justify-items: start; }
     .logo-strip { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; padding: 0; list-style: none; }
