@@ -101,10 +101,14 @@ for (const lang of LANGS) {
       check(!!document.querySelector('[data-site-nav] a[aria-current="page"], [data-site-nav] .is-current'), `${where}: menu does not mark the current page`);
     }
 
-    // scripts: no inline leftovers, exactly one app module, files exist
-    check(document.querySelectorAll('script:not([src])').length === 0,
+    // scripts: no inline leftovers, exactly one app module, files exist. The
+    // staging copy's design preview (site.json designPreview) adds its own
+    // picker script and switcher; nothing else may.
+    const preview = SITE.designPreview ? 1 : 0;
+    check(document.querySelectorAll('script:not([src])').length === preview,
       `${where}: inline script survived`);
-    const scripts = [...document.querySelectorAll('script[src]')].map((s) => s.getAttribute('src'));
+    const scripts = [...document.querySelectorAll('script[src]')].map((s) => s.getAttribute('src'))
+      .filter((src) => !(preview && src === BASE + '/assets/variants/switcher.js'));
     check(scripts.length === 1 && scripts[0] === BASE + '/assets/app.mjs',
       `${where}: scripts are ${JSON.stringify(scripts)} — without the app module the menus, search and filters do not work`);
     scripts.forEach((ref) => {

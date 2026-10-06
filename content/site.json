@@ -17,5 +17,6 @@
   "cms": {
     "repo": "alanntl/marvi-redesign",
     "branch": "main"
-  }
+  },
+  "designPreview": true
 }

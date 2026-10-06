@@ -248,6 +248,27 @@ function composeDocument() {
   app.setAttribute('src', '/assets/app.mjs');
   document.body.appendChild(app);
 
+  /* Design preview (content/site.json "designPreview": true — the staging
+     copy only): fifteen looks and a switcher bar. The inline script picks the
+     design before first paint so a page never flashes the default first. */
+  if (SITE.designPreview) {
+    const head = document.querySelector('head');
+    const pick = document.createElement('script');
+    pick.textContent =
+      "try{var D=['original','monsoon','terracotta','neem','mud','marigold','sandstone','wheat','dusk','laterite','bandhani','charcoal','contour','editorial']," +
+      "q=new URLSearchParams(location.search).get('design'),d=q||localStorage.getItem('marvi-design');" +
+      "if(q)localStorage.setItem('marvi-design',q);if(D.indexOf(d)>-1)document.documentElement.setAttribute('data-design',d);}catch(e){}";
+    head.insertBefore(pick, head.firstChild);
+    const css = document.createElement('link');
+    css.setAttribute('rel', 'stylesheet');
+    css.setAttribute('href', '/assets/variants/variants.css');
+    head.appendChild(css);
+    const js = document.createElement('script');
+    js.setAttribute('type', 'module');
+    js.setAttribute('src', '/assets/variants/switcher.js');
+    document.body.appendChild(js);
+  }
+
   return document;
 }
 

@@ -120,6 +120,7 @@ collections:
           - { label: "Base path", name: "base", widget: "hidden", required: false }
           - { label: "Hide from search engines", name: "noindex", widget: "hidden", required: false }
           - { label: "CMS repository", name: "cms", widget: "hidden", required: false }
+          - { label: "Design preview", name: "designPreview", widget: "hidden", required: false }
       # The header menu. A page that is not listed here still appears — it
       # joins the first tab's dropdown (or its parent's), so a new page can
       # never become unreachable or stop the site publishing.
