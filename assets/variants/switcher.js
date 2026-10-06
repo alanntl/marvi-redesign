@@ -22,6 +22,39 @@ const DESIGNS = [
     ]
   ],
   [
+    "Charcoal & lime — variations",
+    [
+      [
+        "charcoal",
+        "Charcoal & lime — dark bar, the logo lime"
+      ],
+      [
+        "cl-bright",
+        "Charcoal & lime — bright white pages"
+      ],
+      [
+        "cl-forest",
+        "Charcoal & lime — forest green-black"
+      ],
+      [
+        "cl-limebar",
+        "Charcoal & lime — lime brand row"
+      ],
+      [
+        "cl-saffron",
+        "Charcoal, lime & saffron"
+      ],
+      [
+        "cl-glow",
+        "Charcoal & lime — gradient bar, lime glow"
+      ],
+      [
+        "cl-lines",
+        "Charcoal & lime — lines, square corners"
+      ]
+    ]
+  ],
+  [
     "Colourful — new top bars",
     [
       [
@@ -118,10 +151,6 @@ const DESIGNS = [
       [
         "bandhani",
         "Bandhani — deep red with tie-dye dots"
-      ],
-      [
-        "charcoal",
-        "Charcoal & lime — dark bar, the logo lime"
       ],
       [
         "contour",
