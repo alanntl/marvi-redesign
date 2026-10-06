@@ -593,10 +593,11 @@ collections:
                 fields:
                   - { label: "Name", name: "name", widget: "string" }
                   - { label: "Small label", name: "meta", widget: "string", required: false }
+                  - { label: "Screenshot style", name: "look", widget: "select", required: false, default: "", options: [{ label: "Screenshot (landscape)", value: "" }, { label: "Phone app (shown in a phone)", value: "phone" }] }
                   - { label: "Description", name: "description", widget: "text", required: false }
                   - { label: "Screenshot", name: "photo", widget: "object", collapsed: true, required: false, fields: *photoFields }
                   - { label: "Button label", name: "linkLabel", widget: "string", required: false }
-                  - { label: "Opens page (address)", name: "target", widget: "string", required: false, hint: "A page on this site, e.g. mywell. Leave empty when using an external link." }
+                  - { label: "Opens page (address)", name: "target", widget: "string", required: false, hint: "A page on this site, e.g. ourwater. Leave empty when using an external link." }
                   - { label: "External link", name: "url", widget: "string", required: false, hint: "Wins over the page address if both are set." }
               - { label: "i18n", name: "i18n", widget: "hidden", required: false }
           # One block type for every kind of organisation group — partners,

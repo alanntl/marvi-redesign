@@ -42,7 +42,7 @@
             "alt": "OurWater station map",
             "zoom": 100,
             "positionX": 50,
-            "positionY": 50,
+            "positionY": 0,
             "fit": "cover"
           },
           "meta": "App · Record, map and compare",
@@ -50,7 +50,8 @@
           "url": "",
           "name": "OurWater",
           "linkLabel": "Explore OurWater",
-          "target": "ourwater"
+          "target": "ourwater",
+          "look": "phone"
         },
         {
           "photo": {

@@ -1086,8 +1086,18 @@ export const BLOCKS = {
     grid.id = 'tool-grid';
     (block.items || []).forEach((item) => {
       const card = el(document, 'article', { class: 'tool-card reveal' });
-      const shot = el(document, 'div', { class: 'tool-shot' });
-      shot.appendChild(photo(document, item.photo || {}, { alt: item.name ? item.name + ' screenshot' : '' }));
+      // A phone app's screenshot is shown whole, in a phone, rather than
+      // cropped to the landscape slot a web tool's screenshot fills.
+      const asPhone = item.look === 'phone';
+      const shot = el(document, 'div', { class: 'tool-shot' + (asPhone ? ' tool-shot--phone' : '') });
+      const picture = photo(document, item.photo || {}, { alt: item.name ? item.name + ' screenshot' : '' });
+      if (asPhone) {
+        const phone = el(document, 'div', { class: 'phone' });
+        phone.appendChild(picture);
+        shot.appendChild(phone);
+      } else {
+        shot.appendChild(picture);
+      }
       card.appendChild(shot);
       const copy = el(document, 'div', { class: 'tool-copy' });
       copy.appendChild(el(document, 'span', { class: 'meta', text: item.meta }));

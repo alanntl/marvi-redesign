@@ -1205,6 +1205,11 @@
       .phone-badge { bottom: 2%; }
     }
 
+    .tool-shot--phone { aspect-ratio: auto; overflow: visible; background: none; display: grid; place-items: center; padding: 8px 0; }
+    .tool-shot--phone .phone { width: 150px; rotate: -3deg; }
+    .tool-card:hover .tool-shot--phone .phone { rotate: 0deg; }
+    @media (min-width: 641px) { .tool-card:has(.tool-shot--phone) { grid-template-columns: 200px minmax(0, 1fr); } }
+    @media (max-width: 640px) { .tool-shot--phone .phone { width: 140px; } }
     .phone-tour { display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: 40px clamp(24px, 5vw, 64px); margin: 16px 0 64px; }
     .phone-tour-item { width: min(232px, 72vw); margin: 0; text-align: center; }
     .phone-tour-item:nth-child(3n + 2) { margin-top: 36px; }
