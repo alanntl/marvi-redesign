@@ -189,7 +189,30 @@
       "cardsLabel": "Cards",
       "searchLabel": "Search",
       "searchPlaceholder": "groundwater, water literacy, Gujarati…",
-      "emptyMessage": "No publication matches that"
+      "emptyMessage": "No publication matches that",
+      "i18n": {
+        "allLabel": "page.publications.b0.allLabel",
+        "sections__book__title": "page.publications.b0.sections.book.title",
+        "sections__brochure__title": "page.publications.b0.sections.brochure.title",
+        "sections__journal-article__title": "page.publications.b0.sections.journal-article.title",
+        "sections__conference-paper__title": "page.publications.b0.sections.conference-paper.title",
+        "sections__thesis__title": "page.publications.b0.sections.thesis.title",
+        "searchLabel": "page.publications.b0.searchLabel",
+        "views__list": "page.publications.b0.views.list",
+        "views__cards": "page.publications.b0.views.cards",
+        "sections__book__note": "page.publications.b0.sections.book.note",
+        "sections__book__empty": "page.publications.b0.sections.book.empty",
+        "sections__brochure__note": "page.publications.b0.sections.brochure.note",
+        "sections__brochure__empty": "page.publications.b0.sections.brochure.empty",
+        "sections__journal-article__note": "page.publications.b0.sections.journal-article.note",
+        "sections__journal-article__empty": "page.publications.b0.sections.journal-article.empty",
+        "sections__conference-paper__note": "page.publications.b0.sections.conference-paper.note",
+        "sections__conference-paper__empty": "page.publications.b0.sections.conference-paper.empty",
+        "sections__thesis__note": "page.publications.b0.sections.thesis.note",
+        "sections__thesis__empty": "page.publications.b0.sections.thesis.empty",
+        "emptyMessage": "page.publications.b0.emptyMessage",
+        "tabLabel": "page.publications.b0.tabLabel"
+      }
     },
     {
       "type": "sourceNote",
@@ -210,7 +233,10 @@
           "text": "."
         }
       ],
-      "style": "margin-top:35px;color:var(--muted);font-size:.78rem"
+      "style": "margin-top:35px;color:var(--muted);font-size:.78rem",
+      "i18n": {
+        "tabLabel": "page.publications.b1.tabLabel"
+      }
     }
   ]
 }

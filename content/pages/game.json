@@ -41,6 +41,9 @@
         "positionX": 50,
         "positionY": 50,
         "fit": "auto"
+      },
+      "i18n": {
+        "tabLabel": "page.game.b0.tabLabel"
       }
     },
     {
@@ -68,7 +71,8 @@
         "items__1__title": "game.card2.title",
         "items__1__text": "game.card2.desc",
         "items__2__title": "game.card3.title",
-        "items__2__text": "game.card3.desc"
+        "items__2__text": "game.card3.desc",
+        "tabLabel": "page.game.b1.tabLabel"
       }
     }
   ]

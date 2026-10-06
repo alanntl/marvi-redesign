@@ -82,7 +82,10 @@
         "metrics__1__label": "home.metric.started",
         "metrics__0__label": "home.metric.bjs",
         "quote": "home.question",
-        "label": "home.central"
+        "label": "home.central",
+        "metrics__3__label": "page.home.b0.metrics.3.label",
+        "metrics__4__label": "page.home.b0.metrics.4.label",
+        "tabLabel": "page.home.b0.tabLabel"
       }
     },
     {
@@ -137,7 +140,11 @@
         "items__0__label": "home.story1.label",
         "lede": "home.explore.lede",
         "title": "home.explore.title",
-        "eyebrow": "home.explore.eyebrow"
+        "eyebrow": "home.explore.eyebrow",
+        "items__0__title": "page.home.b1.items.0.title",
+        "items__1__title": "page.home.b1.items.1.title",
+        "items__2__title": "page.home.b1.items.2.title",
+        "tabLabel": "page.home.b1.tabLabel"
       }
     }
   ]

@@ -409,7 +409,17 @@
           "affiliation": "Asian Institute of Technology"
         }
       ],
-      "linkStyle": "auto"
+      "linkStyle": "auto",
+      "i18n": {
+        "ui__search": "page.people.b0.ui.search",
+        "ui__sort": "page.people.b0.ui.sort",
+        "ui__sortShuffled": "page.people.b0.ui.sortShuffled",
+        "ui__sortFeatured": "page.people.b0.ui.sortFeatured",
+        "ui__sortName": "page.people.b0.ui.sortName",
+        "ui__sortAffiliation": "page.people.b0.ui.sortAffiliation",
+        "ui__empty": "page.people.b0.ui.empty",
+        "tabLabel": "page.people.b0.tabLabel"
+      }
     },
     {
       "type": "portraitBand",
@@ -442,7 +452,10 @@
         }
       ],
       "linkStyle": "auto",
-      "filters": false
+      "filters": false,
+      "i18n": {
+        "tabLabel": "page.people.b1.tabLabel"
+      }
     },
     {
       "type": "partnerList",
@@ -553,7 +566,10 @@
         }
       ],
       "linkStyle": "auto",
-      "logos": true
+      "logos": true,
+      "i18n": {
+        "tabLabel": "page.people.b2.tabLabel"
+      }
     },
     {
       "type": "partnerList",
@@ -598,7 +614,10 @@
         }
       ],
       "linkStyle": "auto",
-      "logos": true
+      "logos": true,
+      "i18n": {
+        "tabLabel": "page.people.b3.tabLabel"
+      }
     },
     {
       "type": "banner",
@@ -610,7 +629,8 @@
       "i18n": {
         "lede": "people.ack.lede",
         "title": "people.ack.title",
-        "eyebrow": "people.ack.eyebrow"
+        "eyebrow": "people.ack.eyebrow",
+        "tabLabel": "page.people.b4.tabLabel"
       }
     }
   ]

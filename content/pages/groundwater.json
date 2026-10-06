@@ -40,7 +40,10 @@
             "fit": "auto"
           }
         }
-      ]
+      ],
+      "i18n": {
+        "tabLabel": "page.learn-groundwater.b0.tabLabel"
+      }
     },
     {
       "type": "banner",
@@ -51,7 +54,8 @@
       "i18n": {
         "eyebrow": "groundwater.dark.eyebrow",
         "title": "groundwater.dark.title",
-        "lede": "groundwater.dark.lede"
+        "lede": "groundwater.dark.lede",
+        "tabLabel": "page.learn-groundwater.b1.tabLabel"
       }
     },
     {
@@ -79,7 +83,8 @@
         "items__1__title": "groundwater.card2.title",
         "items__1__text": "groundwater.card2.desc",
         "items__2__title": "groundwater.card3.title",
-        "items__2__text": "groundwater.card3.desc"
+        "items__2__text": "groundwater.card3.desc",
+        "tabLabel": "page.learn-groundwater.b2.tabLabel"
       }
     }
   ],

@@ -82,7 +82,10 @@
           "description": "The MARVI approach, Bhujal Jankaars and resources in English, Hindi and Gujarati.",
           "url": "https://www.indiawaterportal.org/governance-and-policy/governance/developing-effective-participatory-groundwater-monitoring-program-village-level"
         }
-      ]
+      ],
+      "i18n": {
+        "tabLabel": "page.news.b0.tabLabel"
+      }
     },
     {
       "type": "sourceNote",
@@ -98,7 +101,10 @@
             "download": true
           }
         }
-      ]
+      ],
+      "i18n": {
+        "tabLabel": "page.news.b1.tabLabel"
+      }
     }
   ],
   "menuName": "MARVI in the news",

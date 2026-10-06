@@ -50,7 +50,16 @@
       "i18n": {
         "left__caption": "bjs.data.caption",
         "right__lead": "bjs.intro1",
-        "right__paragraphs__0": "bjs.intro2"
+        "right__paragraphs__0": "bjs.intro2",
+        "right__features__0__title": "page.bjs.b0.right.features.0.title",
+        "right__features__0__text": "page.bjs.b0.right.features.0.text",
+        "right__features__1__title": "page.bjs.b0.right.features.1.title",
+        "right__features__1__text": "page.bjs.b0.right.features.1.text",
+        "right__features__2__title": "page.bjs.b0.right.features.2.title",
+        "right__features__2__text": "page.bjs.b0.right.features.2.text",
+        "right__features__3__title": "page.bjs.b0.right.features.3.title",
+        "right__features__3__text": "page.bjs.b0.right.features.3.text",
+        "tabLabel": "page.bjs.b0.tabLabel"
       }
     }
   ],

@@ -54,7 +54,8 @@
       "i18n": {
         "left__lead": "approach.aim",
         "right__paragraphs__0": "approach.shared",
-        "right__paragraphs__1": "approach.cross"
+        "right__paragraphs__1": "approach.cross",
+        "tabLabel": "page.approach.b0.tabLabel"
       }
     },
     {
@@ -83,7 +84,8 @@
         "items__1__title": "approach.card2.title",
         "items__1__text": "approach.card2.desc",
         "items__2__title": "approach.card3.title",
-        "items__2__text": "approach.card3.desc"
+        "items__2__text": "approach.card3.desc",
+        "tabLabel": "page.approach.b1.tabLabel"
       }
     },
     {
@@ -130,7 +132,9 @@
       ],
       "i18n": {
         "items__0__caption": "approach.caption1",
-        "items__1__caption": "approach.caption2"
+        "items__1__caption": "approach.caption2",
+        "items__2__caption": "page.approach.b2.items.2.caption",
+        "tabLabel": "page.approach.b2.tabLabel"
       }
     },
     {
@@ -163,7 +167,8 @@
         "items__2__title": "approach.step3.title",
         "items__2__text": "approach.step3.desc",
         "items__3__title": "approach.step4.title",
-        "items__3__text": "approach.step4.desc"
+        "items__3__text": "approach.step4.desc",
+        "tabLabel": "page.approach.b3.tabLabel"
       }
     }
   ]

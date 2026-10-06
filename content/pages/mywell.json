@@ -71,7 +71,8 @@
       },
       "i18n": {
         "left__lead": "mywell.intro",
-        "left__paragraphs__0": "mywell.desc"
+        "left__paragraphs__0": "mywell.desc",
+        "tabLabel": "page.mywell.b0.tabLabel"
       }
     },
     {
@@ -98,7 +99,10 @@
             "fit": "auto"
           }
         }
-      ]
+      ],
+      "i18n": {
+        "tabLabel": "page.mywell.b1.tabLabel"
+      }
     },
     {
       "type": "steps",
@@ -128,7 +132,8 @@
         "items__2__title": "mywell.step3.title",
         "items__2__text": "mywell.step3.desc",
         "items__3__title": "mywell.step4.title",
-        "items__3__text": "mywell.step4.desc"
+        "items__3__text": "mywell.step4.desc",
+        "tabLabel": "page.mywell.b2.tabLabel"
       }
     }
   ]

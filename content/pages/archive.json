@@ -623,7 +623,19 @@
           "source": "https://www.marvi.org.in/learn-about-groundwater",
           "visible": true
         }
-      ]
+      ],
+      "i18n": {
+        "allLabel": "page.archive.b0.allLabel",
+        "categories__overview": "page.archive.b0.categories.overview",
+        "categories__fieldwork": "page.archive.b0.categories.fieldwork",
+        "categories__partners": "page.archive.b0.categories.partners",
+        "categories__mywell": "page.archive.b0.categories.mywell",
+        "categories__bhujal-jankaars": "page.archive.b0.categories.bhujal-jankaars",
+        "categories__living-laboratory": "page.archive.b0.categories.living-laboratory",
+        "categories__archive": "page.archive.b0.categories.archive",
+        "categories__learning": "page.archive.b0.categories.learning",
+        "tabLabel": "page.archive.b0.tabLabel"
+      }
     },
     {
       "type": "sourceNote",
@@ -651,7 +663,10 @@
         {
           "text": "."
         }
-      ]
+      ],
+      "i18n": {
+        "tabLabel": "page.archive.b1.tabLabel"
+      }
     }
   ]
 }

@@ -50,7 +50,10 @@
           "title": "MARVI introduction, part one",
           "url": "https://www.youtube.com/watch?v=gCo9_SEeE_4"
         }
-      ]
+      ],
+      "i18n": {
+        "tabLabel": "page.videos.b0.tabLabel"
+      }
     },
     {
       "type": "sourceNote",
@@ -66,7 +69,10 @@
             "download": true
           }
         }
-      ]
+      ],
+      "i18n": {
+        "tabLabel": "page.videos.b1.tabLabel"
+      }
     }
   ],
   "menuName": "Videos",

@@ -66,7 +66,10 @@
           "linkLabel": "Try the game",
           "target": "game"
         }
-      ]
+      ],
+      "i18n": {
+        "tabLabel": "page.tools.b0.tabLabel"
+      }
     }
   ]
 }
