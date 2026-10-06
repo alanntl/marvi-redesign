@@ -43,8 +43,8 @@
         "primary": true
       },
       {
-        "label": "Discover MyWell",
-        "page": "mywell",
+        "label": "Discover OurWater",
+        "page": "ourwater",
         "primary": false
       }
     ]
@@ -118,7 +118,7 @@
       "items": [
         {
           "title": "Sense",
-          "text": "Measure groundwater levels, rainfall, water quality and recharge structures with simple field tools.  Farmers, Bhujal Jaankaars and local citizens regularly measure groundwater levels, rainfall and other local water conditions to build a shared understanding of their groundwater system.\n\nUpload observations to MyWell and turn repeated measurements into understandable trends."
+          "text": "Measure groundwater levels, rainfall, water quality and recharge structures with simple field tools.  Farmers, Bhujal Jaankaars and local citizens regularly measure groundwater levels, rainfall and other local water conditions to build a shared understanding of their groundwater system.\n\nUpload observations to OurWater and turn repeated measurements into understandable trends."
         },
         {
           "title": "Store",

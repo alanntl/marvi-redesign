@@ -269,6 +269,18 @@ function buildPage(langHTML, lang, page) {
     li.removeAttribute('data-pages');
   });
 
+  // 2b. Links inside the page body (buttons, story cards, tool cards) are
+  //     rendered with English hrefs too; point them at this language, so a
+  //     reader who chose Hindi stays in Hindi when they follow one.
+  if (lang !== 'en') {
+    const byEnglishPath = new Map(PAGES.map((p) => [href('en', p), p]));
+    document.querySelectorAll('main a[href^="/"]').forEach((link) => {
+      const [path, hash] = link.getAttribute('href').split('#');
+      const target = byEnglishPath.get(path);
+      if (target) link.setAttribute('href', href(lang, target) + (hash ? '#' + hash : ''));
+    });
+  }
+
   // 3. Any remaining [data-open] button (the sidebar brand) becomes a link;
   //    rendered blocks already emit real links with data-open kept as a hook.
   document.querySelectorAll('button[data-open]').forEach((btn) => {
@@ -402,6 +414,20 @@ for (const lang of LANGS) {
     count++;
   }
   if (lang === 'en') write('404.html', buildPage(langHTML, 'en', PAGES[0]));
+  /* A page's former addresses (formerSlugs) forward to where it lives now, so
+   * old links, bookmarks and printed QR codes keep working after a rename. */
+  for (const page of PAGES) {
+    for (const former of page.formerSlugs || []) {
+      if (!/^[a-z0-9-]+$/.test(former) || PAGES.some((p) => p.slug === former)) continue;
+      const to = BASE + href(lang, page);
+      const from = href(lang, { ...page, slug: former });
+      write(join(from.replace(/^\//, ''), 'index.html'),
+        `<!doctype html><html lang="${lang}"><head><meta charset="utf-8"><title>${page.menuName}</title>` +
+        `<link rel="canonical" href="${SITE_URL}${href(lang, page)}"><meta name="robots" content="noindex">` +
+        `<meta http-equiv="refresh" content="0; url=${to}"></head>` +
+        `<body><p>This page has moved: <a href="${to}">${page.menuName}</a>.</p></body></html>`);
+    }
+  }
 }
 
 /* ---------- static passthrough ---------- */

@@ -71,7 +71,7 @@ export function hydrate(document, content = {}) {
           applyFit(heroImg, home.heroImageFocus, home.heroImageFit);
         }
       }
-      [['approach', home.primaryButtonLabel], ['mywell', home.secondaryButtonLabel]].forEach(
+      [['approach', home.primaryButtonLabel], ['ourwater', home.secondaryButtonLabel]].forEach(
         ([key, label]) => {
           const btn = hero.querySelector('button[data-open="' + key + '"]');
           if (btn && label != null) {
@@ -223,7 +223,7 @@ export function hydrate(document, content = {}) {
 // to this at build time, which is why the slot list below is derived from a
 // page list rather than hardcoded — a new page must pick up translations too.
 export const SECTION_KEYS = [
-  'approach', 'bjs', 'groundwater', 'mywell', 'media', 'films', 'game', 'people', 'archive'
+  'approach', 'bjs', 'groundwater', 'ourwater', 'media', 'films', 'game', 'people', 'archive'
 ];
 
 export const RTL_LANGS = ['ar'];
@@ -242,7 +242,7 @@ export const buildSlots = (sectionIds = SECTION_KEYS) => [
   { key: 'hero.title', sel: '#panel-home .hero-copy h1', multiline: true },
   { key: 'hero.body', sel: '#panel-home .hero-copy .lede' },
   { key: 'hero.btn1', sel: '#panel-home .hero-copy [data-open="approach"]', button: true },
-  { key: 'hero.btn2', sel: '#panel-home .hero-copy [data-open="mywell"]', button: true },
+  { key: 'hero.btn2', sel: '#panel-home .hero-copy [data-open="ourwater"]', button: true },
   ...sectionIds.flatMap((k) => [
     { key: 'sec.' + k + '.eyebrow', sel: '#panel-' + k + ' .page-head .eyebrow' },
     { key: 'sec.' + k + '.title', sel: '#panel-' + k + ' .page-head h1' },

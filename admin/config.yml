@@ -160,6 +160,7 @@ collections:
     fields:
       - { label: "Menu name", name: "menuName", widget: "string", hint: "Shown in the site's left-hand menu." }
       - { label: "Page address", name: "slug", widget: "string", pattern: ['^[a-z0-9-]+$', "Lower-case letters, numbers and hyphens only"], hint: "The web address, e.g. groundwater → /groundwater/. Changing it breaks existing links." }
+      - { label: "Former addresses", name: "formerSlugs", widget: "list", required: false, hint: "Old addresses of this page (e.g. mywell). Each keeps working: it forwards visitors here, in every language." }
       - { label: "Menu order", name: "order", widget: "number", value_type: "int", min: 1, default: 99, hint: "Lower numbers appear higher in the menu." }
       - { label: "Show on the site", name: "published", widget: "boolean", default: true, required: false }
       - { label: "Template", name: "template", widget: "hidden", default: "standard" }
@@ -221,7 +222,8 @@ collections:
             summary: "{{fields.label}}"
             fields: &actionFields
               - { label: "Label", name: "label", widget: "string" }
-              - { label: "Goes to page (address)", name: "page", widget: "string", hint: "A page address from this site, e.g. approach" }
+              - { label: "Goes to page (address)", name: "page", widget: "string", required: false, hint: "A page address from this site, e.g. approach" }
+              - { label: "Or open an outside website", name: "url", widget: "string", required: false, hint: "Optional, e.g. https://marvi-groundwater.github.io/OurWater/. Used instead of the page when filled in; opens in a new tab." }
               - { label: "Filled style", name: "primary", widget: "boolean", default: false, required: false }
           - { label: "i18n", name: "i18n", widget: "hidden", required: false }
 

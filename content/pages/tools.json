@@ -38,18 +38,19 @@
       "items": [
         {
           "photo": {
-            "image": "/assets/marvi-originals/mywell-app-record.png",
+            "image": "https://marvi-groundwater.github.io/OurWater/assets/screenshots/map.jpg",
+            "alt": "OurWater station map",
             "zoom": 100,
             "positionX": 50,
             "positionY": 50,
-            "fit": "contain"
+            "fit": "cover"
           },
           "meta": "App · Record, map and compare",
-          "description": "Bhujal Jankaars and community members record groundwater levels, rainfall, water quality and check-dam readings against a station, then browse the shared map and watch the trends build up over seasons.",
+          "description": "Record groundwater, rainfall and water-quality readings, see them on a map, and explore trends over time — wells, rain gauges, check dams, rivers and more.",
           "url": "",
-          "name": "MyWell",
-          "linkLabel": "Explore MyWell",
-          "target": "mywell"
+          "name": "OurWater",
+          "linkLabel": "Explore OurWater",
+          "target": "ourwater"
         },
         {
           "photo": {
@@ -68,7 +69,8 @@
         }
       ],
       "i18n": {
-        "tabLabel": "page.tools.b0.tabLabel"
+        "tabLabel": "page.tools.b0.tabLabel",
+        "items__0__description": "ourwater.tools.description"
       }
     }
   ]

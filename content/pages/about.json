@@ -100,16 +100,16 @@
           "label": "02 · The people"
         },
         {
-          "title": "See local knowledge take shape in MyWell.",
+          "title": "See local knowledge take shape in OurWater.",
           "photo": {
             "image": "/assets/marvi-originals/079-about-mywell-app.jpg",
-            "alt": "A BJ recording a MyWell field observation",
+            "alt": "A Bhujal Jankaar recording a field observation",
             "zoom": 100,
             "positionX": 50,
             "positionY": 50,
             "fit": "auto"
           },
-          "page": "mywell",
+          "page": "ourwater",
           "label": "03 · The platform"
         }
       ],

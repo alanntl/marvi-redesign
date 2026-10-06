@@ -1,0 +1,163 @@
+{
+  "menuName": "OurWater app",
+  "slug": "ourwater",
+  "formerSlugs": [
+    "mywell"
+  ],
+  "order": 5,
+  "published": true,
+  "template": "standard",
+  "intro": {
+    "eyebrow": "The OurWater app",
+    "title": "Water, made visible for your community.",
+    "lede": "A free, community-focused water monitoring and learning app, built on the MARVI approach to participatory groundwater management.",
+    "eyebrowSize": 100,
+    "titleSize": 70,
+    "ledeSize": 100,
+    "textAlign": "left",
+    "textPosition": "bottom",
+    "textWidth": 100,
+    "textOffsetX": 0,
+    "textOffsetY": 0
+  },
+  "heroImage": {
+    "image": "/assets/marvi-originals/079-about-mywell-app.jpg",
+    "zoom": 100,
+    "positionX": 50,
+    "positionY": 52,
+    "fit": "cover"
+  },
+  "menuImage": {
+    "image": "/assets/marvi-originals/079-about-mywell-app.jpg",
+    "zoom": 100,
+    "positionX": 50,
+    "positionY": 50,
+    "fit": "auto"
+  },
+  "blocks": [
+    {
+      "type": "split",
+      "left": {
+        "kind": "prose",
+        "logo": {
+          "image": "https://marvi-groundwater.github.io/OurWater/assets/logo/ourwater-mark.png",
+          "alt": "OurWater app icon"
+        },
+        "lead": "OurWater takes over from the MyWell app. Record readings from wells, rain gauges and other local water sources — then see them on a map and watch the trends.",
+        "paragraphs": [
+          "While its foundation is groundwater, OurWater supports broader local water monitoring: rainfall, surface water, water quality and water storage. Stations can be wells, boreholes, rain gauges, check dams, rivers, springs, reservoirs or rainwater tanks, with photographs, notes and locations.",
+          "It is designed for farmers, community volunteers, schools, universities, researchers, non-government organisations and government agencies — for practical learning, citizen science and informed discussion about local water."
+        ],
+        "actions": [
+          {
+            "label": "Open OurWater",
+            "url": "https://marvi-groundwater.github.io/OurWater/",
+            "primary": true
+          },
+          {
+            "label": "Try the learning game",
+            "page": "game",
+            "primary": false
+          }
+        ]
+      },
+      "right": {
+        "kind": "image",
+        "look": "app-shot",
+        "photo": {
+          "image": "https://marvi-groundwater.github.io/OurWater/assets/screenshots/map.jpg",
+          "alt": "OurWater: every station on one map",
+          "zoom": 100,
+          "positionX": 50,
+          "positionY": 50,
+          "fit": "auto"
+        }
+      },
+      "i18n": {
+        "tabLabel": "page.ourwater.b0.tabLabel"
+      }
+    },
+    {
+      "type": "statement",
+      "label": "",
+      "quote": "",
+      "metrics": [
+        {
+          "value": "65,000+",
+          "label": "monitoring stations"
+        },
+        {
+          "value": "13 million+",
+          "label": "readings on record"
+        },
+        {
+          "value": "60+",
+          "label": "languages"
+        },
+        {
+          "value": "Free",
+          "label": "for everyone"
+        }
+      ]
+    },
+    {
+      "type": "banner",
+      "eyebrow": "How it works",
+      "title": "From the field to the big picture.",
+      "lede": "Pick your stations on the map, record a visit, and watch the trend build."
+    },
+    {
+      "type": "steps",
+      "items": [
+        {
+          "title": "Find stations on the map",
+          "text": "Every station on one map. Draw a monitoring area to focus on the wells, gauges and dams that matter to you."
+        },
+        {
+          "title": "Record a visit",
+          "text": "Log a reading in under a minute."
+        },
+        {
+          "title": "Watch the trends",
+          "text": "Compare current and historical measurements with simple charts, summaries and seasonal patterns."
+        },
+        {
+          "title": "Use it anywhere",
+          "text": "Free on Google Play and the App Store. Prefer not to install? The web app has every feature too."
+        }
+      ]
+    },
+    {
+      "type": "imagePair",
+      "look": "screens",
+      "items": [
+        {
+          "photo": {
+            "image": "https://marvi-groundwater.github.io/OurWater/assets/screenshots/record-visit.jpg",
+            "alt": "OurWater: recording a visit",
+            "zoom": 100,
+            "positionX": 50,
+            "positionY": 50,
+            "fit": "auto"
+          }
+        },
+        {
+          "photo": {
+            "image": "https://marvi-groundwater.github.io/OurWater/assets/screenshots/trend.jpg",
+            "alt": "OurWater: a trend building over the seasons",
+            "zoom": 100,
+            "positionX": 50,
+            "positionY": 50,
+            "fit": "auto"
+          }
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "heading": "Features, tutorials and sign-in are on the OurWater site.",
+      "label": "Go to OurWater",
+      "url": "https://marvi-groundwater.github.io/OurWater/"
+    }
+  ]
+}

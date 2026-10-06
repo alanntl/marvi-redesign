@@ -58,12 +58,8 @@
           "page": "tools"
         },
         {
-          "label": "MyWell app",
-          "page": "mywell"
-        },
-        {
-          "label": "OurWater",
-          "url": "https://marvi-groundwater.github.io/OurWater/"
+          "label": "OurWater app",
+          "page": "ourwater"
         },
         {
           "label": "Groundwater game",

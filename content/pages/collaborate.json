@@ -64,10 +64,10 @@
           "photo": {}
         },
         {
-          "page": "mywell",
+          "page": "ourwater",
           "icon": "tools",
-          "title": "MyWell app",
-          "text": "A public-domain, non-profit tool for collecting, viewing and sharing community water observations.",
+          "title": "OurWater app",
+          "text": "A free, community-focused water monitoring and learning app, built on the MARVI approach.",
           "photo": {}
         }
       ],
@@ -77,7 +77,7 @@
         "items__1__title": "page.collaborate.b1.items.1.title",
         "items__1__text": "page.collaborate.b1.items.1.text",
         "items__2__title": "page.collaborate.b1.items.2.title",
-        "items__2__text": "page.collaborate.b1.items.2.text",
+        "items__2__text": "ourwater.collaborate.text",
         "tabLabel": "page.collaborate.b1.tabLabel"
       }
     },
