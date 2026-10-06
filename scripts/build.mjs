@@ -255,7 +255,7 @@ function composeDocument() {
     const head = document.querySelector('head');
     const pick = document.createElement('script');
     pick.textContent =
-      "try{var D=['cl-bright','cl-forest','cl-limebar','cl-saffron','cl-glow','cl-lines','rangoli','mango','peacock','holi','turmeric','henna','lotus','paddy','thar','kesari','original','monsoon','terracotta','neem','mud','marigold','sandstone','wheat','dusk','laterite','bandhani','charcoal','contour','editorial']," +
+      "try{var D=['fn-copper','fn-light','fn-alllight','fn-ink','fn-clay','fn-olive','cl-bright','cl-forest','cl-limebar','cl-saffron','cl-glow','cl-lines','rangoli','mango','peacock','holi','turmeric','henna','lotus','paddy','thar','kesari','original','monsoon','terracotta','neem','mud','marigold','sandstone','wheat','dusk','laterite','bandhani','charcoal','contour','editorial']," +
       "q=new URLSearchParams(location.search).get('design'),d=q||localStorage.getItem('marvi-design');" +
       "if(q)localStorage.setItem('marvi-design',q);if(D.indexOf(d)>-1)document.documentElement.setAttribute('data-design',d);}catch(e){}";
     head.insertBefore(pick, head.firstChild);

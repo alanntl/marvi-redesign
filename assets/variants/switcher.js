@@ -22,6 +22,35 @@ const DESIGNS = [
     ]
   ],
   [
+    "Field note — top bar options",
+    [
+      [
+        "fn-copper",
+        "Field note — copper bar"
+      ],
+      [
+        "fn-light",
+        "Field note — paper top, sand menu"
+      ],
+      [
+        "fn-alllight",
+        "Field note — all light, hairlines"
+      ],
+      [
+        "fn-ink",
+        "Field note — one ink bar"
+      ],
+      [
+        "fn-clay",
+        "Field note — clay top, brown menu"
+      ],
+      [
+        "fn-olive",
+        "Field note — paper top, olive menu"
+      ]
+    ]
+  ],
+  [
     "Charcoal & lime — variations",
     [
       [

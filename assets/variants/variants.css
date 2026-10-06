@@ -1,5 +1,5 @@
 /*
- * Design preview — thirty-one looks for MARVI over the same content.
+ * Design preview — thirty-seven looks for MARVI over the same content.
  *
  * Loaded only when content/site.json has "designPreview": true (the staging
  * copy). "Field note" is the base stylesheet in index.html; every other
@@ -117,6 +117,65 @@ html[data-design="bandhani"] .hero-image-stage::before {
 html[data-design="contour"] { --contour: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='640' height='640' viewBox='0 0 640 640' fill='none' stroke='%23A8742F' stroke-width='1.1' opacity='.35'%3E%3Cpath d='M-20 120c90-60 170 40 260-10s150-90 240-30 120 60 180 30'/%3E%3Cpath d='M-20 160c90-60 170 40 260-10s150-90 240-30 120 60 180 30'/%3E%3Cpath d='M-20 200c90-60 170 40 260-10s150-90 240-30 120 60 180 30'/%3E%3Cpath d='M-20 330c80 40 150-50 240-10s160 80 250 20 110-40 190 0'/%3E%3Cpath d='M-20 370c80 40 150-50 240-10s160 80 250 20 110-40 190 0'/%3E%3Cpath d='M-20 410c80 40 150-50 240-10s160 80 250 20 110-40 190 0'/%3E%3Cellipse cx='470' cy='520' rx='70' ry='38'/%3E%3Cellipse cx='470' cy='520' rx='110' ry='62'/%3E%3Cellipse cx='470' cy='520' rx='150' ry='86'/%3E%3Cellipse cx='130' cy='560' rx='46' ry='26'/%3E%3Cellipse cx='130' cy='560' rx='84' ry='48'/%3E%3C/svg%3E"); }
 html[data-design="contour"] :is(.tone-band, .site-footer) { background-image: var(--contour); background-size: 640px 640px; }
 html[data-design="contour"] .tone-band[data-tone="deep"] { background-blend-mode: screen; }
+
+/* ── field note — top bar options ────────────────────────────────────
+   Field note unchanged except its two bars: the brand row and the menu bar
+   under it. */
+html[data-design="fn-copper"] { --bar: #8C4A2A; --nav-bg: #8C4A2A; --nav-ink: #FFFFFF; --nav-hover: #F6D7C1; --nav-muted: color-mix(in srgb, #FFFFFF 70%, transparent); --cta-bg: #F1EEE7; --cta-ink: #17201E; --cta-hover: #FFFFFF; --head-text: #FFFFFF; }
+html[data-design="fn-copper"] .site-header { background: var(--bar); }
+html[data-design="fn-copper"] .site-nav { background: var(--nav-bg); border-top: 1px solid rgba(255, 255, 255, 0.16); border-bottom: 1px solid transparent; }
+html[data-design="fn-copper"] .nav-item.is-current > .nav-link { color: var(--nav-ink); box-shadow: inset 0 -3px 0 var(--nav-hover); }
+html[data-design="fn-copper"] .site-nav .nav-link { background-image: linear-gradient(var(--nav-hover), var(--nav-hover)); }
+html[data-design="fn-copper"] .site-footer { background: #17201E; }
+html[data-design="fn-copper"] :is(.brand-word, .brand) { color: #FFFFFF; }
+html[data-design="fn-copper"] .brand-note { color: rgba(255, 255, 255, 0.8); }
+html[data-design="fn-copper"] .brand-mark { background: #FFFFFF; border-radius: 10px; padding: 3px; }
+html[data-design="fn-copper"] :is(.search-toggle, .menu-toggle) { background: transparent; border-color: rgba(255, 255, 255, 0.42); color: #FFFFFF; }
+html[data-design="fn-copper"] .lang-switch select { border-color: rgba(255, 255, 255, 0.42); color: #FFFFFF; background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 4.5 6 8.5 10 4.5' fill='none' stroke='%23FFFFFF' stroke-width='1.6'/%3E%3C/svg%3E") right 14px center / 11px no-repeat; }
+html[data-design="fn-copper"] .lang-switch option { color: #17201E; }
+html[data-design="fn-copper"] .site-header { border-bottom: 0; }
+html[data-design="fn-light"] { --bar: #F1EEE7; --nav-bg: #E6E2D8; --nav-ink: #17201E; --nav-hover: #934F2D; --nav-muted: color-mix(in srgb, #17201E 70%, transparent); --cta-bg: #934F2D; --cta-ink: #FFFFFF; --cta-hover: #864828; --head-text: #17201E; }
+html[data-design="fn-light"] .site-header { background: var(--bar); }
+html[data-design="fn-light"] .site-nav { background: var(--nav-bg); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+html[data-design="fn-light"] .nav-item.is-current > .nav-link { color: var(--nav-ink); box-shadow: inset 0 -3px 0 var(--copper); }
+html[data-design="fn-light"] .site-nav .nav-link { background-image: linear-gradient(var(--copper), var(--copper)); }
+html[data-design="fn-light"] .site-footer { background: #17201E; }
+html[data-design="fn-light"] :is(.brand-word, .brand) { color: var(--head-text); }
+html[data-design="fn-alllight"] { --bar: #FBFAF6; --nav-bg: #FBFAF6; --nav-ink: #17201E; --nav-hover: #934F2D; --nav-muted: color-mix(in srgb, #17201E 70%, transparent); --cta-bg: #934F2D; --cta-ink: #FFFFFF; --cta-hover: #864828; --head-text: #17201E; }
+html[data-design="fn-alllight"] .site-header { background: var(--bar); }
+html[data-design="fn-alllight"] .site-nav { background: var(--nav-bg); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+html[data-design="fn-alllight"] .nav-item.is-current > .nav-link { color: var(--nav-ink); box-shadow: inset 0 -3px 0 var(--copper); }
+html[data-design="fn-alllight"] .site-nav .nav-link { background-image: linear-gradient(var(--copper), var(--copper)); }
+html[data-design="fn-alllight"] .site-footer { background: #17201E; }
+html[data-design="fn-alllight"] :is(.brand-word, .brand) { color: var(--head-text); }
+html[data-design="fn-alllight"] .site-nav { border-top-color: transparent; }
+html[data-design="fn-ink"] { --bar: #17201E; --nav-bg: #17201E; --nav-ink: #FFFFFF; --nav-hover: #E2B091; --nav-muted: color-mix(in srgb, #FFFFFF 70%, transparent); --cta-bg: #D9A07E; --cta-ink: #17201E; --cta-hover: #E6B897; --head-text: #FFFFFF; }
+html[data-design="fn-ink"] .site-header { background: var(--bar); }
+html[data-design="fn-ink"] .site-nav { background: var(--nav-bg); border-top: 1px solid rgba(255, 255, 255, 0.16); border-bottom: 1px solid transparent; }
+html[data-design="fn-ink"] .nav-item.is-current > .nav-link { color: var(--nav-ink); box-shadow: inset 0 -3px 0 var(--nav-hover); }
+html[data-design="fn-ink"] .site-nav .nav-link { background-image: linear-gradient(var(--nav-hover), var(--nav-hover)); }
+html[data-design="fn-ink"] .site-footer { background: #17201E; }
+html[data-design="fn-ink"] :is(.brand-word, .brand) { color: #FFFFFF; }
+html[data-design="fn-ink"] .brand-note { color: rgba(255, 255, 255, 0.8); }
+html[data-design="fn-ink"] .brand-mark { background: #FFFFFF; border-radius: 10px; padding: 3px; }
+html[data-design="fn-ink"] :is(.search-toggle, .menu-toggle) { background: transparent; border-color: rgba(255, 255, 255, 0.42); color: #FFFFFF; }
+html[data-design="fn-ink"] .lang-switch select { border-color: rgba(255, 255, 255, 0.42); color: #FFFFFF; background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 4.5 6 8.5 10 4.5' fill='none' stroke='%23FFFFFF' stroke-width='1.6'/%3E%3C/svg%3E") right 14px center / 11px no-repeat; }
+html[data-design="fn-ink"] .lang-switch option { color: #17201E; }
+html[data-design="fn-ink"] .site-header { border-bottom: 0; }
+html[data-design="fn-clay"] { --bar: #EFE3D6; --nav-bg: #3E2418; --nav-ink: #FFFFFF; --nav-hover: #E8B593; --nav-muted: color-mix(in srgb, #FFFFFF 70%, transparent); --cta-bg: #934F2D; --cta-ink: #FFFFFF; --cta-hover: #864828; --head-text: #2A1810; }
+html[data-design="fn-clay"] .site-header { background: var(--bar); }
+html[data-design="fn-clay"] .site-nav { background: var(--nav-bg); border-top: 1px solid transparent; border-bottom: 1px solid transparent; }
+html[data-design="fn-clay"] .nav-item.is-current > .nav-link { color: var(--nav-ink); box-shadow: inset 0 -3px 0 var(--nav-hover); }
+html[data-design="fn-clay"] .site-nav .nav-link { background-image: linear-gradient(var(--nav-hover), var(--nav-hover)); }
+html[data-design="fn-clay"] .site-footer { background: #3E2418; }
+html[data-design="fn-clay"] :is(.brand-word, .brand) { color: var(--head-text); }
+html[data-design="fn-olive"] { --bar: #F1EEE7; --nav-bg: #33402A; --nav-ink: #FFFFFF; --nav-hover: #E2C79A; --nav-muted: color-mix(in srgb, #FFFFFF 70%, transparent); --cta-bg: #934F2D; --cta-ink: #FFFFFF; --cta-hover: #864828; --head-text: #17201E; }
+html[data-design="fn-olive"] .site-header { background: var(--bar); }
+html[data-design="fn-olive"] .site-nav { background: var(--nav-bg); border-top: 1px solid transparent; border-bottom: 1px solid transparent; }
+html[data-design="fn-olive"] .nav-item.is-current > .nav-link { color: var(--nav-ink); box-shadow: inset 0 -3px 0 var(--nav-hover); }
+html[data-design="fn-olive"] .site-nav .nav-link { background-image: linear-gradient(var(--nav-hover), var(--nav-hover)); }
+html[data-design="fn-olive"] .site-footer { background: #33402A; }
+html[data-design="fn-olive"] :is(.brand-word, .brand) { color: var(--head-text); }
 
 /* ── charcoal & lime — variations ─────────────────────────────────────
    Six derived from Charcoal & lime: bright white pages, forest
