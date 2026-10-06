@@ -515,7 +515,8 @@
           "name": "Arid Communities and Technologies",
           "logo": {
             "image": "/assets/logos/act.png",
-            "alt": "Arid Communities and Technologies logo"
+            "alt": "Arid Communities and Technologies logo",
+            "onDark": true
           },
           "links": []
         },

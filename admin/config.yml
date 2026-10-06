@@ -608,6 +608,9 @@ collections:
             name: "partnerList"
             widget: "object"
             fields:
+              - { label: "Style", name: "look", widget: "select", required: false, default: "", options: [{ label: "Cards (full list)", value: "" }, { label: "Logo strip (one row, links to a page)", value: "strip" }], hint: "Logo strip shows only logos (or names) and a button to the full list." }
+              - { label: "Logo strip: button goes to page", name: "morePage", widget: "string", required: false, hint: "e.g. people" }
+              - { label: "Logo strip: button label", name: "moreLabel", widget: "string", required: false }
               - *tabField
               - *visibleField
               - label: "How links open"
@@ -642,6 +645,7 @@ collections:
                     fields:
                       - { label: "Image", name: "image", widget: "image", required: false }
                       - { label: "Description (screen readers)", name: "alt", widget: "string", required: false, hint: "Blank uses “<name> logo”." }
+                      - { label: "White logo", name: "onDark", widget: "boolean", required: false, default: false, hint: "Tick for a white or light logo: it is then shown on a dark tile, where it can be seen." }
                   # The main link above is what the name opens. Everything here
                   # is an extra destination the reader can pick instead, one
                   # icon each — so a card can point at a website and offer

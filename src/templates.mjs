@@ -269,7 +269,7 @@ const PLACEHOLDER_PORTRAIT = '/assets/placeholder-portrait.svg';
 const logoFrame = (document, item, show) => {
   const logo = opt(item.logo);
   if (!show || !logo.image) return null;
-  const frame = el(document, 'span', { class: 'org-logo' });
+  const frame = el(document, 'span', { class: 'org-logo' + (logo.onDark ? ' is-on-dark' : '') });
   frame.appendChild(photo(document, logo, { alt: logo.alt || (item.name ? item.name + ' logo' : '') }));
   return frame;
 };
@@ -1126,7 +1126,29 @@ export const BLOCKS = {
    * block is the supporters list and the funders list, differing only in its
    * tab label and its items. That is why the type is worth keeping general:
    * a new category is a new block, not new code. */
-  partnerList(document, block) {
+  partnerList(document, block, ctx) {
+    // "Logo strip": one row of partner logos (a name where there is no logo)
+    // and a link to the full list — for a page that only needs to show who
+    // is involved, such as home.
+    if (block.look === 'strip') {
+      const wrap = el(document, 'div', { class: 'logo-strip-wrap' });
+      const strip = el(document, 'ul', { class: 'logo-strip' });
+      (block.items || []).filter(Boolean).forEach((item) => {
+        const li = el(document, 'li');
+        const tile = el(document, item.url ? 'a' : 'span', { class: 'logo-strip-item' + (item.logo?.onDark ? ' is-on-dark' : '') });
+        if (item.url) { setHref(tile, item.url); tile.setAttribute('target', '_blank'); tile.setAttribute('rel', 'noopener'); }
+        tile.setAttribute('title', item.name || '');
+        if (item.logo && item.logo.image) tile.appendChild(photo(document, item.logo, { alt: item.name || '' }));
+        else tile.appendChild(el(document, 'span', { class: 'logo-strip-name', text: item.name }));
+        li.appendChild(tile);
+        strip.appendChild(li);
+      });
+      wrap.appendChild(strip);
+      if (block.morePage) {
+        wrap.appendChild(pageLink(document, ctx, { label: block.moreLabel || 'See all', page: block.morePage, key: ctx.t('moreLabel') }));
+      }
+      return wrap;
+    }
     const showLogos = block.logos !== false;
     const grid = el(document, 'div', { class: 'people-grid' });
     // A group whose list is still empty keeps its tab — the tab is the promise

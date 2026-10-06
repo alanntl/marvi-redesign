@@ -242,7 +242,17 @@
       border-radius: 999px;
     }
     .nav-cta:hover, .nav-cta[aria-current="page"] { background: var(--cta-hover, var(--ink-2)); color: var(--cta-ink, var(--white)); }
-    .nav-item--cta .nav-more { margin: 0 0 0 4px; color: var(--ink); }
+    /* The Collaborate button and its dropdown arrow read as one pill: the
+       arrow sits inside the button's colour, behind a hairline divider,
+       rather than floating loose beside it. */
+    .header-actions .nav-item--cta { border-radius: 999px; background: var(--cta-bg); transition: background .2s ease; }
+    .header-actions .nav-item--cta:hover { background: var(--cta-hover); }
+    .header-actions .nav-item--cta > .nav-cta { background: transparent; padding-right: 14px; }
+    .header-actions .nav-item--cta > .nav-cta:hover { background: transparent; }
+    .header-actions .nav-item--cta .nav-more {
+      width: 36px; height: 44px; margin: 0; border-radius: 0 999px 999px 0;
+      border-left: 1px solid color-mix(in srgb, var(--cta-ink) 28%, transparent); color: var(--cta-ink);
+    }
     .nav-item--cta > .nav-menu { left: auto; right: 0; top: calc(100% + 8px); border-radius: var(--radius); }
     .nav-item--cta > .nav-menu::before { content: ""; position: absolute; left: 0; right: 0; top: -10px; height: 10px; }
     .site-nav .nav-item--cta { display: none; }
@@ -1115,6 +1125,37 @@
        under the pointer and cards lift; the menu underline slides in. All
        transform and opacity, all inside a no-preference query, so anyone who
        has asked for less motion gets a still page. */
+    /* ── logo strip (a partner list on home) ─────────────────────────── */
+    .logo-strip-wrap { display: grid; gap: 28px; justify-items: start; }
+    .logo-strip { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; padding: 0; list-style: none; }
+    .logo-strip-item {
+      display: grid; place-items: center; width: 120px; height: 72px; padding: 10px 12px;
+      background: var(--white); border: 1px solid var(--line); border-radius: var(--radius);
+      color: var(--ink); text-decoration: none; transition: border-color .2s ease, transform .3s cubic-bezier(.2, .7, .2, 1);
+    }
+    .logo-strip-item img { max-width: 100%; max-height: 50px; width: auto; height: auto; object-fit: contain !important; scale: none !important; object-position: center !important; }
+    .logo-strip-name { font-size: 0.8125rem; font-weight: 600; line-height: 1.25; text-align: center; }
+    .logo-strip-item:hover { border-color: var(--copper); transform: translateY(-2px); }
+    /* A white logo (CMS: "White logo") sits on a dark tile. */
+    .logo-strip-item.is-on-dark { background: var(--ink); border-color: var(--ink); }
+    .org-logo.is-on-dark { display: inline-flex; padding: 8px 12px; border-radius: var(--radius); background: var(--ink); }
+    @media (max-width: 640px) {
+      .logo-strip { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+      .logo-strip-item { width: auto; height: 64px; padding: 8px 10px; }
+    }
+    /* Photo cards in a row of four go two-up on a phone instead of four
+       full-width photographs stacked down the page. */
+    @media (max-width: 640px) {
+      .story-grid:not(.story-grid--icons):has(> :nth-child(4)) { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 12px; }
+      .story-grid:not(.story-grid--icons):has(> :nth-child(4)) .story-copy strong { font-size: 1.0625rem; }
+      .story-grid:not(.story-grid--icons):has(> :nth-child(4)) .story-text { font-size: 0.875rem; }
+    }
+    /* Icon cards in a row of four keep only their title on phones' two-up grid. */
+    @media (max-width: 640px) {
+      .story-grid--icons:has(> :nth-child(4)) { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+      .story-grid--icons:has(> :nth-child(4)) .story-card--icon { padding: 18px 16px 16px; }
+    }
+
     /* ── a tab's pages: the bar under the page head, and the next page ────
        Every tab and sub-tab is its own page. The bar names the pages of this
        tab and marks this one; it stays in view under the menu while reading.

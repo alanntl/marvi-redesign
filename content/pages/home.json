@@ -103,118 +103,6 @@
     {
       "type": "banner",
       "eyebrow": "The MARVI approach",
-      "title": "The MARVI 4-S Strategy",
-      "lede": "MARVI brings technical knowledge, community experience and practical monitoring together at village level.",
-      "i18n": {
-        "eyebrow": "page.home.b2.eyebrow",
-        "title": "page.home.b2.title",
-        "lede": "page.home.b2.lede",
-        "tabLabel": "page.home.b2.tabLabel"
-      }
-    },
-    {
-      "type": "steps",
-      "visible": true,
-      "items": [
-        {
-          "title": "Sense",
-          "text": "Measure groundwater levels, rainfall, water quality and recharge structures with simple field tools.  Farmers, Bhujal Jaankaars and local citizens regularly measure groundwater levels, rainfall and other local water conditions to build a shared understanding of their groundwater system.\n\nUpload observations to OurWater and turn repeated measurements into understandable trends."
-        },
-        {
-          "title": "Store",
-          "text": "Capture and recharge more water locally. Communities identify practical ways to improve groundwater recharge, including farm-scale and community recharge interventions, such as  pits, ponds, check-dams  suited to local conditions."
-        },
-        {
-          "title": "Share",
-          "text": "Share groundwater more fairly and efficiently. \nCommunities explore cooperative approaches to groundwater use, including sharing groundwater between farmers, so more people benefit from available water.\nAlso, share learning and experiences with others for a better groundwater future in the region."
-        },
-        {
-          "title": "Sustain",
-          "text": "Use groundwater within its long-term limits. Monitoring, recharge and collective decision-making help communities balance groundwater use with replenishment and protect the resource for the future."
-        }
-      ],
-      "i18n": {
-        "items__0__title": "approach.step1.title",
-        "items__0__text": "approach.step1.desc",
-        "items__1__title": "approach.step2.title",
-        "items__1__text": "approach.step2.desc",
-        "items__2__title": "approach.step3.title",
-        "items__2__text": "approach.step3.desc",
-        "items__3__title": "approach.step4.title",
-        "items__3__text": "approach.step4.desc",
-        "tabLabel": "page.approach.b3.tabLabel"
-      }
-    },
-    {
-      "type": "banner",
-      "eyebrow": "Bhujal Jankaars · भूजल जानकार",
-      "title": "The village’s own groundwater champions.",
-      "lede": "“Groundwater informed”: local volunteers who connect careful observation with community knowledge and collective action.",
-      "i18n": {
-        "eyebrow": "page.home.b4.eyebrow",
-        "title": "page.home.b4.title",
-        "lede": "page.home.b4.lede",
-        "tabLabel": "page.home.b4.tabLabel"
-      }
-    },
-    {
-      "type": "split",
-      "left": {
-        "kind": "dataPanel",
-        "photo": {
-          "image": "assets/marvi-originals/022-about-marvi.jpg",
-          "alt": "A Bhujal Jankaar measuring a village well"
-        },
-        "stat": "35",
-        "caption": "Bhujal Jankaars — 25 Rajasthan · 10 Gujarat"
-      },
-      "right": {
-        "kind": "prose",
-        "lead": "A Bhujal Jankaar makes groundwater science legible—well by well, season by season, village by village.",
-        "paragraphs": [
-          "These trained volunteers measure wells, rainfall, water quality and check dams. They interpret local patterns, explain them in the community’s own language and help farmers see that groundwater is both limited and shared."
-        ],
-        "features": [
-          {
-            "number": "01",
-            "title": "Measure consistently",
-            "text": "Build a trustworthy local record through simple, repeated observations."
-          },
-          {
-            "number": "02",
-            "title": "Interpret locally",
-            "text": "Connect readings with crops, rainfall, pumping and village experience."
-          },
-          {
-            "number": "03",
-            "title": "Communicate openly",
-            "text": "Take groundwater information into schools, meetings and farm decisions."
-          },
-          {
-            "number": "04",
-            "title": "Support cooperation",
-            "text": "Help communities discuss recharge, demand and fair use together."
-          }
-        ]
-      },
-      "i18n": {
-        "left__caption": "bjs.data.caption",
-        "right__lead": "bjs.intro1",
-        "right__paragraphs__0": "bjs.intro2",
-        "right__features__0__title": "page.bjs.b0.right.features.0.title",
-        "right__features__0__text": "page.bjs.b0.right.features.0.text",
-        "right__features__1__title": "page.bjs.b0.right.features.1.title",
-        "right__features__1__text": "page.bjs.b0.right.features.1.text",
-        "right__features__2__title": "page.bjs.b0.right.features.2.title",
-        "right__features__2__text": "page.bjs.b0.right.features.2.text",
-        "right__features__3__title": "page.bjs.b0.right.features.3.title",
-        "right__features__3__text": "page.bjs.b0.right.features.3.text",
-        "tabLabel": "page.bjs.b0.tabLabel"
-      }
-    },
-    {
-      "type": "banner",
-      "eyebrow": "The MARVI approach",
       "title": "Science becomes useful when it becomes local.",
       "lede": "The aim is to improve irrigation-water security and rural livelihoods by making the invisible visible.",
       "i18n": {
@@ -225,76 +113,63 @@
       }
     },
     {
-      "type": "cards",
-      "tabLabel": "",
+      "type": "storyCards",
+      "title": "",
+      "lede": "",
       "items": [
         {
-          "number": "A / 01",
-          "title": "Participatory monitoring",
-          "text": "A groundwater-monitoring programme operated and understood by the village itself."
+          "page": "approach",
+          "title": "The MARVI approach",
+          "text": "MARVI brings technical knowledge, community experience and practical monitoring together at village level.",
+          "photo": {
+            "image": "/assets/marvi-originals/008-home.jpg",
+            "alt": "Villagers and researchers meeting in the field",
+            "zoom": 100,
+            "positionX": 50,
+            "positionY": 50,
+            "fit": "cover"
+          }
         },
         {
-          "number": "A / 02",
-          "title": "Recharge that can be measured",
-          "text": "Assess rainwater-harvesting structures and understand what genuinely reaches the aquifer."
+          "page": "four-s-strategy",
+          "title": "The MARVI 4-S Strategy",
+          "text": "Sense, Store, Share, Sustain: how a village manages the aquifer it shares.",
+          "photo": {
+            "image": "/assets/marvi-originals/006-home.jpg",
+            "alt": "Planning the 4-S strategy together",
+            "zoom": 100,
+            "positionX": 50,
+            "positionY": 50,
+            "fit": "cover"
+          }
         },
         {
-          "number": "A / 03",
-          "title": "Decisions made together",
-          "text": "Turn readings into conversations about crops, pumping, sharing and long-term water security."
+          "page": "bjs",
+          "title": "Bhujal Jankaars",
+          "text": "“Groundwater informed”: local volunteers who connect careful observation with community knowledge and collective action.",
+          "photo": {
+            "image": "/assets/marvi-originals/076-bhujal-jankaars-bjs.jpg",
+            "alt": "Bhujal Jankaars in field training",
+            "zoom": 100,
+            "positionX": 50,
+            "positionY": 50,
+            "fit": "cover"
+          }
+        },
+        {
+          "page": "why-groundwater",
+          "title": "Why groundwater?",
+          "text": "From 10–15 metres in the 1960s to 30–40 metres today.",
+          "photo": {
+            "image": "/assets/marvi-originals/005-home.jpg",
+            "alt": "A village recharge pond",
+            "zoom": 100,
+            "positionX": 50,
+            "positionY": 50,
+            "fit": "cover"
+          }
         }
-      ],
-      "i18n": {
-        "items__0__title": "approach.card1.title",
-        "items__0__text": "approach.card1.desc",
-        "items__1__title": "approach.card2.title",
-        "items__1__text": "approach.card2.desc",
-        "items__2__title": "approach.card3.title",
-        "items__2__text": "approach.card3.desc",
-        "tabLabel": "page.approach.b1.tabLabel"
-      }
-    },
-    {
-      "type": "banner",
-      "eyebrow": "Then / now",
-      "accent": "#88b3b8",
-      "title": "From 10–15 metres in the 1960s to 30–40 metres today.",
-      "lede": "In some places, farmers drill beyond 100 metres chasing a falling watertable. Recharge helps, but sustainable use also requires understanding demand.",
-      "i18n": {
-        "eyebrow": "groundwater.dark.eyebrow",
-        "title": "groundwater.dark.title",
-        "lede": "groundwater.dark.lede",
-        "tabLabel": "page.learn-groundwater.b1.tabLabel"
-      }
-    },
-    {
-      "type": "cards",
-      "items": [
-        {
-          "number": "G / 01",
-          "title": "The aquifer is shared",
-          "text": "Water pumped from one well can affect neighbours drawing from the same underground store."
-        },
-        {
-          "number": "G / 02",
-          "title": "Rainfall is not recharge",
-          "text": "Only part of rain reaches groundwater; soils, geology, land use and structures shape the journey."
-        },
-        {
-          "number": "G / 03",
-          "title": "Trends need time",
-          "text": "A single reading is a snapshot. Repeated measurements reveal depletion, recovery and seasonal rhythm."
-        }
-      ],
-      "i18n": {
-        "items__0__title": "groundwater.card1.title",
-        "items__0__text": "groundwater.card1.desc",
-        "items__1__title": "groundwater.card2.title",
-        "items__1__text": "groundwater.card2.desc",
-        "items__2__title": "groundwater.card3.title",
-        "items__2__text": "groundwater.card3.desc",
-        "tabLabel": "page.learn-groundwater.b2.tabLabel"
-      }
+      ]
     },
     {
       "type": "storyCards",
@@ -307,28 +182,24 @@
           "page": "publications",
           "icon": "publication",
           "title": "Publications",
-          "text": "Brochures and books from the project — free to download in English, Hindi and Gujarati. Grouped by kind; filter or search to narrow the list.",
           "photo": {}
         },
         {
           "page": "learn-groundwater",
           "icon": "groundwater",
           "title": "Learn about groundwater",
-          "text": "Rain moves through soil and rock into an aquifer. Wells reveal only a small window into a connected underground system.",
           "photo": {}
         },
         {
           "page": "videos",
           "icon": "video",
           "title": "Videos",
-          "text": "A curated starting point from the new MARVI video archive—introductions, field stories, training and technical talks.",
           "photo": {}
         },
         {
           "page": "game",
           "icon": "game",
           "title": "Groundwater game",
-          "text": "A whole village draws from one aquifer. Every crop and every turn reveals why groundwater decisions cannot be made alone.",
           "photo": {}
         }
       ],
@@ -390,7 +261,8 @@
         "items__2__title": "page.home.b11.items.2.title",
         "items__2__text": "page.home.b11.items.2.text",
         "tabLabel": "page.home.b11.tabLabel"
-      }
+      },
+      "look": "icons"
     },
     {
       "type": "banner",
@@ -462,7 +334,8 @@
           "name": "Arid Communities and Technologies",
           "logo": {
             "image": "/assets/logos/act.png",
-            "alt": "Arid Communities and Technologies logo"
+            "alt": "Arid Communities and Technologies logo",
+            "onDark": true
           },
           "links": []
         },
@@ -516,7 +389,10 @@
       "logos": true,
       "i18n": {
         "tabLabel": "page.people.b2.tabLabel"
-      }
+      },
+      "look": "strip",
+      "morePage": "people",
+      "moreLabel": "People & Partners"
     },
     {
       "type": "banner",

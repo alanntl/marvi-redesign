@@ -254,7 +254,13 @@
     "sec.four-s-strategy.eyebrow": "El enfoque MARVI",
     "sec.use-the-marvi-approach.lede": "MARVI une el conocimiento técnico, la experiencia comunitaria y el monitoreo práctico a nivel de aldea.",
     "sec.research-collaboration.lede": "El proyecto abarca la hidrología, la hidrogeología, la agronomía, la economía y las ciencias sociales. El resultado no es un informe abandonado en un estante, sino conocimiento que una comunidad puede utilizar.",
-    "sec.training-capacity-building.lede": "Estos voluntarios capacitados miden pozos, precipitaciones, calidad del agua y diques de contención. Interpretan los patrones locales, los explican en el idioma propio de la comunidad y ayudan a los agricultores a comprender que el agua subterránea es limitada y compartida."
+    "sec.training-capacity-building.lede": "Estos voluntarios capacitados miden pozos, precipitaciones, calidad del agua y diques de contención. Interpretan los patrones locales, los explican en el idioma propio de la comunidad y ayudan a los agricultores a comprender que el agua subterránea es limitada y compartida.",
+    "page.home.b3.items.0.title": "El enfoque MARVI",
+    "page.home.b3.items.2.title": "Bhujal Jankaars",
+    "page.home.b3.items.2.text": "«Informados sobre el agua subterránea»: voluntarios locales que conectan la observación cuidadosa con el conocimiento comunitario y la acción colectiva.",
+    "page.home.b3.items.3.text": "De 10–15 metres en 1960s a 30–40 metres hoy.",
+    "page.home.b7.moreLabel": "Personas y colaboradores",
+    "page.home.b3.items.0.text": "MARVI une el conocimiento técnico, la experiencia comunitaria y el monitoreo práctico a nivel de aldea."
   },
   "hi": {
     "ui.explore": "MARVI देखें",
@@ -511,7 +517,13 @@
     "sec.four-s-strategy.eyebrow": "MARVI दृष्टिकोण",
     "sec.use-the-marvi-approach.lede": "MARVI तकनीकी ज्ञान, सामुदायिक अनुभव और व्यावहारिक निगरानी को गाँव के स्तर पर एक साथ लाता है।",
     "sec.research-collaboration.lede": "यह परियोजना जलविज्ञान, भूजलविज्ञान, कृषि विज्ञान, अर्थशास्त्र और सामाजिक विज्ञान के क्षेत्रों में काम करती है। इसका परिणाम किसी शेल्फ पर पड़ा रहने वाला प्रतिवेदन नहीं, बल्कि ऐसा ज्ञान है जिसका समुदाय उपयोग कर सके।",
-    "sec.training-capacity-building.lede": "ये प्रशिक्षित स्वयंसेवक कुओं, वर्षा, पानी की गुणवत्ता और चेक डैम का मापन करते हैं। वे स्थानीय रुझानों को समझते हैं, समुदाय की अपनी भाषा में उनकी व्याख्या करते हैं और किसानों को यह समझने में मदद करते हैं कि भूजल सीमित भी है और साझा भी।"
+    "sec.training-capacity-building.lede": "ये प्रशिक्षित स्वयंसेवक कुओं, वर्षा, पानी की गुणवत्ता और चेक डैम का मापन करते हैं। वे स्थानीय रुझानों को समझते हैं, समुदाय की अपनी भाषा में उनकी व्याख्या करते हैं और किसानों को यह समझने में मदद करते हैं कि भूजल सीमित भी है और साझा भी।",
+    "page.home.b3.items.0.title": "MARVI दृष्टिकोण",
+    "page.home.b3.items.2.title": "Bhujal Jankaars",
+    "page.home.b3.items.2.text": "'भूजल के जानकार': स्थानीय स्वयंसेवक जो सावधान अवलोकन को सामुदायिक ज्ञान और सामूहिक कार्रवाई से जोड़ते हैं।",
+    "page.home.b3.items.3.text": "1960s में 10–15 metres से आज 30–40 metres तक।",
+    "page.home.b7.moreLabel": "लोग और साझेदार",
+    "page.home.b3.items.0.text": "MARVI तकनीकी ज्ञान, सामुदायिक अनुभव और व्यावहारिक निगरानी को गाँव के स्तर पर एक साथ लाता है।"
   },
   "lo": {
     "ui.explore": "ສຳຫຼວດ MARVI",
@@ -768,7 +780,13 @@
     "sec.four-s-strategy.eyebrow": "ວິທີການ MARVI",
     "sec.use-the-marvi-approach.lede": "MARVI ນຳຄວາມຮູ້ດ້ານເຕັກນິກ, ປະສົບການຂອງຊຸມຊົນ ແລະ ການຕິດຕາມຕົວຈິງ ມາລວມກັນຢູ່ລະດັບບ້ານ.",
     "sec.research-collaboration.lede": "ໂຄງການນີ້ເຮັດວຽກຄອບຄຸມດ້ານອຸທົກກະສາດ, ອຸທົກທໍລະນີສາດ, ກະສິກຳສາດ, ເສດຖະສາດ ແລະ ສັງຄົມສາດ. ຜົນທີ່ໄດ້ບໍ່ແມ່ນບົດລາຍງານທີ່ຖືກປະໄວ້ເທິງຊັ້ນ, ແຕ່ແມ່ນຄວາມຮູ້ທີ່ຊຸມຊົນສາມາດນຳໃຊ້ໄດ້.",
-    "sec.training-capacity-building.lede": "ອາສາສະໝັກທີ່ໄດ້ຮັບການຝຶກອົບຮົມເຫຼົ່ານີ້ວັດແທກບໍ່ນ້ຳ, ປະລິມານຝົນ, ຄຸນນະພາບນ້ຳ ແລະ ຝາຍຊະລໍນ້ຳ. ພວກເຂົາຕີຄວາມຮູບແບບໃນທ້ອງຖິ່ນ, ອະທິບາຍດ້ວຍພາສາຂອງຊຸມຊົນເອງ ແລະ ຊ່ວຍໃຫ້ຊາວກະສິກອນເຫັນວ່ານ້ຳໃຕ້ດິນມີຈຳກັດ ແລະ ເປັນຊັບພະຍາກອນຮ່ວມກັນ."
+    "sec.training-capacity-building.lede": "ອາສາສະໝັກທີ່ໄດ້ຮັບການຝຶກອົບຮົມເຫຼົ່ານີ້ວັດແທກບໍ່ນ້ຳ, ປະລິມານຝົນ, ຄຸນນະພາບນ້ຳ ແລະ ຝາຍຊະລໍນ້ຳ. ພວກເຂົາຕີຄວາມຮູບແບບໃນທ້ອງຖິ່ນ, ອະທິບາຍດ້ວຍພາສາຂອງຊຸມຊົນເອງ ແລະ ຊ່ວຍໃຫ້ຊາວກະສິກອນເຫັນວ່ານ້ຳໃຕ້ດິນມີຈຳກັດ ແລະ ເປັນຊັບພະຍາກອນຮ່ວມກັນ.",
+    "page.home.b3.items.0.title": "ວິທີການ MARVI",
+    "page.home.b3.items.2.title": "Bhujal Jankaars",
+    "page.home.b3.items.2.text": "'ຜູ້ຮູ້ເລື່ອງນ້ຳໃຕ້ດິນ': ອາສາສະໝັກທ້ອງຖິ່ນ ທີ່ເຊື່ອມໂຍງການສັງເກດຢ່າງລະມັດລະວັງ ເຂົ້າກັບຄວາມຮູ້ຂອງຊຸມຊົນ ແລະ ການລົງມືເຮັດຮ່ວມກັນ.",
+    "page.home.b3.items.3.text": "ຈາກ 10–15 metres ໃນ 1960s ເປັນ 30–40 metres ໃນປັດຈຸບັນ.",
+    "page.home.b7.moreLabel": "ຜູ້ຄົນ ແລະ ຄູ່ຮ່ວມງານ",
+    "page.home.b3.items.0.text": "MARVI ນຳຄວາມຮູ້ດ້ານເຕັກນິກ, ປະສົບການຂອງຊຸມຊົນ ແລະ ການຕິດຕາມຕົວຈິງ ມາລວມກັນຢູ່ລະດັບບ້ານ."
   },
   "zh-Hant": {
     "ui.explore": "探索 MARVI",
@@ -1025,7 +1043,13 @@
     "sec.four-s-strategy.eyebrow": "MARVI 方法",
     "sec.use-the-marvi-approach.lede": "MARVI 將技術知識、社區經驗與實地監測結合於村莊層級。",
     "sec.research-collaboration.lede": "本計畫橫跨水文學、水文地質學、農藝學、經濟學與社會科學。其成果不是一份束之高閣的報告，而是社區能夠運用的知識。",
-    "sec.training-capacity-building.lede": "這些受過訓練的志工測量水井、降雨量、水質與攔水壩。他們解讀當地規律，以社區自己的語言加以說明，並幫助農民了解地下水既有限，也是共享資源。"
+    "sec.training-capacity-building.lede": "這些受過訓練的志工測量水井、降雨量、水質與攔水壩。他們解讀當地規律，以社區自己的語言加以說明，並幫助農民了解地下水既有限，也是共享資源。",
+    "page.home.b3.items.0.title": "MARVI 方法",
+    "page.home.b3.items.2.title": "Bhujal Jankaars",
+    "page.home.b3.items.2.text": "「懂地下水的人」：在地志工，將細心的觀測與社區知識和集體行動連結起來。",
+    "page.home.b3.items.3.text": "從 1960s 的 10–15 metres 到如今的 30–40 metres。",
+    "page.home.b7.moreLabel": "人物與合作夥伴",
+    "page.home.b3.items.0.text": "MARVI 將技術知識、社區經驗與實地監測結合於村莊層級。"
   },
   "th": {
     "ui.explore": "สำรวจ MARVI",
@@ -1282,7 +1306,13 @@
     "sec.four-s-strategy.eyebrow": "แนวทางของ MARVI",
     "sec.use-the-marvi-approach.lede": "MARVI นำความรู้ทางเทคนิค ประสบการณ์ของชุมชน และการติดตามภาคปฏิบัติมารวมกันในระดับหมู่บ้าน",
     "sec.research-collaboration.lede": "โครงการนี้ทำงานครอบคลุมด้านอุทกวิทยา อุทกธรณีวิทยา พืชศาสตร์ เศรษฐศาสตร์ และสังคมศาสตร์ ผลลัพธ์ไม่ใช่รายงานที่ถูกวางทิ้งไว้บนชั้น แต่เป็นความรู้ที่ชุมชนนำไปใช้ได้",
-    "sec.training-capacity-building.lede": "อาสาสมัครที่ผ่านการฝึกอบรมเหล่านี้ตรวจวัดบ่อน้ำ ปริมาณน้ำฝน คุณภาพน้ำ และฝายชะลอน้ำ พวกเขาตีความรูปแบบในท้องถิ่น อธิบายด้วยภาษาของชุมชนเอง และช่วยให้เกษตรกรเห็นว่าน้ำบาดาลมีอยู่อย่างจำกัดและเป็นทรัพยากรร่วมกัน"
+    "sec.training-capacity-building.lede": "อาสาสมัครที่ผ่านการฝึกอบรมเหล่านี้ตรวจวัดบ่อน้ำ ปริมาณน้ำฝน คุณภาพน้ำ และฝายชะลอน้ำ พวกเขาตีความรูปแบบในท้องถิ่น อธิบายด้วยภาษาของชุมชนเอง และช่วยให้เกษตรกรเห็นว่าน้ำบาดาลมีอยู่อย่างจำกัดและเป็นทรัพยากรร่วมกัน",
+    "page.home.b3.items.0.title": "แนวทางของ MARVI",
+    "page.home.b3.items.2.title": "Bhujal Jankaars",
+    "page.home.b3.items.2.text": "'ผู้รู้เรื่องน้ำบาดาล': อาสาสมัครท้องถิ่นที่เชื่อมโยงการสังเกตอย่างรอบคอบเข้ากับความรู้ของชุมชนและการลงมือทำร่วมกัน",
+    "page.home.b3.items.3.text": "จาก 10–15 metres ใน 1960s เป็น 30–40 metres ในวันนี้",
+    "page.home.b7.moreLabel": "ผู้คนและพันธมิตร",
+    "page.home.b3.items.0.text": "MARVI นำความรู้ทางเทคนิค ประสบการณ์ของชุมชน และการติดตามภาคปฏิบัติมารวมกันในระดับหมู่บ้าน"
   },
   "jv": {
     "ui.explore": "Tlusuri MARVI",
@@ -1539,7 +1569,13 @@
     "sec.four-s-strategy.eyebrow": "Cara MARVI",
     "sec.use-the-marvi-approach.lede": "MARVI nggabungake kawruh teknis, pengalaman warga, lan pamantauan langsung ing tingkat desa.",
     "sec.research-collaboration.lede": "Proyèk iki nyakup hidrologi, hidrogeologi, agronomi, ékonomi, lan ilmu sosial. Asilé dudu laporan sing mung disimpen ing rak, nanging kawruh sing bisa dienggo déning masyarakat.",
-    "sec.training-capacity-building.lede": "Sukarelawan sing wis dilatih iki ngukur sumur, udan, mutu banyu, lan bendungan cilik. Wong-wong mau nafsiraké pola lokal, nerangaké nganggo basané masyarakat dhéwé, lan mbantu para tani mangertèni yèn banyu lemah iku winates lan dienggo bebarengan."
+    "sec.training-capacity-building.lede": "Sukarelawan sing wis dilatih iki ngukur sumur, udan, mutu banyu, lan bendungan cilik. Wong-wong mau nafsiraké pola lokal, nerangaké nganggo basané masyarakat dhéwé, lan mbantu para tani mangertèni yèn banyu lemah iku winates lan dienggo bebarengan.",
+    "page.home.b3.items.0.title": "Cara MARVI",
+    "page.home.b3.items.2.title": "Bhujal Jankaars",
+    "page.home.b3.items.2.text": "'Wong sing ngerti banyu sangisoring lemah': sukarelawan lokal sing nyambungake pengamatan kanthi tliti, kawruh warga, lan tumindak bebarengan.",
+    "page.home.b3.items.3.text": "Saka 10–15 metres ing 1960s dadi 30–40 metres saiki.",
+    "page.home.b7.moreLabel": "Wong-wong lan Mitra",
+    "page.home.b3.items.0.text": "MARVI nggabungake kawruh teknis, pengalaman warga, lan pamantauan langsung ing tingkat desa."
   },
   "zh-Hans": {
     "ui.explore": "探索 MARVI",
@@ -1796,7 +1832,13 @@
     "sec.four-s-strategy.eyebrow": "MARVI 方法",
     "sec.use-the-marvi-approach.lede": "MARVI 将技术知识、社区经验与实地监测结合于村庄层级。",
     "sec.research-collaboration.lede": "该项目横跨水文学、水文地质学、农学、经济学和社会科学。其成果不是一份束之高阁的报告，而是社区能够运用的知识。",
-    "sec.training-capacity-building.lede": "这些经过培训的志愿者测量水井、降雨量、水质和拦水坝。他们解读当地规律，用社区自己的语言加以说明，并帮助农民认识到地下水既有限，也是共享资源。"
+    "sec.training-capacity-building.lede": "这些经过培训的志愿者测量水井、降雨量、水质和拦水坝。他们解读当地规律，用社区自己的语言加以说明，并帮助农民认识到地下水既有限，也是共享资源。",
+    "page.home.b3.items.0.title": "MARVI 方法",
+    "page.home.b3.items.2.title": "Bhujal Jankaars",
+    "page.home.b3.items.2.text": "「懂地下水的人」：本地志愿者，将细心的观测与社区知识和集体行动连接起来。",
+    "page.home.b3.items.3.text": "从 1960s 的 10–15 metres 到如今的 30–40 metres。",
+    "page.home.b7.moreLabel": "人物与合作伙伴",
+    "page.home.b3.items.0.text": "MARVI 将技术知识、社区经验与实地监测结合于村庄层级。"
   },
   "ar": {
     "ui.explore": "استكشف MARVI",
@@ -2053,7 +2095,13 @@
     "sec.four-s-strategy.eyebrow": "نهج MARVI",
     "sec.use-the-marvi-approach.lede": "يجمع MARVI بين المعرفة التقنية وخبرة المجتمع والرصد العملي على مستوى القرية.",
     "sec.research-collaboration.lede": "يعمل المشروع في مجالات الهيدرولوجيا، والهيدروجيولوجيا، وعلم المحاصيل، والاقتصاد، والعلوم الاجتماعية. ولا تتمثل النتيجة في تقرير يُترك على الرف، بل في معرفة يمكن للمجتمع الاستفادة منها.",
-    "sec.training-capacity-building.lede": "يقيس هؤلاء المتطوعون المدرَّبون الآبار والأمطار وجودة المياه والسدود الصغيرة. ويفسرون الأنماط المحلية، ويشرحونها بلغة المجتمع نفسه، ويساعدون المزارعين على إدراك أن المياه الجوفية محدودة ومشتركة في آن واحد."
+    "sec.training-capacity-building.lede": "يقيس هؤلاء المتطوعون المدرَّبون الآبار والأمطار وجودة المياه والسدود الصغيرة. ويفسرون الأنماط المحلية، ويشرحونها بلغة المجتمع نفسه، ويساعدون المزارعين على إدراك أن المياه الجوفية محدودة ومشتركة في آن واحد.",
+    "page.home.b3.items.0.title": "نهج MARVI",
+    "page.home.b3.items.2.title": "Bhujal Jankaars",
+    "page.home.b3.items.2.text": "«على دراية بالمياه الجوفية»: متطوعون محليون يربطون المراقبة الدقيقة بمعرفة المجتمع والعمل الجماعي.",
+    "page.home.b3.items.3.text": "من 10–15 metres في 1960s إلى 30–40 metres اليوم.",
+    "page.home.b7.moreLabel": "الأشخاص والشركاء",
+    "page.home.b3.items.0.text": "يجمع MARVI بين المعرفة التقنية وخبرة المجتمع والرصد العملي على مستوى القرية."
   },
   "pt": {
     "ui.explore": "Explorar MARVI",
@@ -2310,7 +2358,13 @@
     "sec.four-s-strategy.eyebrow": "A abordagem MARVI",
     "sec.use-the-marvi-approach.lede": "A MARVI reúne conhecimento técnico, experiência da comunidade e monitoramento prático em nível de aldeia.",
     "sec.research-collaboration.lede": "O projeto atua nas áreas de hidrologia, hidrogeologia, agronomia, economia e ciências sociais. O resultado não é um relatório deixado na prateleira, mas um conhecimento que a comunidade pode usar.",
-    "sec.training-capacity-building.lede": "Esses voluntários treinados medem poços, chuvas, qualidade da água e barragens de contenção. Eles interpretam padrões locais, explicam-nos no idioma da própria comunidade e ajudam os agricultores a entender que a água subterrânea é limitada e compartilhada."
+    "sec.training-capacity-building.lede": "Esses voluntários treinados medem poços, chuvas, qualidade da água e barragens de contenção. Eles interpretam padrões locais, explicam-nos no idioma da própria comunidade e ajudam os agricultores a entender que a água subterrânea é limitada e compartilhada.",
+    "page.home.b3.items.0.title": "A abordagem MARVI",
+    "page.home.b3.items.2.title": "Bhujal Jankaars",
+    "page.home.b3.items.2.text": "«Informados sobre as águas subterrâneas»: voluntários locais que conectam a observação cuidadosa ao conhecimento da comunidade e à ação coletiva.",
+    "page.home.b3.items.3.text": "De 10–15 metres em 1960s para 30–40 metres atualmente.",
+    "page.home.b7.moreLabel": "Pessoas e parceiros",
+    "page.home.b3.items.0.text": "A MARVI reúne conhecimento técnico, experiência da comunidade e monitoramento prático em nível de aldeia."
   },
   "fr": {
     "ui.explore": "Explorer MARVI",
@@ -2567,7 +2621,13 @@
     "sec.four-s-strategy.eyebrow": "L'approche MARVI",
     "sec.use-the-marvi-approach.lede": "MARVI réunit le savoir technique, l'expérience communautaire et un suivi concret à l'échelle du village.",
     "sec.research-collaboration.lede": "Le projet couvre l’hydrologie, l’hydrogéologie, l’agronomie, l’économie et les sciences sociales. Il n’aboutit pas à un rapport laissé sur une étagère, mais à des connaissances que la communauté peut utiliser.",
-    "sec.training-capacity-building.lede": "Ces bénévoles formés mesurent les puits, les précipitations, la qualité de l’eau et les petits barrages. Ils interprètent les tendances locales, les expliquent dans la langue de la communauté et aident les agriculteurs à comprendre que les eaux souterraines sont à la fois limitées et partagées."
+    "sec.training-capacity-building.lede": "Ces bénévoles formés mesurent les puits, les précipitations, la qualité de l’eau et les petits barrages. Ils interprètent les tendances locales, les expliquent dans la langue de la communauté et aident les agriculteurs à comprendre que les eaux souterraines sont à la fois limitées et partagées.",
+    "page.home.b3.items.0.title": "L'approche MARVI",
+    "page.home.b3.items.2.title": "Bhujal Jankaars",
+    "page.home.b3.items.2.text": "« Initiés aux eaux souterraines » : des bénévoles locaux qui relient l'observation attentive au savoir communautaire et à l'action collective.",
+    "page.home.b3.items.3.text": "De 10–15 metres en 1960s à 30–40 metres aujourd’hui.",
+    "page.home.b7.moreLabel": "Personnes et partenaires",
+    "page.home.b3.items.0.text": "MARVI réunit le savoir technique, l'expérience communautaire et un suivi concret à l'échelle du village."
   },
   "bn": {
     "ui.explore": "MARVI ঘুরে দেখুন",
@@ -2824,7 +2884,13 @@
     "sec.four-s-strategy.eyebrow": "MARVI পদ্ধতি",
     "sec.use-the-marvi-approach.lede": "MARVI কারিগরি জ্ঞান, জনগোষ্ঠীর অভিজ্ঞতা ও হাতে-কলমে পর্যবেক্ষণকে গ্রাম পর্যায়ে একত্র করে।",
     "sec.research-collaboration.lede": "প্রকল্পটি জলবিদ্যা, ভূজলবিদ্যা, কৃষিবিদ্যা, অর্থনীতি ও সমাজবিজ্ঞান নিয়ে সমন্বিতভাবে কাজ করে। এর ফলাফল তাকে তুলে রাখা কোনো প্রতিবেদন নয়, বরং এমন জ্ঞান যা একটি জনগোষ্ঠী কাজে লাগাতে পারে।",
-    "sec.training-capacity-building.lede": "এই প্রশিক্ষিত স্বেচ্ছাসেবীরা কূপ, বৃষ্টিপাত, পানির গুণমান ও ছোট বাঁধ পরিমাপ করেন। তাঁরা স্থানীয় ধরন ব্যাখ্যা করেন, জনগোষ্ঠীর নিজস্ব ভাষায় সেগুলো বোঝান এবং কৃষকদের বুঝতে সাহায্য করেন যে ভূগর্ভস্থ পানি সীমিত ও সবার অভিন্ন সম্পদ।"
+    "sec.training-capacity-building.lede": "এই প্রশিক্ষিত স্বেচ্ছাসেবীরা কূপ, বৃষ্টিপাত, পানির গুণমান ও ছোট বাঁধ পরিমাপ করেন। তাঁরা স্থানীয় ধরন ব্যাখ্যা করেন, জনগোষ্ঠীর নিজস্ব ভাষায় সেগুলো বোঝান এবং কৃষকদের বুঝতে সাহায্য করেন যে ভূগর্ভস্থ পানি সীমিত ও সবার অভিন্ন সম্পদ।",
+    "page.home.b3.items.0.title": "MARVI পদ্ধতি",
+    "page.home.b3.items.2.title": "Bhujal Jankaars",
+    "page.home.b3.items.2.text": "‘ভূগর্ভস্থ জল সম্পর্কে অবগত’: স্থানীয় স্বেচ্ছাসেবকেরা, যারা সতর্ক পর্যবেক্ষণকে জনগোষ্ঠীর জ্ঞান ও সম্মিলিত উদ্যোগের সঙ্গে যুক্ত করেন।",
+    "page.home.b3.items.3.text": "1960s-এ 10–15 metres থেকে আজ 30–40 metres।",
+    "page.home.b7.moreLabel": "মানুষ ও অংশীদার",
+    "page.home.b3.items.0.text": "MARVI কারিগরি জ্ঞান, জনগোষ্ঠীর অভিজ্ঞতা ও হাতে-কলমে পর্যবেক্ষণকে গ্রাম পর্যায়ে একত্র করে।"
   },
   "ru": {
     "ui.explore": "Изучите MARVI",
@@ -3081,7 +3147,13 @@
     "sec.four-s-strategy.eyebrow": "Подход MARVI",
     "sec.use-the-marvi-approach.lede": "MARVI объединяет технические знания, опыт сообщества и практический мониторинг на уровне деревни.",
     "sec.research-collaboration.lede": "Проект объединяет гидрологию, гидрогеологию, агрономию, экономику и социальные науки. Его результат — не отчёт, который останется лежать на полке, а знания, которыми может пользоваться местное сообщество.",
-    "sec.training-capacity-building.lede": "Эти обученные волонтёры измеряют уровень воды в скважинах, количество осадков, качество воды и параметры малых запруд. Они анализируют местные закономерности, объясняют их на языке сообщества и помогают фермерам понять, что запасы подземных вод ограниченны и являются общим ресурсом."
+    "sec.training-capacity-building.lede": "Эти обученные волонтёры измеряют уровень воды в скважинах, количество осадков, качество воды и параметры малых запруд. Они анализируют местные закономерности, объясняют их на языке сообщества и помогают фермерам понять, что запасы подземных вод ограниченны и являются общим ресурсом.",
+    "page.home.b3.items.0.title": "Подход MARVI",
+    "page.home.b3.items.2.title": "Bhujal Jankaars",
+    "page.home.b3.items.2.text": "«Сведущие в подземных водах»: местные добровольцы, которые связывают внимательные наблюдения со знаниями сообщества и совместными действиями.",
+    "page.home.b3.items.3.text": "От 10–15 metres в 1960s до 30–40 metres сегодня.",
+    "page.home.b7.moreLabel": "Люди и партнёры",
+    "page.home.b3.items.0.text": "MARVI объединяет технические знания, опыт сообщества и практический мониторинг на уровне деревни."
   },
   "id": {
     "ui.explore": "Jelajahi MARVI",
@@ -3338,7 +3410,13 @@
     "sec.four-s-strategy.eyebrow": "Pendekatan MARVI",
     "sec.use-the-marvi-approach.lede": "MARVI menyatukan pengetahuan teknis, pengalaman masyarakat, dan pemantauan praktis di tingkat desa.",
     "sec.research-collaboration.lede": "Proyek ini bekerja lintas bidang hidrologi, hidrogeologi, agronomi, ekonomi, dan ilmu sosial. Hasilnya bukan laporan yang dibiarkan tersimpan di rak, melainkan pengetahuan yang dapat digunakan oleh masyarakat.",
-    "sec.training-capacity-building.lede": "Para relawan terlatih ini mengukur sumur, curah hujan, kualitas air, dan bendung kecil. Mereka menafsirkan pola setempat, menjelaskannya dalam bahasa masyarakat sendiri, dan membantu petani memahami bahwa air tanah terbatas dan merupakan sumber daya bersama."
+    "sec.training-capacity-building.lede": "Para relawan terlatih ini mengukur sumur, curah hujan, kualitas air, dan bendung kecil. Mereka menafsirkan pola setempat, menjelaskannya dalam bahasa masyarakat sendiri, dan membantu petani memahami bahwa air tanah terbatas dan merupakan sumber daya bersama.",
+    "page.home.b3.items.0.title": "Pendekatan MARVI",
+    "page.home.b3.items.2.title": "Bhujal Jankaars",
+    "page.home.b3.items.2.text": "'Paham air tanah': relawan lokal yang menghubungkan pengamatan cermat dengan pengetahuan masyarakat dan tindakan bersama.",
+    "page.home.b3.items.3.text": "Dari 10–15 metres pada 1960s menjadi 30–40 metres saat ini.",
+    "page.home.b7.moreLabel": "Orang dan Mitra",
+    "page.home.b3.items.0.text": "MARVI menyatukan pengetahuan teknis, pengalaman masyarakat, dan pemantauan praktis di tingkat desa."
   },
   "en": {
     "hero.eyebrow": "MARVI:  Managing Aquifer Recharge & Sustaining Groundwater Use through Village level intervention",
@@ -3583,6 +3661,12 @@
     "sec.four-s-strategy.eyebrow": "The MARVI approach",
     "sec.use-the-marvi-approach.lede": "MARVI brings technical knowledge, community experience and practical monitoring together at village level.",
     "sec.research-collaboration.lede": "The project works across hydrology, hydrogeology, agronomy, economics and social science. The result is not a report left on a shelf, but knowledge a community can use.",
-    "sec.training-capacity-building.lede": "These trained volunteers measure wells, rainfall, water quality and check dams. They interpret local patterns, explain them in the community’s own language and help farmers see that groundwater is both limited and shared."
+    "sec.training-capacity-building.lede": "These trained volunteers measure wells, rainfall, water quality and check dams. They interpret local patterns, explain them in the community’s own language and help farmers see that groundwater is both limited and shared.",
+    "page.home.b3.items.0.title": "The MARVI approach",
+    "page.home.b3.items.2.title": "Bhujal Jankaars",
+    "page.home.b3.items.2.text": "“Groundwater informed”: local volunteers who connect careful observation with community knowledge and collective action.",
+    "page.home.b3.items.3.text": "From 10–15 metres in the 1960s to 30–40 metres today.",
+    "page.home.b7.moreLabel": "People & Partners",
+    "page.home.b3.items.0.text": "MARVI brings technical knowledge, community experience and practical monitoring together at village level."
   }
 }
