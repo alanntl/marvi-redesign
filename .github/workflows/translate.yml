@@ -14,13 +14,9 @@ name: Auto-translate content
 # immediately rather than waiting on the model).
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'content/**'
-      - 'index.html'
-      - 'src/templates.mjs'
-      - '!content/i18n.json'   # this job's own output — never re-trigger on it
+  # Paused for this deploy only (restored in the next commit): the push touches
+  # content/site.json, and translating the site's new English strings is a paid
+  # model call that should start when the site owner chooses.
   workflow_dispatch: {}
 
 permissions:
