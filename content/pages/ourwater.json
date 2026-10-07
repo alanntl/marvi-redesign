@@ -89,8 +89,8 @@
             "fit": "cover"
           }
         ],
-        "stat": "Free",
-        "caption": "on Android, iPhone and the web"
+        "stat": "✓",
+        "caption": "free on Android, iPhone and the web"
       },
       "i18n": {
         "tabLabel": "page.ourwater.b0.tabLabel"
@@ -106,7 +106,7 @@
           "label": "monitoring stations"
         },
         {
-          "value": "13 million+",
+          "value": "13M+",
           "label": "readings on record"
         },
         {
@@ -114,8 +114,8 @@
           "label": "languages"
         },
         {
-          "value": "Free",
-          "label": "for everyone"
+          "value": "✓",
+          "label": "free for everyone"
         }
       ]
     },
