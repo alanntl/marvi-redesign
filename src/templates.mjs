@@ -296,6 +296,20 @@ const applyTextControls = (root, raw) => {
   root.style.setProperty('--cms-text-offset-y', layout.offsetY + '%');
 };
 
+/**
+ * How dark the shaded band behind a header's text is, as a percentage of the
+ * standard shade. A page's own value (CMS: Header photo → dark overlay) wins;
+ * left empty, the site-wide value applies (build.mjs sets --site-ov on <body>).
+ * 0 removes the shade, 100 is the standard, up to 150 darkens it.
+ */
+const applyOverlay = (root, page) => {
+  const raw = page.photoOverlay;
+  if (raw === null || raw === undefined || raw === '') return;
+  const n = Number(raw);
+  if (!Number.isFinite(n)) return;
+  root.style.setProperty('--page-ov', String(Math.min(150, Math.max(0, n)) / 100));
+};
+
 /** The page-head cover photo custom properties (mirror of applyHeroLayout). */
 const applyCoverControls = (root, raw) => {
   const entry = opt(raw);
@@ -1483,6 +1497,7 @@ const standardHead = (document, page, { index, total }) => {
   if (intro.lede != null) inner.appendChild(el(document, 'p', { class: 'lede', text: intro.lede }));
   head.appendChild(inner);
   applyTextControls(head, intro);
+  applyOverlay(head, page);
   // The header photograph is painted behind the title, edge to edge, under a
   // dark scrim — the field-note look of the earlier MARVI site.
   if (page.heroImage?.image) {
@@ -1500,6 +1515,7 @@ const homeHero = (document, page, ctx) => {
   const t = (path) => hero.i18n?.[i18nKey(path)];
 
   const wrap = el(document, 'div', { class: 'home-hero' });
+  applyOverlay(wrap, page);
   const copy = el(document, 'div', { class: 'hero-copy' });
   const inner = el(document, 'div', { class: 'hero-copy-inner' });
   inner.appendChild(el(document, 'p', { class: 'eyebrow', text: intro.eyebrow }));

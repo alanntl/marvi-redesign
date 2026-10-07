@@ -226,6 +226,23 @@ function composeDocument() {
   // Behaviour module. data-base tells it where the site lives (search index,
   // language switching) when served under a path.
   document.body.setAttribute('data-base', BASE);
+  // Site-wide header-photo settings (CMS: Site-wide → Logo & header photos).
+  // Empty or standard (100) values leave the page exactly as designed.
+  {
+    const hp = SITE.headerPhoto || {};
+    const pct = (v, lo, hi) => {
+      if (v === null || v === undefined || v === '') return null;
+      const n = Number(v);
+      return Number.isFinite(n) ? Math.min(hi, Math.max(lo, n)) : null;
+    };
+    const overlay = pct(hp.overlay, 0, 150);
+    const brightness = pct(hp.brightness, 50, 150);
+    if (overlay !== null && overlay !== 100) document.body.style.setProperty('--site-ov', String(overlay / 100));
+    if (brightness !== null && brightness !== 100) {
+      document.body.style.setProperty('--site-bright', String(brightness / 100));
+      document.body.classList.add('site-bright');
+    }
+  }
   const app = document.createElement('script');
   app.setAttribute('type', 'module');
   app.setAttribute('src', '/assets/app.mjs');

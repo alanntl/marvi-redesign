@@ -53,9 +53,18 @@ collections:
     label: "Site-wide"
     files:
       - name: "brandmark"
-        label: "Sidebar & logo"
+        label: "Logo & header photos"
         file: "content/site.json"
         fields:
+          - label: "Header photos (every page)"
+            name: "headerPhoto"
+            widget: "object"
+            collapsed: false
+            required: false
+            hint: "The big photo behind each page title and on the home page. These apply to every page; a page's own settings (Header photo → Brightness, Dark overlay) change just that page."
+            fields:
+              - { label: "Photo brightness (%)", name: "brightness", widget: "number", default: 100, value_type: "int", min: 50, max: 150, step: 5, required: false, hint: "100 is as designed. Raise to brighten every header photo, lower to darken." }
+              - { label: "Dark overlay behind the title (%)", name: "overlay", widget: "number", default: 100, value_type: "int", min: 0, max: 150, step: 5, required: false, hint: "The shade that keeps white text readable. 100 is as designed; lower shows more of the photo (brighter), 0 removes it. Check the titles are still easy to read." }
           - label: "Sidebar brand"
             name: "brand"
             widget: "object"
@@ -193,8 +202,10 @@ collections:
           - { label: "Zoom (%)", name: "zoom", widget: "number", default: 100, value_type: "int", min: 50, max: 200, step: 5, required: false }
           - { label: "Focus X (%)", name: "positionX", widget: "number", default: 50, value_type: "int", min: 0, max: 100, step: 1, required: false }
           - { label: "Focus Y (%)", name: "positionY", widget: "number", default: 50, value_type: "int", min: 0, max: 100, step: 1, required: false }
-          - { label: "Brightness (%)", name: "brightness", widget: "number", default: 100, value_type: "int", min: 20, max: 200, step: 5, required: false, hint: "100 is the photo as taken. Below 100 darkens it — useful when white text sits over a bright header." }
+          - { label: "Brightness (%)", name: "brightness", widget: "number", default: 100, value_type: "int", min: 20, max: 200, step: 5, required: false, hint: "100 is the photo as taken. Raise it to brighten the photo, lower it to darken it." }
           - { label: "Fit", name: "fit", widget: "select", default: "auto", required: false, options: ["auto", "cover", "contain"] }
+
+      - { label: "Header photo: dark overlay (%)", name: "photoOverlay", widget: "number", value_type: "int", min: 0, max: 150, step: 5, required: false, hint: "The shaded band behind the title and intro that keeps the white text readable. Leave empty to use the site-wide setting (Site-wide → Logo & header photos). 100 is the standard shade, lower shows more of the photo, 0 removes it. Check the title is still easy to read." }
 
       - label: "Menu photo"
         name: "menuImage"
