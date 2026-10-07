@@ -14,9 +14,13 @@ name: Auto-translate content
 # immediately rather than waiting on the model).
 
 on:
-  # Paused for this deploy only (restored in the next commit): this push touches
-  # content/pages/ourwater.json, and no model call should start as a side effect
-  # of publishing. The new strings are already translated.
+  push:
+    branches: [main]
+    paths:
+      - 'content/**'
+      - 'index.html'
+      - 'src/templates.mjs'
+      - '!content/i18n.json'   # this job's own output — never re-trigger on it
   workflow_dispatch: {}
 
 permissions:
